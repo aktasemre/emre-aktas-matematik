@@ -1,0 +1,229 @@
+.scheduleTimerContainer {
+  background: linear-gradient(135deg, #3a1c71 0%, #d76d77 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(58, 28, 113, 0.2);
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 3.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.scheduleTimerContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 30px 30px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.timerTitle {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timerDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+}
+
+.timerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.timerBox {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 2rem;
+  min-width: 130px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.timerBox:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.timerValue {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.timerLabel {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.timerDivider {
+  font-size: 3rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+  align-self: center;
+}
+
+.cta {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #3a1c71;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.primaryButton:hover::before {
+  transform: translateX(100%);
+}
+
+.primaryButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.btnArrow {
+  margin-left: 12px;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.primaryButton:hover .btnArrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .scheduleTimerContainer {
+    padding: 2.5rem 1.5rem;
+    margin: 60px auto;
+  }
+  
+  .timerTitle {
+    font-size: 2.25rem;
+  }
+  
+  .timerDescription {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .timerBox {
+    min-width: 110px;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .timerValue {
+    font-size: 2.75rem;
+  }
+  
+  .timerDivider {
+    font-size: 2.5rem;
+  }
+  
+  .primaryButton {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scheduleTimerContainer {
+    padding: 2rem 1.25rem;
+    margin: 40px auto;
+  }
+  
+  .timerTitle {
+    font-size: 1.75rem;
+  }
+  
+  .timerDescription {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .timerWrapper {
+    gap: 10px;
+  }
+  
+  .timerBox {
+    min-width: 80px;
+    padding: 1rem 1.25rem;
+  }
+  
+  .timerValue {
+    font-size: 2.25rem;
+  }
+  
+  .timerDivider {
+    font-size: 2rem;
+    margin: 0 0.25rem;
+  }
+  
+  .primaryButton {
+    padding: 0.8rem 1.75rem;
+    font-size: 1rem;
+  }
+} 

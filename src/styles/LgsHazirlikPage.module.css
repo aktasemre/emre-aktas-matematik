@@ -1,0 +1,392 @@
+/* LGS Hazırlık Sayfası için CSS Modülü */
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { 
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from { 
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from { 
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.lgsContainer {
+  font-family: var(--font-main);
+  color: var(--dark-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+/* Hero Bölümü */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 8%;
+  background: var(--light-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(58, 134, 255, 0.05);
+  z-index: 0;
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(131, 56, 236, 0.05);
+  z-index: 0;
+}
+
+.heroContent {
+  flex: 1;
+  padding-right: 2rem;
+  z-index: 1;
+  animation: fadeIn 1s ease-out, slideInLeft 1s ease-out;
+}
+
+.pageTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 5px;
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gradient-bg);
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.heroButton:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.buttonIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.heroButton:hover .buttonIcon {
+  transform: translateX(5px);
+}
+
+.heroImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  animation: fadeIn 1s ease-out, slideInRight 1s ease-out;
+}
+
+.heroImage {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  transition: var(--transition-normal);
+}
+
+.heroImage:hover {
+  transform: scale(1.02);
+}
+
+/* Program Bölümü */
+.programSection {
+  padding: var(--spacing-section);
+  background-color: white;
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 1s ease-out;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+.programContent {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 8%;
+  gap: 3rem;
+}
+
+.programTextContainer {
+  flex: 1;
+  min-width: 300px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.programText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.programHighlights {
+  flex: 1;
+  min-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  animation: slideInRight 1s ease-out;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.highlightItem:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  background: #f0f4ff;
+}
+
+.highlightIcon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Metodoloji Bölümü */
+.methodologySection {
+  padding: var(--spacing-section);
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.methodologyDescription {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  color: #555;
+  line-height: 1.8;
+  animation: fadeIn 1s ease-out;
+}
+
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 0 8%;
+}
+
+.stepCard {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: slideInUp 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.stepCard:nth-child(1) { animation-delay: 0.1s; }
+.stepCard:nth-child(2) { animation-delay: 0.2s; }
+.stepCard:nth-child(3) { animation-delay: 0.3s; }
+.stepCard:nth-child(4) { animation-delay: 0.4s; }
+
+.stepCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stepIconContainer {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.stepIcon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.stepTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.stepDescription {
+  color: #555;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* CTA Bölümü */
+.ctaSection {
+  padding: 5rem 8%;
+  background: var(--gradient-bg);
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.ctaContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  animation: pulse 2s infinite;
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: white;
+  color: var(--primary-color);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.primaryButton:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.secondaryButton {
+  background: transparent
+}

@@ -1,0 +1,74 @@
+/* src/styles/DersDetayPage.module.css */
+
+.dersDetayPageContainer {
+  max-width: 960px;
+  margin: 0 auto; /* Ortala */
+}
+
+.pageHeader {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.pageTitle {
+  color: #333;
+}
+
+.pageSubtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.contentSection {
+  /* İçerik bölümleri için genel stiller */
+}
+
+.sectionTitle {
+  color: #0056b3;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.sectionText {
+  line-height: 1.7;
+  color: #444;
+}
+
+.methodList {
+  /* Metodoloji adımlarının listesi */
+}
+
+.methodListItem {
+  border: none; /* Bootstrap'in list-group border'ını kaldır */
+  padding-left: 0; /* Girintiyi sıfırla */
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed #eee; /* Adımlar arasına hafif ayırıcı */
+}
+
+.methodListItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.methodListItem strong {
+  color: #333;
+  display: block; /* Başlığı ayrı satıra al */
+  margin-bottom: 0.3rem; 
+}
+
+.ctaSection {
+  background-color: #f8f9fa; /* Hafif bir arkaplan */
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 3rem;
+}
+
+.ctaTitle {
+  color: #333;
+}
+
+.ctaText {
+  color: #555;
+} 

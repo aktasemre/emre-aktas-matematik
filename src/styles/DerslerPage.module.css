@@ -1,0 +1,200 @@
+/* src/styles/DerslerPage.module.css */
+
+.derslerPageContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.pageHeader::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color, #007bff), var(--secondary-color, #0056b3));
+  border-radius: 2px;
+}
+
+.pageTitle {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.pageSubtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.derslerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dersCardWrapper {
+  perspective: 1000px;
+  animation: fadeIn 0.5s ease-out calc(var(--i, 0) * 0.2s) both;
+}
+
+.dersCard {
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
+}
+
+.dersCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-light, #e6f3ff), var(--primary-color, #007bff) 300%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
+}
+
+.dersCard:hover {
+  transform: translateY(-10px) rotateX(3deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dersCard:hover::before {
+  opacity: 0.05;
+}
+
+.cardTitle {
+  color: var(--primary-color, #0056b3);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.dersCard:hover .cardTitle {
+  color: var(--primary-dark, #004085);
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+
+.ctaSection {
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  border-radius: 15px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  animation: fadeIn 1s ease-out 0.5s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.2));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.ctaTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaDescription {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButtonGroup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .derslerGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaButtonGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+} 

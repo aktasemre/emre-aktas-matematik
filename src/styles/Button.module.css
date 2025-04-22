@@ -1,0 +1,86 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background-color: #e30613;
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #c00;
+}
+
+.secondary {
+  background-color: #333;
+  color: white;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #444;
+}
+
+.outline {
+  background-color: transparent;
+  color: #e30613;
+  border: 2px solid #e30613;
+}
+
+.outline:hover:not(:disabled) {
+  background-color: rgba(227, 6, 19, 0.1);
+}
+
+.text {
+  background-color: transparent;
+  color: #e30613;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.text:hover:not(:disabled) {
+  color: #c00;
+  text-decoration: underline;
+}
+
+/* Sizes */
+.small {
+  font-size: 14px;
+  padding: 8px 16px;
+  height: 36px;
+}
+
+.medium {
+  font-size: 16px;
+  padding: 10px 20px;
+  height: 44px;
+}
+
+.large {
+  font-size: 18px;
+  padding: 12px 24px;
+  height: 52px;
+}
+
+/* Full width */
+.fullWidth {
+  width: 100%;
+} 

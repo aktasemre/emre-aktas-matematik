@@ -1,0 +1,229 @@
+.methodology {
+  padding: 100px 0;
+  background-color: var(--background-alt-darker);
+  position: relative;
+  overflow: hidden;
+}
+
+.methodology::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
+  transform: skewX(-30deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-top: 20px;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.stepItem {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  text-align: center;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.stepItem:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stepIcon {
+  font-size: 3rem;
+  color: var(--primary-dark);
+  margin-bottom: 25px;
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(58, 28, 113, 0.1) 0%, rgba(215, 109, 119, 0.1) 100%);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  transition: all var(--transition-base);
+}
+
+.stepItem:hover .stepIcon {
+  background: var(--gradient-primary);
+  color: var(--white);
+  transform: scale(1.1) rotate(10deg);
+}
+
+.stepTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.stepDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.messageBox {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
+  padding: 50px;
+  color: var(--text-on-primary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.messageBox::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.messageIcon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.messageTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.messageText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+@media (max-width: 992px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .methodology {
+    padding: 80px 0;
+  }
+  .stepsGrid {
+    gap: 20px;
+  }
+  .stepItem {
+    padding: 30px 20px;
+  }
+  .messageBox {
+    padding: 40px 30px;
+  }
+  .messageTitle {
+    font-size: 1.5rem;
+  }
+  .messageText {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .methodology {
+    padding: 60px 0;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .stepIcon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+  .stepTitle {
+    font-size: 1.15rem;
+  }
+  .messageBox {
+    padding: 30px 20px;
+  }
+  .messageTitle {
+    font-size: 1.3rem;
+  }
+  .messageText {
+    font-size: 1rem;
+  }
+} 
