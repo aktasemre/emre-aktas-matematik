@@ -1,77 +1,59 @@
 'use client';
 
-import Link from 'next/link'
+import Button from '@/components/common/Button';
+import { FaHome, FaBook, FaAward, FaGraduationCap, FaProjectDiagram, FaSearch } from 'react-icons/fa';
+import styles from '@/styles/DerslerPage.module.css';
 
 export default function NotFound() {
   return (
-    <>
-        <main className="container py-5">
-            <div className="row justify-content-center text-center">
-                <div className="col-lg-8 col-md-10">
-                    {/* Görsel Öğe */}
-                    <div className="mb-4 d-flex justify-content-center">
-                        <div className="position-relative" style={{ height: "180px", width: "180px" }}>
-                            <div className="position-absolute start-50 top-50 translate-middle">
-                                <div className="display-1 fw-bold text-primary" style={{ fontSize: "9rem", opacity: "0.2" }}>404</div>
-                            </div>
-                            <div className="position-absolute start-50 top-50 translate-middle">
-                                <i className="bi bi-search text-primary" style={{ fontSize: "5rem" }}></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h1 className="display-4 fw-bold mb-3 text-primary">Sayfa Bulunamadı</h1>
-                    <p className="lead mb-4">Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
-                    
-                    {/* Ana Butonlar */}
-                    <div className="d-flex flex-wrap justify-content-center gap-2 mb-5">
-                        <Link href="/" className="btn btn-primary btn-lg">
-                            <i className="bi bi-house-door me-2"></i> Ana Sayfaya Dön
-                        </Link>
-                        <Link href="/dersler" className="btn btn-outline-primary btn-lg">
-                            <i className="bi bi-book me-2"></i> Derslerimize Göz Atın
-                        </Link>
-                    </div>
-
-                    {/* Alternatif Sayfalar */}
-                    <div className="mt-5">
-                        <h2 className="h5 mb-3">Aşağıdaki sayfalar ilginizi çekebilir:</h2>
-                        <div className="row g-3 justify-content-center">
-                            <div className="col-lg-4 col-sm-6">
-                                <Link href="/dersler/lgs-hazirlik" className="text-decoration-none">
-                                    <div className="card h-100 shadow-sm border-0 card-hover">
-                                        <div className="card-body text-center">
-                                            <i className="bi bi-award text-warning mb-2" style={{ fontSize: "2rem" }}></i>
-                                            <h3 className="h6 card-title">LGS Hazırlık</h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-lg-4 col-sm-6">
-                                <Link href="/dersler/yks-hazirlik" className="text-decoration-none">
-                                    <div className="card h-100 shadow-sm border-0 card-hover">
-                                        <div className="card-body text-center">
-                                            <i className="bi bi-mortarboard text-info mb-2" style={{ fontSize: "2rem" }}></i>
-                                            <h3 className="h6 card-title">YKS Hazırlık</h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-lg-4 col-sm-6">
-                                <Link href="/metodoloji" className="text-decoration-none">
-                                    <div className="card h-100 shadow-sm border-0 card-hover">
-                                        <div className="card-body text-center">
-                                            <i className="bi bi-diagram-3 text-success mb-2" style={{ fontSize: "2rem" }}></i>
-                                            <h3 className="h6 card-title">Metodolojimiz</h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <main className={styles.derslerPageContainer}>
+      <div className={styles.pageHeader} style={{ textAlign: 'center', marginTop: 40 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 32 }}>
+          <div style={{ position: 'relative', width: 180, height: 180 }}>
+            <div style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: '8rem', fontWeight: 800, color: '#e30613', opacity: 0.13 }}>404</span>
             </div>
-        </main>
-    </>
-  )
-} 
+            <div style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <FaSearch size={70} color="#e30613" className="icon-bounce" />
+            </div>
+          </div>
+        </div>
+        <h1 className={styles.pageTitle} style={{ color: '#e30613', fontWeight: 800 }}>Sayfa Bulunamadı</h1>
+        <p className={styles.pageSubtitle} style={{ marginBottom: 32 }}>
+          Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış olabilir.
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginBottom: 40 }}>
+          <Button href="/" variant="primary" size="large" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <FaHome size={20} /> Ana Sayfaya Dön
+          </Button>
+          <Button href="/dersler" variant="secondary" size="large" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <FaBook size={20} /> Derslerimize Göz Atın
+          </Button>
+        </div>
+      </div>
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 600, textAlign: 'center', marginBottom: 24 }}>Aşağıdaki sayfalar ilginizi çekebilir:</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, maxWidth: 900, margin: '0 auto' }}>
+          <a href="/dersler/lgs-hazirlik" className={styles.dersCard + ' card-hover scale-hover fade-in delay-1'} style={{ textDecoration: 'none' }}>
+            <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+              <FaAward size={38} color="#ffc107" className="icon-pulse" style={{ marginBottom: 12 }} />
+              <h3 className={styles.cardTitle}>LGS Hazırlık</h3>
+            </div>
+          </a>
+          <a href="/dersler/yks-hazirlik" className={styles.dersCard + ' card-hover scale-hover fade-in delay-2'} style={{ textDecoration: 'none' }}>
+            <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+              <FaGraduationCap size={38} color="#0d6efd" className="icon-pulse" style={{ marginBottom: 12 }} />
+              <h3 className={styles.cardTitle}>YKS Hazırlık</h3>
+            </div>
+          </a>
+          <a href="/metodoloji" className={styles.dersCard + ' card-hover scale-hover fade-in delay-3'} style={{ textDecoration: 'none' }}>
+            <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+              <FaProjectDiagram size={38} color="#198754" className="icon-pulse" style={{ marginBottom: 12 }} />
+              <h3 className={styles.cardTitle}>Metodolojimiz</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
