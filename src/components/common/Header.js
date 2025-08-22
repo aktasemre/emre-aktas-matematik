@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CONTACT_INFO } from '@/constants/contact';
+import { trackWhatsAppClick, trackPhoneCall } from '@/lib/analytics';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +18,14 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('header');
+  };
+
+  const handlePhoneClick = () => {
+    trackPhoneCall('header');
   };
 
   const navItems = [
@@ -60,12 +69,14 @@ const Header = () => {
               href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2"
             >
               <span>📱 WhatsApp</span>
             </a>
             <a
               href={`tel:+${CONTACT_INFO.PHONE}`}
+              onClick={handlePhoneClick}
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2"
             >
               <span>📞 Ara</span>
@@ -106,14 +117,20 @@ const Header = () => {
                   href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={closeMenu}
+                  onClick={() => {
+                    handleWhatsAppClick();
+                    closeMenu();
+                  }}
                   className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                 >
                   <span>📱 WhatsApp</span>
                 </a>
                 <a
                   href={`tel:+${CONTACT_INFO.PHONE}`}
-                  onClick={closeMenu}
+                  onClick={() => {
+                    handlePhoneClick();
+                    closeMenu();
+                  }}
                   className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                 >
                   <span>📞 Ara</span>

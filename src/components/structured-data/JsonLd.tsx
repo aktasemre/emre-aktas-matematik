@@ -1,12 +1,14 @@
+import { CONTACT_INFO } from '@/constants/contact'
+
 export default function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "EducationalService",
     "name": "Emre Aktaş Matematik Özel Ders",
-    "description": "LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
+    "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Premium kalite, kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
     "url": "https://emreaktas-matematik.com",
-    "telephone": "+905XXXXXXXXX",
-    "email": "emre@ozelders.com",
+    "telephone": `+${CONTACT_INFO.PHONE}`,
+    "email": CONTACT_INFO.EMAIL,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "İstanbul",
@@ -24,21 +26,60 @@ export default function JsonLd() {
     ],
     "priceRange": "₺₺₺",
     "currenciesAccepted": "TRY",
-    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-    "areaServed": {
-      "@type": "City",
-      "name": "İstanbul"
-    },
+    "paymentAccepted": "Cash, Bank Transfer",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Başakşehir"
+      },
+      {
+        "@type": "City", 
+        "name": "Bahçeşehir"
+      },
+      {
+        "@type": "City",
+        "name": "Florya"
+      },
+      {
+        "@type": "City",
+        "name": "Küçükçekmece"
+      },
+      {
+        "@type": "City",
+        "name": "Esenler"
+      },
+      {
+        "@type": "City",
+        "name": "Sultangazi"
+      },
+      {
+        "@type": "City",
+        "name": "Arnavutköy"
+      },
+      {
+        "@type": "City",
+        "name": "Ataköy"
+      },
+      {
+        "@type": "City",
+        "name": "Bakırköy"
+      },
+      {
+        "@type": "City",
+        "name": "Avcılar"
+      }
+    ],
     "serviceType": [
       "LGS Hazırlık",
       "TYT/AYT Hazırlık", 
-      "Okula Yardımcı Matematik"
+      "Okula Yardımcı Matematik",
+      "Premium Matematik Özel Ders"
     ],
     "provider": {
       "@type": "Person",
       "name": "Emre Aktaş",
       "jobTitle": "Matematik Öğretmeni",
-      "description": "10+ yıl deneyimli matematik öğretmeni",
+      "description": "15 yıl deneyimli matematik öğretmeni",
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "Boğaziçi Üniversitesi"
@@ -47,7 +88,7 @@ export default function JsonLd() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "500",
+      "reviewCount": "1000",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -77,40 +118,63 @@ export default function JsonLd() {
           "bestRating": "5"
         },
         "reviewBody": "Matematikten korkuyordum ama Emre Hocam'ın sabırlı yaklaşımı sayesinde LGS'de matematik alanında %95 başarı elde ettim."
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Mehmet Demir"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "15 yıllık deneyimi gerçekten fark yaratıyor. TYT matematikte 40 sorudan 38'ini doğru yaptım."
       }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Matematik Özel Ders Paketleri",
+      "name": "Premium Matematik Özel Ders Paketleri",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Tek Ders",
-            "description": "90 dakikalık özel matematik dersi"
+            "name": "Premium Bireysel Ders",
+            "description": "60 dakikalık premium matematik özel dersi"
           },
-          "price": "300",
+          "price": "2500",
           "priceCurrency": "TRY"
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service", 
-            "name": "4 Ders Paketi",
-            "description": "4 adet 90 dakikalık matematik dersi"
+            "name": "Premium Paket (10 Ders)",
+            "description": "10 adet 60 dakikalık premium matematik dersi"
           },
-          "price": "1100",
+          "price": "22500",
           "priceCurrency": "TRY"
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "8 Ders Paketi", 
-            "description": "8 adet 90 dakikalık matematik dersi"
+            "name": "VIP Paket (20 Ders)", 
+            "description": "20 adet 60 dakikalık VIP matematik dersi"
           },
-          "price": "2000",
+          "price": "42500",
+          "priceCurrency": "TRY"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Elite Paket (30 Ders)",
+            "description": "30 adet 60 dakikalık elite matematik dersi"
+          },
+          "price": "60000",
           "priceCurrency": "TRY"
         }
       ]

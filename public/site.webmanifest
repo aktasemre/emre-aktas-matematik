@@ -1,0 +1,25 @@
+{
+  "name": "Emre Aktaş - Matematik Özel Ders",
+  "short_name": "Emre Aktaş",
+  "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile premium matematik özel dersleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "tr",
+  "dir": "ltr"
+}
