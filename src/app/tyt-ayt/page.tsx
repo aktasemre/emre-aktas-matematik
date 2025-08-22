@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
+import { CONTACT_INFO } from '@/constants/contact'
 
 export const metadata: Metadata = {
   title: 'TYT/AYT Hazırlık | Emre Aktaş Matematik',
@@ -14,17 +16,31 @@ export default function TytAytPage() {
     <main className="container mx-auto px-4 py-8 max-w-5xl">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-purple-800 mb-6">
-          TYT/AYT Hazırlık Programı
-        </h1>
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Üniversite hayalinizi gerçekleştirmek için kapsamlı TYT ve AYT matematik hazırlık eğitimi. 
-          Kişiselleştirilmiş program ile hedeflediğiniz bölüme yerleşin.
-        </p>
+        <div className="relative mb-8">
+          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/math-tutoring.jpg"
+              alt="TYT/AYT Hazırlık - Matematik Eğitimi"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                  TYT/AYT Hazırlık Programı
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                  Üniversite hayalinizi gerçekleştirmek için kapsamlı TYT ve AYT matematik hazırlık eğitimi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Başarı İstatistikleri */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl text-center">
           <div className="text-3xl font-bold mb-2">%96</div>
           <div className="text-purple-100">Başarı Oranı</div>
@@ -48,6 +64,14 @@ export default function TytAytPage() {
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">TYT/AYT Hazırlık Programımız</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/one-on-one-tutoring.jpg"
+                alt="TYT Matematik"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-purple-800">TYT Matematik</h3>
             <p className="text-gray-700 mb-4">
               Temel Yeterlilik Testi matematik konularına odaklanarak temel matematik becerilerinizi geliştiririz.
@@ -81,6 +105,14 @@ export default function TytAytPage() {
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/personalized-learning.jpg"
+                alt="AYT Matematik"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-purple-800">AYT Matematik</h3>
             <p className="text-gray-700 mb-4">
               Alan Yeterlilik Testi matematik konularında derinlemesine eğitim ile üniversite hedeflerinize ulaşın.
@@ -268,7 +300,7 @@ export default function TytAytPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
-            href="https://wa.me/905XXXXXXXXX?text=TYT/AYT hazırlık programı hakkında bilgi almak istiyorum"
+            href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent('TYT/AYT hazırlık programı hakkında bilgi almak istiyorum')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -276,7 +308,7 @@ export default function TytAytPage() {
             WhatsApp ile İletişim
           </a>
           <a 
-            href="tel:+905XXXXXXXXX"
+            href={`tel:+${CONTACT_INFO.PHONE}`}
             className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Hemen Ara

@@ -1,28 +1,57 @@
 'use client';
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { CONTACT_INFO } from '@/constants/contact'
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="block">Matematik Akademi</span>
-            <span className="block text-yellow-400">Emre Aktaş</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-            15 yıllık deneyimli matematik öğretmeni ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/iletisim" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-              Hemen İletişime Geç
-            </Link>
-            <Link href="/ucretler" className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
-              Ücretleri Gör
-            </Link>
+      <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/hero-math.jpg"
+            alt="Matematik Eğitimi"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
+        <div className="relative container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <span className="block">Matematik Akademi</span>
+                <span className="block text-yellow-400">Emre Aktaş</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto lg:mx-0 mb-8">
+                15 yıllık deneyimli matematik öğretmeni ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link href="/iletisim" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Hemen İletişime Geç
+                </Link>
+                <Link href="/ucretler" className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
+                  Ücretleri Gör
+                </Link>
+              </div>
+            </div>
+            
+            {/* Hero Image */}
+            <div className="hidden lg:block">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/teacher-student.jpg"
+                  alt="Emre Aktaş - Matematik Öğretmeni"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -30,7 +59,7 @@ export default function Home() {
       {/* İstatistikler */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-indigo-600 mb-2">15</div>
               <div className="text-gray-600">Yıl Deneyim</div>
@@ -57,6 +86,14 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Hizmetlerimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/classroom.jpg"
+                  alt="LGS Hazırlık"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">LGS Hazırlık</h3>
               <p className="text-gray-600 mb-4">Liselere Geçiş Sınavı için özel hazırlık programları</p>
               <Link href="/lgs" className="text-indigo-600 hover:text-indigo-800 font-semibold">
@@ -64,6 +101,14 @@ export default function Home() {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/math-books.jpg"
+                  alt="TYT/AYT Hazırlık"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">TYT/AYT Hazırlık</h3>
               <p className="text-gray-600 mb-4">Üniversite sınavları için kapsamlı matematik eğitimi</p>
               <Link href="/tyt-ayt" className="text-indigo-600 hover:text-indigo-800 font-semibold">
@@ -71,6 +116,14 @@ export default function Home() {
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/calculator.jpg"
+                  alt="Okula Yardımcı"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Okula Yardımcı</h3>
               <p className="text-gray-600 mb-4">Okul derslerine yardımcı matematik özel dersleri</p>
               <Link href="/okul-destek" className="text-indigo-600 hover:text-indigo-800 font-semibold">
@@ -122,8 +175,16 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Sınıf Bazlı Ders Yöntemlerimiz</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/teacher-portrait.jpg"
+                  alt="Bireysel Dersler"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Bireysel Dersler</h3>
               <ul className="text-gray-600 space-y-2">
                 <li>• Kişiye özel program</li>
@@ -133,6 +194,14 @@ export default function Home() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/student-success.jpg"
+                  alt="Grup Dersleri"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Grup Dersleri</h3>
               <ul className="text-gray-600 space-y-2">
                 <li>• 2-3 kişilik gruplar</li>
@@ -151,16 +220,40 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Başarı Hikayeleri</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                  A
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-800">Ahmet Yılmaz</div>
+                  <div className="text-sm text-gray-600">LGS Öğrencisi</div>
+                </div>
+              </div>
               <p className="text-gray-600 mb-4">"Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Emre Hocam'ın sabırlı yaklaşımı çok yardımcı oldu."</p>
-              <div className="font-semibold text-indigo-600">- Ahmet Yılmaz, LGS Öğrencisi</div>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                  E
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-800">Elif Kaya</div>
+                  <div className="text-sm text-gray-600">TYT Öğrencisi</div>
+                </div>
+              </div>
               <p className="text-gray-600 mb-4">"TYT matematikte 40 sorudan 38'ini doğru yaptım. 15 yıllık deneyim gerçekten fark yaratıyor."</p>
-              <div className="font-semibold text-indigo-600">- Elif Kaya, TYT Öğrencisi</div>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                  M
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-800">Mehmet Demir</div>
+                  <div className="text-sm text-gray-600">11. Sınıf</div>
+                </div>
+              </div>
               <p className="text-gray-600 mb-4">"Matematikten korkuyordum ama şimdi en sevdiğim ders. Teşekkürler Matematik Akademi!"</p>
-              <div className="font-semibold text-indigo-600">- Mehmet Demir, 11. Sınıf</div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { CONTACT_INFO } from '@/constants/contact'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Ücretler | Emre Aktaş - Premium Matematik Özel Ders',
@@ -11,8 +12,16 @@ export default function UcretlerPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/hero-math.jpg"
+            alt="Premium Matematik Eğitimi"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="block">Premium Kalite</span>
             <span className="block text-yellow-400">Profesyonel Eğitim</span>
@@ -128,6 +137,14 @@ export default function UcretlerPage() {
             <h2 className="text-3xl font-bold mb-8 text-gray-800">Neden Premium Ücret?</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/teacher-portrait.jpg"
+                    alt="15 Yıl Deneyim"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">15 Yıl Deneyim</h3>
                 <p className="text-gray-600">
@@ -135,6 +152,14 @@ export default function UcretlerPage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/student-success.jpg"
+                    alt="%98 Başarı Oranı"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="text-4xl mb-4">📈</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">%98 Başarı Oranı</h3>
                 <p className="text-gray-600">
@@ -142,6 +167,14 @@ export default function UcretlerPage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/one-on-one-tutoring.jpg"
+                    alt="Premium Hizmet"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="text-4xl mb-4">💎</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">Premium Hizmet</h3>
                 <p className="text-gray-600">
@@ -162,6 +195,14 @@ export default function UcretlerPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 shadow-lg border-2 border-indigo-200">
                 <div className="text-center mb-6">
+                  <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/personalized-learning.jpg"
+                      alt="Premium Paket"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-4xl mb-4">🎯</div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Premium Paket</h3>
                   <p className="text-gray-600">10 derslik premium program</p>
@@ -184,6 +225,14 @@ export default function UcretlerPage() {
                   </span>
                 </div>
                 <div className="text-center mb-6">
+                  <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/teacher-student.jpg"
+                      alt="VIP Paket"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-4xl mb-4">👑</div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">VIP Paket</h3>
                   <p className="text-gray-600">20 derslik VIP program</p>
@@ -201,6 +250,14 @@ export default function UcretlerPage() {
 
               <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-8 shadow-lg border-2 border-green-200">
                 <div className="text-center mb-6">
+                  <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/individual-study.jpg"
+                      alt="Elite Paket"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-4xl mb-4">💎</div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Elite Paket</h3>
                   <p className="text-gray-600">30 derslik elite program</p>
@@ -227,6 +284,14 @@ export default function UcretlerPage() {
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Grup Dersleri</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/study-group.jpg"
+                    alt="Premium Grup (2 Kişi)"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">Premium Grup (2 Kişi)</h3>
                 <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.500</div>
                 <ul className="space-y-3 text-gray-700">
@@ -238,6 +303,14 @@ export default function UcretlerPage() {
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-lg">
+                <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/classroom.jpg"
+                    alt="Elite Grup (3 Kişi)"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">Elite Grup (3 Kişi)</h3>
                 <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.200</div>
                 <ul className="space-y-3 text-gray-700">
@@ -259,6 +332,14 @@ export default function UcretlerPage() {
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Online Premium Dersler</h2>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 shadow-lg">
               <div className="text-center mb-8">
+                <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/online-education.jpg"
+                    alt="Online Premium Dersler"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="text-4xl mb-4">💻</div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">Zoom/Skype Üzerinden Premium Eğitim</h3>
                 <div className="text-3xl font-bold text-indigo-600 mb-2">Saatlik: ₺2.000</div>

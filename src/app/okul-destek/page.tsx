@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
+import { CONTACT_INFO } from '@/constants/contact'
 
 export const metadata: Metadata = {
   title: 'Okula Yardımcı Matematik | Emre Aktaş',
@@ -14,17 +16,31 @@ export default function OkulDestekPage() {
     <main className="container mx-auto px-4 py-8 max-w-5xl">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 mb-6">
-          Okula Yardımcı Matematik
-        </h1>
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Ortaokul ve lise matematik desteği. Okul müfredatına uyumlu, ödev takipli matematik özel dersleri ile 
-          okul başarınızı artırın ve matematik korkunuzu yenin.
-        </p>
+        <div className="relative mb-8">
+          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/homework-help.jpg"
+              alt="Okula Yardımcı Matematik - Ödev Takibi"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                  Okula Yardımcı Matematik
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                  Ortaokul ve lise matematik desteği. Okul müfredatına uyumlu, ödev takipli matematik özel dersleri.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* İstatistikler */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
         <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl text-center">
           <div className="text-3xl font-bold mb-2">%90</div>
           <div className="text-green-100">Not Artışı</div>
@@ -44,6 +60,14 @@ export default function OkulDestekPage() {
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Hizmet Alanlarımız</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-green-500">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/individual-study.jpg"
+                alt="Ortaokul Matematik"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-green-800">Ortaokul Matematik</h3>
             <p className="text-gray-700 mb-4">
               5-8. sınıf öğrencileri için okul müfredatına uyumlu matematik desteği.
@@ -73,6 +97,14 @@ export default function OkulDestekPage() {
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-500">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/private-lesson.jpg"
+                alt="Lise Matematik"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-blue-800">Lise Matematik</h3>
             <p className="text-gray-700 mb-4">
               9-12. sınıf öğrencileri için kapsamlı matematik eğitimi ve destek.
@@ -281,7 +313,7 @@ export default function OkulDestekPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
-            href="https://wa.me/905XXXXXXXXX?text=Okula yardımcı matematik dersleri hakkında bilgi almak istiyorum"
+            href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent('Okula yardımcı matematik dersleri hakkında bilgi almak istiyorum')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -289,7 +321,7 @@ export default function OkulDestekPage() {
             WhatsApp ile İletişim
           </a>
           <a 
-            href="tel:+905XXXXXXXXX"
+            href={`tel:+${CONTACT_INFO.PHONE}`}
             className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Hemen Ara

@@ -1,5 +1,6 @@
 import { CONTACT_INFO } from '@/constants/contact'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Emre Aktaş - 15 Yıllık Deneyimli Matematik Öğretmeni | Hakkımda',
@@ -46,9 +47,11 @@ export default function HakkimdaPage() {
               {/* Sağ taraf - Resim */}
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="/images/teacher-portrait.jpg"
+                  <Image
+                    src="/images/profil/emreaktas.jpg"
                     alt="Emre Aktaş - Matematik Öğretmeni"
+                    width={400}
+                    height={500}
                     className="w-full h-96 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>

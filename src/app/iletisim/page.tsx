@@ -1,5 +1,6 @@
 import { CONTACT_INFO } from '@/constants/contact'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'İletişim | Emre Aktaş - Matematik Özel Ders',
@@ -11,8 +12,16 @@ export default function IletisimPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/teacher-student.jpg"
+            alt="İletişim - Emre Aktaş"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="block">İletişime</span>
             <span className="block text-yellow-400">Geçin</span>
@@ -92,6 +101,14 @@ export default function IletisimPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Hizmet Bölgeleri</h2>
             <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/classroom.jpg"
+                  alt="Hizmet Bölgeleri - İstanbul"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <p className="text-lg text-gray-700 mb-6 text-center">
                 İstanbul genelinde ev dersi, Türkiye genelinde online ders hizmeti veriyoruz. 
                 Özellikle aşağıdaki bölgelerde aktif hizmet veriyoruz:

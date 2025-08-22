@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
+import { CONTACT_INFO } from '@/constants/contact'
 
 export const metadata: Metadata = {
   title: 'LGS Hazırlık | Emre Aktaş Matematik',
@@ -14,17 +16,31 @@ export default function LgsPage() {
     <main className="container mx-auto px-4 py-8 max-w-5xl">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-800 mb-6">
-          LGS Hazırlık Programı
-        </h1>
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Hedeflediğiniz liseye yerleşmeniz için kişiselleştirilmiş, kapsamlı ve etkili LGS hazırlık eğitimi. 
-          Matematik alanında uzmanlaşarak sınavda başarılı olun.
-        </p>
+        <div className="relative mb-8">
+          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/classroom.jpg"
+              alt="LGS Hazırlık - Matematik Eğitimi"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                  LGS Hazırlık Programı
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                  Hedeflediğiniz liseye yerleşmeniz için kişiselleştirilmiş, kapsamlı ve etkili LGS hazırlık eğitimi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Başarı İstatistikleri */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl text-center">
           <div className="text-3xl font-bold mb-2">%98</div>
           <div className="text-blue-100">Başarı Oranı</div>
@@ -48,6 +64,14 @@ export default function LgsPage() {
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">LGS Hazırlık Programımız</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/math-books.jpg"
+                alt="LGS Program İçeriği"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-blue-800">Program İçeriği</h3>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
@@ -78,6 +102,14 @@ export default function LgsPage() {
           </div>
 
           <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <Image
+                src="/images/calculator.jpg"
+                alt="LGS Matematik Konuları"
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-blue-800">Matematik Konuları</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -202,7 +234,7 @@ export default function LgsPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
-            href="https://wa.me/905XXXXXXXXX?text=LGS hazırlık programı hakkında bilgi almak istiyorum"
+            href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent('LGS hazırlık programı hakkında bilgi almak istiyorum')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -210,7 +242,7 @@ export default function LgsPage() {
             WhatsApp ile İletişim
           </a>
           <a 
-            href="tel:+905XXXXXXXXX"
+            href={`tel:+${CONTACT_INFO.PHONE}`}
             className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Hemen Ara
