@@ -4,10 +4,10 @@ export default function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "EducationalService",
-    "name": "Emre Aktaş Matematik Özel Ders",
-    "alternateName": "Emre Aktaş Matematik",
-    "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Premium kalite, kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
-    "url": "https://emreaktas-matematik.com",
+    "name": "Matematik Akademi",
+    "alternateName": "Matematik Akademi - Emre Aktaş",
+    "description": "Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Premium kalite, kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
+    "url": "https://matematik-akademi.com",
     "telephone": `+${CONTACT_INFO.PHONE}`,
     "email": CONTACT_INFO.EMAIL,
     "address": {
@@ -122,7 +122,7 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Emre Hocam sayesinde LGS'de matematikten tam puan aldım. Özellikle yeni nesil sorularda çok yardımı oldu."
+        "reviewBody": "Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Özellikle yeni nesil sorularda çok yardımı oldu."
       },
       {
         "@type": "Review", 
@@ -135,7 +135,7 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Matematikten korkuyordum ama Emre Hocam'ın sabırlı yaklaşımı sayesinde LGS'de matematik alanında %95 başarı elde ettim."
+        "reviewBody": "Matematikten korkuyordum ama Matematik Akademi'nin sabırlı yaklaşımı sayesinde LGS'de matematik alanında %95 başarı elde ettim."
       },
       {
         "@type": "Review",
@@ -148,7 +148,7 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "15 yıllık deneyimi gerçekten fark yaratıyor. TYT matematikte 40 sorudan 38'ini doğru yaptım."
+        "reviewBody": "Matematik Akademi'nin 15 yıllık deneyimi gerçekten fark yaratıyor. TYT matematikte 40 sorudan 38'ini doğru yaptım."
       }
     ],
     "hasOfferCatalog": {
@@ -203,10 +203,18 @@ export default function JsonLd() {
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Matematik Akademi nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Matematik Akademi, 15 yıllık deneyimli matematik öğretmeni Emre Aktaş tarafından kurulan premium matematik eğitim merkezidir. LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Emre Aktaş kimdir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir. İstanbul'da 10 farklı bölgede hizmet vermektedir."
+            "text": "Emre Aktaş, Matematik Akademi'nin kurucusu ve 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir."
           }
         },
         {
@@ -214,7 +222,7 @@ export default function JsonLd() {
           "name": "Hangi bölgelerde hizmet veriyorsunuz?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde hizmet veriyoruz."
+            "text": "Matematik Akademi olarak İstanbul'da Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde hizmet veriyoruz."
           }
         },
         {
@@ -222,7 +230,7 @@ export default function JsonLd() {
           "name": "Ders ücretleri nedir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Premium bireysel ders saatlik 2500 TL, paket derslerde indirim uygulanmaktadır. 10 ders paketi 22.500 TL, 20 ders paketi 42.500 TL, 30 ders paketi 60.000 TL'dir."
+            "text": "Matematik Akademi'de premium bireysel ders saatlik 2500 TL, paket derslerde indirim uygulanmaktadır. 10 ders paketi 22.500 TL, 20 ders paketi 42.500 TL, 30 ders paketi 60.000 TL'dir."
           }
         },
         {
@@ -230,7 +238,7 @@ export default function JsonLd() {
           "name": "Başarı oranınız nedir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Öğrencilerimizin %98'i hedeflerine ulaşmaktadır. 15 yıllık deneyim ve 1000+ öğrenci ile kanıtlanmış başarı elde ettik."
+            "text": "Matematik Akademi öğrencilerinin %98'i hedeflerine ulaşmaktadır. 15 yıllık deneyim ve 1000+ öğrenci ile kanıtlanmış başarı elde ettik."
           }
         }
       ]
@@ -239,7 +247,7 @@ export default function JsonLd() {
       {
         "@type": "ContactAction",
         "name": "İletişime Geç",
-        "url": "https://emreaktas-matematik.com/iletisim",
+        "url": "https://matematik-akademi.com/iletisim",
         "contactType": "customer service"
       },
       {
@@ -250,7 +258,7 @@ export default function JsonLd() {
       }
     ],
     "sameAs": [
-      "https://emreaktas-matematik.com",
+      "https://matematik-akademi.com",
       `https://wa.me/${CONTACT_INFO.WHATSAPP}`
     ]
   }

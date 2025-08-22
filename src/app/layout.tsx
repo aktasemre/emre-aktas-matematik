@@ -12,11 +12,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
-    template: '%s | Emre Aktaş Matematik'
+    default: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
+    template: '%s | Matematik Akademi - Emre Aktaş'
   },
-  description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde premium matematik eğitimi. Kişiselleştirilmiş eğitim metodolojisi ile %98 başarı oranı.',
+  description: 'Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde premium matematik eğitimi. Kişiselleştirilmiş eğitim metodolojisi ile %98 başarı oranı.',
   keywords: [
+    'matematik akademi',
     'matematik özel ders',
     'LGS hazırlık',
     'TYT AYT hazırlık',
@@ -52,40 +53,43 @@ export const metadata: Metadata = {
     'öğrenci başarısı',
     'matematik eğitimi',
     'özel ders fiyatları',
-    'matematik özel ders ücreti'
+    'matematik özel ders ücreti',
+    'matematik akademi İstanbul',
+    'en iyi matematik öğretmeni',
+    'matematik özel ders merkezi'
   ],
   authors: [{ name: 'Emre Aktaş' }],
   creator: 'Emre Aktaş',
-  publisher: 'Emre Aktaş',
+  publisher: 'Matematik Akademi',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://emreaktas-matematik.com'),
+  metadataBase: new URL('https://matematik-akademi.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://emreaktas-matematik.com',
-    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
-    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
-    siteName: 'Emre Aktaş Matematik',
+    url: 'https://matematik-akademi.com',
+    title: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
+    description: 'Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
+    siteName: 'Matematik Akademi',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders',
+        alt: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
-    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
+    title: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
+    description: 'Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -116,6 +120,8 @@ export const metadata: Metadata = {
     'experience-years': '15',
     'success-rate': '98%',
     'target-audience': 'students, parents, LGS, TYT, AYT',
+    'brand-name': 'Matematik Akademi',
+    'domain': 'matematik-akademi.com',
   },
 }
 
@@ -150,6 +156,8 @@ export default function RootLayout({
         <meta name="qualifications" content="mathematics teacher, 15 years experience, Boğaziçi University" />
         <meta name="service-areas" content="Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar" />
         <meta name="contact-info" content="Phone: +90 542 451 37 69, Email: aktasemre1988@gmail.com" />
+        <meta name="brand-name" content="Matematik Akademi" />
+        <meta name="domain" content="matematik-akademi.com" />
         
         {/* Bing AI için özel meta etiketleri */}
         <meta name="bing-ai-friendly" content="true" />

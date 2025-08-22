@@ -36,8 +36,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://emreaktas-matematik.com/sitemap.xml',
+    sitemap: 'https://matematik-akademi.com/sitemap.xml',
     // AI arama motorları için ek bilgiler
-    host: 'https://emreaktas-matematik.com',
+    host: 'https://matematik-akademi.com',
   }
 }
