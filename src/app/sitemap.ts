@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://emreaktas-matematik.com' // Önerilen alan adı
+  const baseUrl = 'https://emreaktas-matematik.com'
 
   return [
     {
@@ -20,13 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/lgs`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/tyt-ayt`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/okul-destek`,
@@ -44,25 +44,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/hakkimda`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/ucretler`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/referanslar`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/iletisim`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
+    },
+    // AI arama motorları için ek sayfalar
+    {
+      url: `${baseUrl}/sitemap.xml`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/robots.txt`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
     },
   ]
 }

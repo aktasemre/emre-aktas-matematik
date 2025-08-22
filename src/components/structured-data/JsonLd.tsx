@@ -5,6 +5,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "EducationalService",
     "name": "Emre Aktaş Matematik Özel Ders",
+    "alternateName": "Emre Aktaş Matematik",
     "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Premium kalite, kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
     "url": "https://emreaktas-matematik.com",
     "telephone": `+${CONTACT_INFO.PHONE}`,
@@ -12,7 +13,8 @@ export default function JsonLd() {
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "İstanbul",
-      "addressCountry": "TR"
+      "addressCountry": "TR",
+      "addressRegion": "İstanbul"
     },
     "geo": {
       "@type": "GeoCoordinates",
@@ -73,7 +75,9 @@ export default function JsonLd() {
       "LGS Hazırlık",
       "TYT/AYT Hazırlık", 
       "Okula Yardımcı Matematik",
-      "Premium Matematik Özel Ders"
+      "Premium Matematik Özel Ders",
+      "Matematik Korkusu Tedavisi",
+      "Sınav Stratejileri"
     ],
     "provider": {
       "@type": "Person",
@@ -83,7 +87,21 @@ export default function JsonLd() {
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "Boğaziçi Üniversitesi"
-      }
+      },
+      "knowsAbout": [
+        "Matematik Eğitimi",
+        "LGS Hazırlık",
+        "TYT/AYT Hazırlık",
+        "Sınav Stratejileri",
+        "Öğrenci Psikolojisi",
+        "Matematik Korkusu Tedavisi"
+      ],
+      "hasCredential": [
+        "15 Yıl Deneyim",
+        "Boğaziçi Üniversitesi Mezunu",
+        "1000+ Öğrenci",
+        "%98 Başarı Oranı"
+      ]
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -178,7 +196,63 @@ export default function JsonLd() {
           "priceCurrency": "TRY"
         }
       ]
-    }
+    },
+    // AI arama motorları için ek structured data
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Emre Aktaş kimdir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir. İstanbul'da 10 farklı bölgede hizmet vermektedir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi bölgelerde hizmet veriyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde hizmet veriyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ders ücretleri nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Premium bireysel ders saatlik 2500 TL, paket derslerde indirim uygulanmaktadır. 10 ders paketi 22.500 TL, 20 ders paketi 42.500 TL, 30 ders paketi 60.000 TL'dir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Başarı oranınız nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Öğrencilerimizin %98'i hedeflerine ulaşmaktadır. 15 yıllık deneyim ve 1000+ öğrenci ile kanıtlanmış başarı elde ettik."
+          }
+        }
+      ]
+    },
+    "potentialAction": [
+      {
+        "@type": "ContactAction",
+        "name": "İletişime Geç",
+        "url": "https://emreaktas-matematik.com/iletisim",
+        "contactType": "customer service"
+      },
+      {
+        "@type": "ContactAction",
+        "name": "WhatsApp ile İletişim",
+        "url": `https://wa.me/${CONTACT_INFO.WHATSAPP}`,
+        "contactType": "customer service"
+      }
+    ],
+    "sameAs": [
+      "https://emreaktas-matematik.com",
+      `https://wa.me/${CONTACT_INFO.WHATSAPP}`
+    ]
   }
 
   return (

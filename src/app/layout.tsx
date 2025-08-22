@@ -12,10 +12,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders',
+    default: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
     template: '%s | Emre Aktaş Matematik'
   },
-  description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.',
+  description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde premium matematik eğitimi. Kişiselleştirilmiş eğitim metodolojisi ile %98 başarı oranı.',
   keywords: [
     'matematik özel ders',
     'LGS hazırlık',
@@ -40,7 +40,19 @@ export const metadata: Metadata = {
     'Bakırköy matematik',
     'Avcılar matematik',
     'premium matematik özel ders',
-    'kaliteli matematik eğitimi'
+    'kaliteli matematik eğitimi',
+    'matematik öğretmeni İstanbul',
+    'özel matematik dersi',
+    'LGS matematik özel ders',
+    'TYT matematik özel ders',
+    'AYT matematik özel ders',
+    'matematik korkusu tedavisi',
+    'sınav stratejileri',
+    'matematik başarı',
+    'öğrenci başarısı',
+    'matematik eğitimi',
+    'özel ders fiyatları',
+    'matematik özel ders ücreti'
   ],
   authors: [{ name: 'Emre Aktaş' }],
   creator: 'Emre Aktaş',
@@ -58,8 +70,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://emreaktas-matematik.com',
-    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders',
-    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.',
+    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
+    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
     siteName: 'Emre Aktaş Matematik',
     images: [
       {
@@ -72,8 +84,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders',
-    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.',
+    title: 'Emre Aktaş - 15 Yıllık Matematik Özel Ders | İstanbul Matematik Öğretmeni',
+    description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -94,6 +106,17 @@ export const metadata: Metadata = {
       'msvalidate.01': ANALYTICS_CONFIG.BING_VERIFICATION,
     },
   },
+  // AI arama motorları için ek meta etiketleri
+  other: {
+    'ai-search-friendly': 'true',
+    'content-type': 'educational-service',
+    'expertise-level': 'professional',
+    'service-location': 'Istanbul, Turkey',
+    'service-category': 'mathematics-tutoring',
+    'experience-years': '15',
+    'success-rate': '98%',
+    'target-audience': 'students, parents, LGS, TYT, AYT',
+  },
 }
 
 export default function RootLayout({
@@ -113,6 +136,28 @@ export default function RootLayout({
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content={ANALYTICS_CONFIG.GOOGLE_VERIFICATION} />
         <meta name="google-site-verification" content={ANALYTICS_CONFIG.GOOGLE_VERIFICATION_2} />
+        
+        {/* AI Arama Motorları için Özel Meta Etiketleri */}
+        <meta name="ai-search-friendly" content="true" />
+        <meta name="content-type" content="educational-service" />
+        <meta name="expertise-level" content="professional" />
+        <meta name="service-location" content="Istanbul, Turkey" />
+        <meta name="service-category" content="mathematics-tutoring" />
+        <meta name="experience-years" content="15" />
+        <meta name="success-rate" content="98%" />
+        <meta name="target-audience" content="students, parents, LGS, TYT, AYT" />
+        <meta name="teaching-methods" content="personalized, interactive, problem-solving" />
+        <meta name="qualifications" content="mathematics teacher, 15 years experience, Boğaziçi University" />
+        <meta name="service-areas" content="Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar" />
+        <meta name="contact-info" content="Phone: +90 542 451 37 69, Email: aktasemre1988@gmail.com" />
+        
+        {/* Bing AI için özel meta etiketleri */}
+        <meta name="bing-ai-friendly" content="true" />
+        <meta name="bing-ai-content-type" content="educational-service" />
+        
+        {/* Claude AI için özel meta etiketleri */}
+        <meta name="claude-ai-friendly" content="true" />
+        <meta name="claude-content-type" content="educational-service" />
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
