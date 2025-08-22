@@ -8,6 +8,8 @@ export default function JsonLd() {
     "alternateName": "Matematik Akademi - Emre Aktaş",
     "description": "Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Premium kalite, kişiselleştirilmiş eğitim metodolojisi ile başarıya ulaşın.",
     "url": "https://matematik-akademi.com",
+    "logo": "https://matematik-akademi.com/LOGO.jpeg",
+    "image": "https://matematik-akademi.com/LOGO.jpeg",
     "telephone": `+${CONTACT_INFO.PHONE}`,
     "email": CONTACT_INFO.EMAIL,
     "address": {

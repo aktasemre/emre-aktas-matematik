@@ -34,16 +34,16 @@ const Cta = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="text-4xl font-bold text-yellow-400 mb-2">15+</div>
               <div className="text-lg text-gray-200">Yıl Deneyim</div>
-            </div>
+              </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="text-4xl font-bold text-yellow-400 mb-2">%98</div>
               <div className="text-lg text-gray-200">Başarı Oranı</div>
-            </div>
+                  </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="text-4xl font-bold text-yellow-400 mb-2">1000+</div>
               <div className="text-lg text-gray-200">Mutlu Öğrenci</div>
-            </div>
-          </div>
+                  </div>
+                </div>
 
           {/* Hizmet bölgeleri */}
           <div className="mb-12">
@@ -57,8 +57,8 @@ const Cta = () => {
                   {area}
                 </span>
               ))}
+              </div>
             </div>
-          </div>
 
           {/* CTA Butonları */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -76,16 +76,16 @@ const Cta = () => {
             >
               <span>📞 Hemen Ara</span>
             </a>
-          </div>
+              </div>
 
           {/* İletişim bilgileri */}
           <div className="mt-12 text-gray-300">
             <p className="text-lg">
               <strong>Telefon:</strong> {CONTACT_INFO.PHONE_DISPLAY} | 
               <strong> E-posta:</strong> {CONTACT_INFO.EMAIL}
-            </p>
-          </div>
-        </div>
+                </p>
+              </div>
+              </div>
       </div>
     </section>
   )

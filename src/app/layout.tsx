@@ -79,10 +79,10 @@ export const metadata: Metadata = {
     siteName: 'Matematik Akademi',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/LOGO.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
+        alt: 'Matematik Akademi - Emre Aktaş Logo',
       },
     ],
   },
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Matematik Akademi - Emre Aktaş | 15 Yıllık Matematik Özel Ders',
     description: 'Matematik Akademi - 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. İstanbul\'da premium matematik eğitimi.',
-    images: ['/og-image.jpg'],
+    images: ['/LOGO.jpeg'],
   },
   robots: {
     index: true,
@@ -167,7 +167,7 @@ export default function RootLayout({
         <meta name="claude-ai-friendly" content="true" />
         <meta name="claude-content-type" content="educational-service" />
         
-        {/* Favicon */}
+        {/* Favicon - LOGO.jpeg kullanılıyor */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -179,6 +179,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        
+        {/* Next.js teknik verilerini gizleme */}
+        <meta name="generator" content="Matematik Akademi" />
+        <meta name="application-name" content="Matematik Akademi" />
+        <meta name="theme-color" content="#4f46e5" />
+        <meta name="msapplication-TileColor" content="#4f46e5" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <JsonLd />
