@@ -17,7 +17,10 @@ export const CONTACT_INFO = {
     'Küçükçekmece',
     'Esenler',
     'Sultangazi',
-    'Arnavutköy'
+    'Arnavutköy',
+    'Ataköy',
+    'Bakırköy',
+    'Avcılar'
   ]
 } as const
 

@@ -42,91 +42,49 @@ const Footer = () => {
           {/* Hizmetler */}
           <div className="space-y-4">
             <h3 className="text-lg lg:text-xl font-semibold text-indigo-400 border-b border-gray-700 pb-2">
-              Hizmetlerimiz
+              Hizmetler
             </h3>
-            <ul className="space-y-3 text-gray-300">
-              <li>
-                <Link 
-                  href="/matematik" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Matematik
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/lgs" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  LGS Hazırlık
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/tyt-ayt" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  TYT/AYT Hazırlık
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/okul-destek" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Okula Yardımcı
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/metodoloji" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Metodolojimiz
-                </Link>
-              </li>
-            </ul>
+            <div className="space-y-2">
+              <Link href="/matematik" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Matematik Özel Ders
+              </Link>
+              <Link href="/lgs" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                LGS Hazırlık
+              </Link>
+              <Link href="/tyt-ayt" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                TYT/AYT Hazırlık
+              </Link>
+              <Link href="/okul-destek" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Okul Desteği
+              </Link>
+              <Link href="/metodoloji" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Metodoloji
+              </Link>
+            </div>
           </div>
 
-          {/* Hakkımızda */}
+          {/* Sayfalar */}
           <div className="space-y-4">
             <h3 className="text-lg lg:text-xl font-semibold text-indigo-400 border-b border-gray-700 pb-2">
-              Hakkımızda
+              Sayfalar
             </h3>
-            <ul className="space-y-3 text-gray-300">
-              <li>
-                <Link 
-                  href="/hakkimda" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Emre Aktaş
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/referanslar" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Referanslar
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/ucretler" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  Fiyatlandırma
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/iletisim" 
-                  className="hover:text-indigo-400 transition-colors duration-200 block py-1"
-                >
-                  İletişim
-                </Link>
-              </li>
-            </ul>
+            <div className="space-y-2">
+              <Link href="/" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Ana Sayfa
+              </Link>
+              <Link href="/hakkimda" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Hakkımda
+              </Link>
+              <Link href="/ucretler" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Ücretler
+              </Link>
+              <Link href="/referanslar" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Referanslar
+              </Link>
+              <Link href="/iletisim" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                İletişim
+              </Link>
+            </div>
           </div>
 
           {/* İletişim */}
@@ -147,14 +105,14 @@ const Footer = () => {
               
               <div className="text-sm text-gray-400">
                 <p className="mb-2">Çalışma Saatleri:</p>
-                <p>Pazartesi - Cuma: 09:00 - 21:00</p>
-                <p>Cumartesi: 09:00 - 18:00</p>
-                <p>Pazar: 10:00 - 16:00</p>
+                <p>Pazartesi - Cuma: {CONTACT_INFO.WORKING_HOURS.WEEKDAYS}</p>
+                <p>Cumartesi: {CONTACT_INFO.WORKING_HOURS.SATURDAY}</p>
+                <p>Pazar: {CONTACT_INFO.WORKING_HOURS.SUNDAY}</p>
               </div>
               
               <div className="text-sm text-gray-400">
                 <p className="mb-2">Hizmet Bölgeleri:</p>
-                <p>Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy</p>
+                <p>{CONTACT_INFO.SERVICE_AREAS.join(', ')}</p>
               </div>
             </div>
           </div>
