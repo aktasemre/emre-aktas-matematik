@@ -11,4 +11,6 @@ const nextConfig = {
   },
 };
 
+// Metadata kaldırıldı - app/layout.tsx'e taşınacak
+
 export default nextConfig;

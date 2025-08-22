@@ -1,9 +1,9 @@
 'use client';
 
-import { ClientHeader, ClientFooter } from './ClientComponents';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from '@/styles/Layout.module.css';
 
 const Layout = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,47 +43,48 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className={styles.layoutWrapper}>
+    <div className="min-h-screen bg-gray-50">
       {/* Yükleme ekranı */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div 
-            className={styles.loaderWrapper}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-white"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className={styles.loader}>
-              <div className={styles.logoAnimated}>
-                <svg 
-                  width="60" 
-                  height="60" 
-                  viewBox="0 0 60 60" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect width="60" height="60" rx="12" fill="#E30613" />
-                  <path 
-                    d="M15 20h30M15 30h30M15 40h20" 
-                    stroke="white" 
-                    strokeWidth="4" 
-                    strokeLinecap="round"
-                  />
-                </svg>
+            <div className="text-center">
+              <div className="mb-4">
+                <div className="w-16 h-16 mx-auto bg-indigo-600 rounded-xl flex items-center justify-center">
+                  <svg 
+                    width="32" 
+                    height="32" 
+                    viewBox="0 0 32 32" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 12h16M8 16h16M8 20h12" 
+                      stroke="white" 
+                      strokeWidth="2" 
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div className={styles.loadingText}>Yükleniyor...</div>
+              <div className="text-gray-600 font-medium">Yükleniyor...</div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Ana içerik */}
-      <ClientHeader />
+      <Header />
       
       <AnimatePresence mode="wait">
         {isMounted && !isLoading && (
           <motion.main 
-            className={styles.mainContent}
+            className="pt-16"
             variants={pageVariants}
             initial="initial"
             animate="animate"
@@ -94,7 +95,7 @@ const Layout = ({ children }) => {
         )}
       </AnimatePresence>
 
-      <ClientFooter />
+      <Footer />
     </div>
   );
 };

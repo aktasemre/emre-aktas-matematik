@@ -1,329 +1,248 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import styles from '@/styles/Hero.module.css';
+import { CONTACT_INFO } from '@/constants/contact';
 
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [animateCount, setAnimateCount] = useState(false);
-  const [studentsCount, setStudentsCount] = useState(0);
-  const [teachersCount, setTeachersCount] = useState(0);
 
   useEffect(() => {
     setIsClient(true);
-    setIsLoaded(true);
-    setIsMounted(true);
-
-    // Sayaç animasyonu için zamanlayıcı
-    const timer = setTimeout(() => {
-      setAnimateCount(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
   }, []);
 
-  // Sayaç animasyonu
-  useEffect(() => {
-    if (animateCount && isClient) {
-      const studentsInterval = setInterval(() => {
-        setStudentsCount(prev => {
-          if (prev < 5000) return prev + 100;
-          clearInterval(studentsInterval);
-          return 5000;
-        });
-      }, 20);
+  const stats = [
+    { label: '15+ Yıl Deneyim', value: '15+' },
+    { label: '1000+ Öğrenci', value: '1000+' },
+    { label: '%98 Başarı Oranı', value: '%98' },
+    { label: '7 Hizmet Bölgesi', value: '7' }
+  ];
 
-      const teachersInterval = setInterval(() => {
-        setTeachersCount(prev => {
-          if (prev < 200) return prev + 4;
-          clearInterval(teachersInterval);
-          return 200;
-        });
-      }, 30);
-
-      return () => {
-        clearInterval(studentsInterval);
-        clearInterval(teachersInterval);
-      };
+  const teachingMethods = [
+    {
+      title: 'Kişiselleştirilmiş Eğitim',
+      description: 'Her öğrencinin öğrenme tarzına uygun özel program',
+      icon: '🎯'
+    },
+    {
+      title: 'Pratik Odaklı Yaklaşım',
+      description: 'Bol örnek ve alıştırma ile konuları pekiştirme',
+      icon: '📝'
+    },
+    {
+      title: 'Sınav Stratejileri',
+      description: 'LGS, TYT, AYT için özel sınav teknikleri',
+      icon: '📊'
+    },
+    {
+      title: 'Sürekli Takip',
+      description: 'Düzenli geri bildirim ve ilerleme raporları',
+      icon: '📈'
     }
-  }, [animateCount, isClient]);
+  ];
 
-  const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
+  const gradeLevels = [
+    {
+      grade: '5-8. Sınıf',
+      focus: 'Temel Matematik',
+      description: 'Matematik temellerini güçlendirme ve okul başarısı',
+      features: ['Temel işlemler', 'Geometri', 'Problem çözme', 'Sınav hazırlığı']
+    },
+    {
+      grade: '9-10. Sınıf',
+      focus: 'LGS Hazırlık',
+      description: 'Liseye Geçiş Sınavı için kapsamlı hazırlık',
+      features: ['Yeni nesil sorular', 'Sınav stratejileri', 'Zaman yönetimi', 'Kaygı kontrolü']
+    },
+    {
+      grade: '11-12. Sınıf',
+      focus: 'TYT/AYT Hazırlık',
+      description: 'Üniversite sınavları için ileri matematik',
+      features: ['Analitik geometri', 'İleri matematik', 'Sınav teknikleri', 'Konu tekrarları']
     }
-  };
+  ];
 
-  const highlightVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: 0.5,
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const fadeInVariants = {
-    hidden: { opacity: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      transition: {
-        delay: i * 0.2 + 0.8,
-        duration: 0.5
-      }
-    })
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: 0.3,
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
-
-  const pulseAnimation = {
-    scale: [1, 1.03, 1],
-    transition: {
-      duration: 3, 
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
-
-  // Sunucu tarafında varsayılan değerler
-  const defaultContent = (
-    <section className={styles.hero}>
-      <div className={styles.backgroundEffect}>
-        <div className={styles.gradientCircle1}></div>
-        <div className={styles.gradientCircle2}></div>
-      </div>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>
-            Emre Aktaş ile <span className={styles.highlight}>Kişiselleştirilmiş</span> Eğitim
-          </h1>
-          <p className={styles.subtitle}>
-            Türkiye'nin en iyi üniversitelerinden mezun, deneyimli öğretmenlerimizle birebir özel dersler.
-            Sınavlara hazırlık, okul derslerinde destek veya yeni beceriler edinmek için yanınızdayız.
-          </p>
-          <div className={styles.statsBar}>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>0+</div>
-              <div className={styles.statLabel}>Öğrenci</div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>0+</div>
-              <div className={styles.statLabel}>Eğitmen</div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>%98</div>
-              <div className={styles.statLabel}>Memnuniyet</div>
-            </div>
-          </div>
-          <div className={styles.cta}>
-            <Link href="/talep" className={`${styles.primaryBtn} ${styles.glowEffect}`}>
-              <span>Özel Ders Talebi Oluştur</span>
-            </Link>
-            <Link href="/dersler" className={styles.secondaryBtn}>
-              Ders Programlarını Keşfet
-            </Link>
-          </div>
-        </div>
-        <div className={styles.imageWrapper}>
-          <div className={styles.imageContainer}>
-            <div className={styles.overlay}></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-
-  // Client tarafında animasyonlu içerik
-  const clientContent = (
-    <section className={styles.hero}>
-      <div className={styles.backgroundEffect}>
-        <div className={styles.gradientCircle1}></div>
-        <div className={styles.gradientCircle2}></div>
-      </div>
-      <div className={styles.container}>
-        <motion.div 
-          className={styles.content}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Arka plan resmi */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/images/hero-math.jpg)',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover'
+          }}
         >
-          <motion.h1 className={styles.title} variants={titleVariants}>
-            Emre Aktaş ile <motion.span className={styles.highlight} variants={highlightVariants}>Kişiselleştirilmiş</motion.span> Eğitim
-          </motion.h1>
-          <motion.p 
-            className={styles.subtitle}
-            custom={1}
-            variants={fadeInVariants}
-          >
-            Türkiye'nin en iyi üniversitelerinden mezun, deneyimli öğretmenlerimizle birebir özel dersler. 
-            Hedeflerinize özel oluşturulan **yapılandırılmış haftalık planlar** ve yakın takip ile sınavlara (LGS/YKS) ve okul derslerine hazırlanın.
-          </motion.p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/90 via-purple-900/80 to-indigo-900/90"></div>
+        </div>
 
-          <motion.div 
-            className={styles.statsBar}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-          >
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>{studentsCount.toLocaleString()}+</div>
-              <div className={styles.statLabel}>Öğrenci</div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>{teachersCount}+</div>
-              <div className={styles.statLabel}>Eğitmen</div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <div className={styles.statValue}>%98</div>
-              <div className={styles.statLabel}>Memnuniyet</div>
-            </div>
-          </motion.div>
+        <div className="relative z-10 container mx-auto px-4 py-20 text-center text-white">
+          <div className="max-w-4xl mx-auto">
+            {/* Ana başlık */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="block">15 Yıllık Deneyimli</span>
+              <span className="block text-yellow-400">Matematik Öğretmeni</span>
+            </h1>
+            
+            {/* Alt başlık */}
+            <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
+              LGS, TYT, AYT ve okul desteği için özel matematik dersleri. 
+              <br />
+              <span className="text-yellow-300 font-semibold">
+                Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy
+              </span>
+            </p>
 
-          <motion.div 
-            className={styles.cta}
-            custom={2}
-            variants={fadeInVariants}
-          >
-            <Link href="/talep" className={`${styles.primaryBtn} ${styles.glowEffect}`}>
-              <span>Özel Ders Talebi Oluştur</span>
-              <motion.span 
-                className={styles.btnArrow}
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+            {/* İstatistikler */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
+                    {isClient ? stat.value : '...'}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Butonları */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <a
+                href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center gap-2"
               >
-                →
-              </motion.span>
-            </Link>
-            <Link href="/dersler" className={styles.secondaryBtn}>
-              Ders Programlarını Keşfet
-            </Link>
-          </motion.div>
-        </motion.div>
+                <span>📱 WhatsApp'tan Yaz</span>
+              </a>
+              <a
+                href={`tel:+${CONTACT_INFO.PHONE}`}
+                className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center gap-2"
+              >
+                <span>📞 Hemen Ara</span>
+              </a>
+            </div>
 
-        <motion.div 
-          className={styles.imageWrapper}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-          variants={imageVariants}
-        >
-          <motion.div 
-            className={styles.decorationElement1}
-            animate={floatingAnimation}
-          ></motion.div>
-          <motion.div 
-            className={styles.decorationElement2} 
-            animate={pulseAnimation}
-          ></motion.div>
-          
-          <div className={styles.imageContainer}>
-            <motion.div 
-              className={styles.imageBg}
-              animate={{
-                borderRadius: ["60% 40% 30% 70%/60% 30% 70% 40%", "30% 60% 70% 40%/50% 60% 30% 60%", "60% 40% 30% 70%/60% 30% 70% 40%"],
-              }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <div className={styles.overlay}></div>
-            {isMounted && (
-              <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
-                alt="Emre Aktaş - Profesyonel Özel Ders Eğitmeni"
-                width={600}
-                height={700}
-                className={styles.heroImage}
-                priority
-              />
-            )}
+            {/* Hizmet bölgeleri */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+              <h3 className="text-lg font-semibold mb-3 text-yellow-300">Hizmet Bölgeleri</h3>
+              <div className="flex flex-wrap justify-center gap-2 text-sm">
+                {CONTACT_INFO.SERVICE_AREAS.map((area, index) => (
+                  <span 
+                    key={index}
+                    className="bg-white/20 px-3 py-1 rounded-full text-white"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-          
-          <motion.div 
-            className={styles.badge}
-            animate={floatingAnimation}
-          >
-            <span className={styles.years}>10+</span>
-            <span className={styles.text}>Yıllık Deneyim</span>
-          </motion.div>
-          
-          <motion.div 
-            className={styles.featuredBadge}
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: -5 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-          >
-            <svg viewBox="0 0 24 24" className={styles.starIcon} fill="#FFD700">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-            </svg>
-            <span>En Çok Tercih Edilen</span>
-          </motion.div>
-        </motion.div>
-      </div>
-      
-      <motion.div 
-        className={styles.scrollIndicator}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <span>Aşağı Kaydır</span>
-        <motion.div 
-          className={styles.scrollArrow}
-          animate={{ 
-            y: [0, 10, 0], 
-            opacity: [0.6, 1, 0.6] 
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-          </svg>
-        </motion.div>
-      </motion.div>
-    </section>
-  );
+        </div>
+      </section>
 
-  return isClient ? clientContent : defaultContent;
+      {/* Öğretim Yöntemleri */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Öğretim Yöntemlerim</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                15 yıllık deneyimimle geliştirdiğim özel yöntemlerle matematik öğretiyorum
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teachingMethods.map((method, index) => (
+                <div key={index} className="text-center p-6 rounded-lg bg-gradient-to-br from-indigo-50 to-purple-50 hover:shadow-lg transition-all duration-300">
+                  <div className="text-4xl mb-4">{method.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{method.title}</h3>
+                  <p className="text-gray-600">{method.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sınıf Bazlı Ders Yöntemleri */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Sınıf Bazlı Ders Yöntemleri</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Her sınıf seviyesine özel geliştirdiğim eğitim programları
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {gradeLevels.map((level, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-indigo-600 mb-2">{level.grade}</h3>
+                    <p className="text-lg font-semibold text-gray-700 mb-2">{level.focus}</p>
+                    <p className="text-gray-600">{level.description}</p>
+                  </div>
+                  
+                  <ul className="space-y-3">
+                    {level.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center gap-3">
+                        <span className="text-green-500 text-lg">✓</span>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Başarı Hikayeleri */}
+      <section className="py-20 bg-gradient-to-r from-indigo-900 to-purple-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">Başarı Hikayeleri</h2>
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                Öğrencilerimin matematik yolculuğundaki başarıları
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-yellow-400 text-2xl mb-4">⭐</div>
+                <p className="text-gray-200 mb-4">
+                  "Emre Hocam sayesinde matematik korkum tamamen geçti. LGS'de %98 başarı elde ettim."
+                </p>
+                <p className="text-sm text-gray-300">- Ayşe K., LGS Öğrencisi</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-yellow-400 text-2xl mb-4">⭐</div>
+                <p className="text-gray-200 mb-4">
+                  "TYT matematikte 15 net yapıyordum, şimdi 35 net yapıyorum. Teşekkürler Emre Hocam!"
+                </p>
+                <p className="text-sm text-gray-300">- Mehmet A., TYT Öğrencisi</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div className="text-yellow-400 text-2xl mb-4">⭐</div>
+                <p className="text-gray-200 mb-4">
+                  "Matematik artık en sevdiğim ders. Emre Hocam'ın yöntemleri çok etkili."
+                </p>
+                <p className="text-sm text-gray-300">- Zeynep B., 8. Sınıf</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Hero; 

@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Özel Ders Platformu
 
-## Getting Started
+## Proje Hakkında
+Bu proje, LGS, YKS ve çeşitli branşlarda özel ders hizmeti sunan modern bir Next.js tabanlı web uygulamasıdır. Kullanıcılar, ders programlarını inceleyebilir, başvuru yapabilir ve eğitim metodolojisi hakkında bilgi alabilir.
 
-First, run the development server:
+## Kurulum
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. **Gereksinimler:**
+   - Node.js >= 18
+   - npm veya yarn
+
+2. **Projeyi Klonlayın:**
+   ```bash
+   git clone <repo-url>
+   cd ozel-ders
+   ```
+
+3. **Bağımlılıkları Yükleyin:**
+   ```bash
+   npm install
+   # veya
+   yarn install
+   ```
+
+4. **Geliştirme Sunucusunu Başlatın:**
+   ```bash
+   npm run dev
+   # veya
+   yarn dev
+   ```
+
+5. **Uygulamayı Açın:**
+   - [http://localhost:3000](http://localhost:3000)
+
+## Proje Yapısı
+
+- `src/app/` : Sayfa ve route dosyaları (Next.js app router)
+- `src/components/` : Tüm tekrar kullanılabilir React bileşenleri
+- `src/constants.js` : Sabitler ve global değişkenler
+- `src/styles/` : CSS ve CSS Module dosyaları
+- `public/` : Statik dosyalar ve görseller
+
+## Ana Bileşenler ve Kullanım Örnekleri
+
+### 1. Button Bileşeni
+
+`src/components/common/Button.js`
+
+**Kullanım:**
+```jsx
+<Button
+  variant="primary"
+  size="medium"
+  onClick={() => alert('Tıklandı!')}
+  iconLeft={<FaPhone />}
+  iconRight={<FaArrowRight />}
+  disabled={false}
+  fullWidth={false}
+>
+  Buton Metni
+</Button>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Props Açıklamaları:**
+- `variant`: 'primary' | 'secondary' | 'success' | 'outline' | 'text' (Butonun stilini belirler)
+- `size`: 'small' | 'medium' | 'large'
+- `onClick`: (opsiyonel) Tıklama olayı
+- `href`: (opsiyonel) Link olarak kullanmak için
+- `iconLeft`, `iconRight`: (opsiyonel) Sol/sağ ikon
+- `disabled`: (opsiyonel) Butonu pasif yapar
+- `fullWidth`: (opsiyonel) Butonu tam genişlikte yapar
+- `children`: Butonun içeriği
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 2. DersDetayTemplate Bileşeni
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`src/components/dersler/DersDetayTemplate.js`
 
-## Learn More
+**Kullanım:**
+```jsx
+<DersDetayTemplate
+  title="Ders Başlığı"
+  subtitle="Açıklama"
+  imagePath="/images/ornek.jpg"
+  altText="Açıklama"
+  methodologySteps={stepsArray}
+  ctaTitle="CTA Başlığı"
+  ctaText="CTA Açıklaması"
+  contactFormSource="kaynakKodu"
+>
+  {/* Ekstra içerik veya açıklama */}
+</DersDetayTemplate>
+```
 
-To learn more about Next.js, take a look at the following resources:
+**Props Açıklamaları:**
+- `title`: Sayfa başlığı
+- `subtitle`: Alt başlık
+- `imagePath`: Üst görsel yolu
+- `altText`: Görsel için açıklama
+- `methodologySteps`: [{title, description}] formatında metodoloji adımları
+- `ctaTitle`: CTA başlığı
+- `ctaText`: CTA açıklaması
+- `contactFormSource`: Formun hangi sayfadan geldiğini belirtir
+- `children`: (opsiyonel) Ekstra içerik
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Header ve Footer Bileşenleri
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `Header.js` ve `Footer.js` otomatik olarak layout içinde kullanılır, ekstra konfigürasyon gerektirmez.
 
-## Deploy on Vercel
+### 4. Diğer Bileşenler
+- `Hero`, `Cta`, `Methodology`, `Stats`, `Testimonials` gibi ana sayfa bileşenleri de props ile özelleştirilebilir.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Geliştirme ve Katkı
+- Kodunuzu göndermeden önce linter ve formatlayıcıdan geçirin.
+- Bileşenler için propTypes veya TypeScript tipi kullanmaya özen gösterin.
+- Her yeni bileşen için kısa bir kullanım örneği ve prop açıklaması ekleyin.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Lisans
+MIT

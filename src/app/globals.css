@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary-color: #3a86ff;
   --secondary-color: #8338ec;
@@ -239,4 +243,66 @@ main {
 
 .delay-5 {
   animation-delay: 0.5s;
+}
+
+/* Metodoloji sayfası CTA butonları için özel stiller */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 32px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--primary-color, #e30613);
+  color: #fff;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #b8000f;
+  color: #fff;
+}
+.btn-success {
+  background: #25d366;
+  color: #fff;
+}
+.btn-success:hover,
+.btn-success:focus {
+  background: #1da851;
+  color: #fff;
+}
+.btn-outline-primary {
+  background: transparent;
+  color: var(--primary-color, #e30613);
+  border: 2px solid var(--primary-color, #e30613);
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background: var(--primary-color, #e30613);
+  color: #fff;
+}
+.btn:active {
+  opacity: 0.85;
+}
+
+/* Responsive düzenleme */
+@media (max-width: 600px) {
+  .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  .d-flex.gap-3 {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
 }
