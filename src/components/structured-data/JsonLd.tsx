@@ -107,6 +107,10 @@ export default function JsonLd() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "EducationalService",
+        "name": "Matematik Akademi"
+      },
       "ratingValue": "4.9",
       "reviewCount": "1000",
       "bestRating": "5",
@@ -115,6 +119,10 @@ export default function JsonLd() {
     "review": [
       {
         "@type": "Review",
+        "itemReviewed": {
+          "@type": "EducationalService",
+          "name": "Matematik Akademi"
+        },
         "author": {
           "@type": "Person",
           "name": "Ahmet Yılmaz"
@@ -127,7 +135,11 @@ export default function JsonLd() {
         "reviewBody": "Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Özellikle yeni nesil sorularda çok yardımı oldu."
       },
       {
-        "@type": "Review", 
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "EducationalService",
+          "name": "Matematik Akademi"
+        },
         "author": {
           "@type": "Person",
           "name": "Elif Kaya"
@@ -141,6 +153,10 @@ export default function JsonLd() {
       },
       {
         "@type": "Review",
+        "itemReviewed": {
+          "@type": "EducationalService",
+          "name": "Matematik Akademi"
+        },
         "author": {
           "@type": "Person",
           "name": "Mehmet Demir"
