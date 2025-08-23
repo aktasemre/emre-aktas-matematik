@@ -45,7 +45,7 @@ export default function Home() {
             <div className="hidden lg:block">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/teacher-student.jpg"
+                  src="/images/one-on-one-tutoring.jpg"
                   alt="Emre Aktaş - Matematik Öğretmeni"
                   fill
                   className="object-cover"
@@ -118,7 +118,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/calculator.jpg"
+                  src="/images/homework-help.jpg"
                   alt="Okula Yardımcı"
                   fill
                   className="object-cover"
@@ -140,29 +140,49 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Öğretim Yöntemlerimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/personalized-learning.jpg"
+                  alt="Kişiselleştirilmiş Eğitim"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold mb-2">Kişiselleştirilmiş</h3>
               <p className="text-gray-600">Her öğrencinin ihtiyacına özel program</p>
             </div>
             <div className="text-center">
-              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📚</span>
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/math-books.jpg"
+                  alt="Sistematik Eğitim"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold mb-2">Sistematik</h3>
               <p className="text-gray-600">Adım adım ilerleyen eğitim sistemi</p>
             </div>
             <div className="text-center">
-              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💡</span>
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/calculator.jpg"
+                  alt="Pratik Odaklı Eğitim"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold mb-2">Pratik Odaklı</h3>
               <p className="text-gray-600">Bol soru çözümü ve uygulama</p>
             </div>
             <div className="text-center">
-              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏆</span>
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/student-success.jpg"
+                  alt="Başarı Garantili"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold mb-2">Başarı Garantili</h3>
               <p className="text-gray-600">%98 başarı oranı ile kanıtlanmış</p>
@@ -179,7 +199,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/teacher-portrait.jpg"
+                  src="/images/one-on-one-tutoring.jpg"
                   alt="Bireysel Dersler"
                   fill
                   className="object-cover"
@@ -196,7 +216,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/student-success.jpg"
+                  src="/images/study-group.jpg"
                   alt="Grup Dersleri"
                   fill
                   className="object-cover"
@@ -220,6 +240,14 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Başarı Hikayeleri</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/teacher-portrait.jpg"
+                  alt="Ahmet Yılmaz - LGS Başarısı"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
                   A
@@ -232,6 +260,14 @@ export default function Home() {
               <p className="text-gray-600 mb-4">"Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Emre Hocam'ın sabırlı yaklaşımı çok yardımcı oldu."</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/student-success.jpg"
+                  alt="Elif Kaya - TYT Başarısı"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
                   E
@@ -244,6 +280,14 @@ export default function Home() {
               <p className="text-gray-600 mb-4">"TYT matematikte 40 sorudan 38'ini doğru yaptım. 15 yıllık deneyim gerçekten fark yaratıyor."</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/individual-study.jpg"
+                  alt="Mehmet Demir - Okul Başarısı"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
                   M
