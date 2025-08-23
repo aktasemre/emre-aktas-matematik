@@ -103,7 +103,7 @@ const Hero = () => {
                     {isClient ? stat.value : '...'}
                   </div>
                   <div className="text-sm md:text-base text-gray-300">{stat.label}</div>
-                </div>
+      </div>
               ))}
             </div>
 
@@ -137,8 +137,8 @@ const Hero = () => {
                     {area}
                   </span>
                 ))}
-              </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -162,10 +162,10 @@ const Hero = () => {
                   <p className="text-gray-600">{method.description}</p>
                 </div>
               ))}
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Sınıf Bazlı Ders Yöntemleri */}
       <section className="py-20 bg-gray-50">
@@ -185,7 +185,7 @@ const Hero = () => {
                     <h3 className="text-2xl font-bold text-indigo-600 mb-2">{level.grade}</h3>
                     <p className="text-lg font-semibold text-gray-700 mb-2">{level.focus}</p>
                     <p className="text-gray-600">{level.description}</p>
-                  </div>
+      </div>
                   
                   <ul className="space-y-3">
                     {level.features.map((feature, featureIndex) => (
@@ -198,8 +198,8 @@ const Hero = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
       </section>
 
       {/* Başarı Hikayeleri */}
@@ -220,16 +220,16 @@ const Hero = () => {
                   "Emre Hocam sayesinde matematik korkum tamamen geçti. LGS'de %98 başarı elde ettim."
                 </p>
                 <p className="text-sm text-gray-300">- Ayşe K., LGS Öğrencisi</p>
-              </div>
-              
+          </div>
+          
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-yellow-400 text-2xl mb-4">⭐</div>
                 <p className="text-gray-200 mb-4">
                   "TYT matematikte 15 net yapıyordum, şimdi 35 net yapıyorum. Teşekkürler Emre Hocam!"
                 </p>
                 <p className="text-sm text-gray-300">- Mehmet A., TYT Öğrencisi</p>
-              </div>
-              
+      </div>
+      
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-yellow-400 text-2xl mb-4">⭐</div>
                 <p className="text-gray-200 mb-4">
@@ -240,7 +240,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </section>
+    </section>
     </div>
   );
 };

@@ -4,7 +4,7 @@ export const ANALYTICS_CONFIG = {
   GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX',
   
   // Google Tag Manager
-  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXXX',
+  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-NBTHB6K7',
   
   // Google Search Console - Gerçek doğrulama kodları
   GOOGLE_VERIFICATION: 'fU8GiG_ZqzPKVBUJegGQcEfrAB5isOnHhi32WU3t0f4',
