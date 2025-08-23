@@ -1,7 +1,7 @@
 // Analytics Configuration
 export const ANALYTICS_CONFIG = {
   // Google Analytics 4
-  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX',
+  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-6CZGGPFC0M',
   
   // Google Tag Manager
   GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || 'GTM-NBTHB6K7',
