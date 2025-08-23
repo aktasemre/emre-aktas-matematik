@@ -9,6 +9,23 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   
+  // Redirect ayarları
+  async redirects() {
+    return [
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'matematik-akademi.com',
+          },
+        ],
+        destination: 'https://www.matematik-akademi.com',
+        permanent: true,
+      },
+    ]
+  },
+  
   // Headers ayarları
   async headers() {
     return [
