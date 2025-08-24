@@ -12,10 +12,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Matematik Özel Ders İstanbul - Emre Aktaş | Başakşehir, Bahçeşehir, Florya',
+    default: 'Matematik Özel Ders İstanbul – Başakşehir | Emre Aktaş',
     template: '%s | Matematik Özel Ders İstanbul - Emre Aktaş'
   },
-  description: 'İstanbul\'da matematik özel ders. Emre Aktaş - 15 yıllık deneyimli matematik öğretmeni. Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar bölgelerinde LGS, TYT/AYT hazırlık ve okula yardımcı matematik özel dersleri. %98 başarı oranı.',
+  description: 'Başakşehir\'de 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS ve TYT/AYT odaklı birebir özel ders. Ücretsiz tanışma görüşmesi.',
   keywords: [
     'matematik özel ders İstanbul',
     'İstanbul matematik öğretmeni',

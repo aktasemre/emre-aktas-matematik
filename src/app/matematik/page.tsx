@@ -1,11 +1,20 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Matematik Özel Ders | Emre Aktaş',
-  description: 'LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile matematik başarınızı artırın.',
+  title: 'Matematik Özel Ders Başakşehir | LGS TYT AYT | Emre Aktaş',
+  description: 'Başakşehir\'de matematik özel ders. LGS, TYT/AYT hazırlık. 15 yıllık deneyimli öğretmen Emre Aktaş ile %98 başarı oranı. Ücretsiz deneme dersi.',
+  keywords: [
+    'matematik özel ders',
+    'başakşehir matematik',
+    'lgs matematik hazırlık',
+    'tyt matematik özel ders',
+    'ayt matematik öğretmeni',
+    'matematik kursu başakşehir',
+    'özel matematik dersi'
+  ],
   openGraph: {
-    title: 'Matematik Özel Ders | Emre Aktaş',
-    description: 'LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Kişiselleştirilmiş eğitim metodolojisi ile matematik başarınızı artırın.',
+    title: 'Matematik Özel Ders Başakşehir | LGS TYT AYT',
+    description: 'Başakşehir\'de matematik özel ders. 15 yıllık deneyimli öğretmen Emre Aktaş ile %98 başarı oranı.',
   },
 }
 

@@ -1,7 +1,7 @@
 import { CONTACT_INFO } from '@/constants/contact'
 
 export default function JsonLd() {
-  const structuredData = {
+  const educationalService = {
     "@context": "https://schema.org",
     "@type": "EducationalService",
     "name": "Matematik Akademi",
@@ -281,11 +281,141 @@ export default function JsonLd() {
     ]
   }
 
+  // LocalBusiness schema for local SEO
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Matematik Akademi - Emre Aktaş",
+    "description": "Başakşehir'de matematik özel ders. 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT hazırlık.",
+    "url": "https://matematik-akademi.com",
+    "telephone": `+${CONTACT_INFO.PHONE}`,
+    "email": CONTACT_INFO.EMAIL,
+    "image": "https://matematik-akademi.com/LOGO.jpeg",
+    "logo": "https://matematik-akademi.com/LOGO.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Başakşehir",
+      "addressLocality": "İstanbul",
+      "addressRegion": "İstanbul",
+      "postalCode": "34480",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "41.1257",
+      "longitude": "28.7686"
+    },
+    "openingHours": [
+      "Mo-Fr 09:00-21:00",
+      "Sa 09:00-18:00",
+      "Su 10:00-16:00"
+    ],
+    "priceRange": "₺₺₺",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Başakşehir, İstanbul"
+      },
+      {
+        "@type": "Place",
+        "name": "Bahçeşehir, İstanbul"
+      },
+      {
+        "@type": "Place",
+        "name": "Kayaşehir, İstanbul"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "127",
+      "bestRating": "5"
+    }
+  }
+
+  // FAQ schema for Başakşehir page
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Başakşehir'de hangi mahallelerde matematik özel ders veriyorsunuz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Başakşehir merkez ve tüm etaplar, Bahçeşehir 1-2. Kısım, Kayaşehir, Şahintepe, Altınşehir, Ziya Gökalp, Güvercintepe, Başakçılar ve Hoşdere mahallelerinde evde özel ders veriyoruz. Online ders seçeneği de mevcuttur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Matematik özel ders ücretleri ne kadar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ders ücretlerimiz, ders süresi, sıklığı ve öğrenci seviyesine göre değişmektedir. İlk tanışma dersi ücretsizdir. Detaylı ücret bilgisi için iletişime geçebilirsiniz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Matematik özel ders süresi ne kadar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LGS öğrencileri için 90 dakika, TYT/AYT öğrencileri için 120 dakika, okula yardımcı dersler için 60-90 dakika önerilmektedir. Öğrenci ihtiyacına göre süre ayarlanabilir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Evde mi online mı matematik dersi veriyorsunuz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Her iki seçenek de mevcuttur. Başakşehir ve çevre mahallelerde evde yüz yüze ders verebiliriz. Ayrıca zoom üzerinden online ders seçeneğimiz de vardır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Matematik özel ders için deneme dersi var mı?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet, ilk dersimiz ücretsiz tanışma ve seviye tespit dersidir. Bu derste öğrenciyi tanır, eksiklerini belirler ve veliye detaylı bir çalışma planı sunarız."
+        }
+      }
+    ]
+  }
+
+  // Course schema for educational programs
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "LGS Matematik Hazırlık Kursu",
+    "description": "Liseye Geçiş Sınavı (LGS) için kapsamlı matematik hazırlık programı",
+    "provider": {
+      "@type": "Organization",
+      "name": "Matematik Akademi",
+      "sameAs": "https://matematik-akademi.com"
+    },
+    "courseMode": ["onsite", "online"],
+    "educationalLevel": "Ortaokul",
+    "teaches": "Matematik",
+    "inLanguage": "tr",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "89"
+    }
+  }
+
+  // Combine all schemas
+  const allSchemas = [educationalService, localBusiness, faqSchema, courseSchema]
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      suppressHydrationWarning={true}
-    />
+    <>
+      {allSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          suppressHydrationWarning={true}
+        />
+      ))}
+    </>
   )
 }

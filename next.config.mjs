@@ -58,7 +58,19 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-
+  // Performans optimizasyonları
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Compression
+  compress: true,
+  
+  // Generate ETags
+  generateEtags: true,
+  
+  // Static file serving
+  staticPageGenerationTimeout: 120,
 }
 
 export default nextConfig

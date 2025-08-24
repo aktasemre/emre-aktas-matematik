@@ -36,6 +36,7 @@ const Header = () => {
     { href: '/tyt-ayt', label: 'TYT/AYT' },
     { href: '/okul-destek', label: 'Okul Desteği' },
     { href: '/metodoloji', label: 'Metodoloji' },
+    { href: '/blog', label: 'Blog' },
     { href: '/ucretler', label: 'Ücretler' },
     { href: '/referanslar', label: 'Referanslar' },
     { href: '/iletisim', label: 'İletişim' }

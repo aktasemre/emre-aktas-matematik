@@ -17,6 +17,8 @@ export default function Home() {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            quality={85}
           />
         </div>
         
@@ -49,6 +51,8 @@ export default function Home() {
                   alt="Emre Aktaş - Matematik Öğretmeni"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
                 />
               </div>
             </div>
@@ -92,6 +96,9 @@ export default function Home() {
                   alt="LGS Hazırlık"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">LGS Hazırlık</h3>
@@ -107,6 +114,9 @@ export default function Home() {
                   alt="TYT/AYT Hazırlık"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">TYT/AYT Hazırlık</h3>
@@ -122,6 +132,9 @@ export default function Home() {
                   alt="Okula Yardımcı"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Okula Yardımcı</h3>
@@ -146,6 +159,9 @@ export default function Home() {
                   alt="Kişiselleştirilmiş Eğitim"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-lg font-semibold mb-2">Kişiselleştirilmiş</h3>
@@ -158,6 +174,9 @@ export default function Home() {
                   alt="Sistematik Eğitim"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-lg font-semibold mb-2">Sistematik</h3>
@@ -170,6 +189,9 @@ export default function Home() {
                   alt="Pratik Odaklı Eğitim"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-lg font-semibold mb-2">Pratik Odaklı</h3>
@@ -182,6 +204,9 @@ export default function Home() {
                   alt="Başarı Garantili"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-lg font-semibold mb-2">Başarı Garantili</h3>
@@ -203,6 +228,9 @@ export default function Home() {
                   alt="Bireysel Dersler"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Bireysel Dersler</h3>
@@ -220,6 +248,9 @@ export default function Home() {
                   alt="Grup Dersleri"
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={75}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">Grup Dersleri</h3>
@@ -276,6 +307,20 @@ export default function Home() {
               <p className="text-gray-600 mb-4">"Matematikten korkuyordum ama şimdi en sevdiğim ders. Teşekkürler Matematik Akademi!"</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Başakşehir CTA Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-gray-800">Başakşehir'de Matematik Özel Ders</h2>
+          <p className="text-xl mb-8 text-gray-600 max-w-3xl mx-auto">
+            Başakşehir ve çevre mahallelerde evde veya online matematik özel ders hizmeti veriyoruz. 
+            15 yıllık deneyimimle çocuğunuzun matematik başarısını artırıyoruz.
+          </p>
+          <Link href="/basaksehir-matematik-ozel-ders" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2">
+            <span>📍 Başakşehir Özel Ders Detayları</span>
+          </Link>
         </div>
       </section>
 
