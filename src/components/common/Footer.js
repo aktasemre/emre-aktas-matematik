@@ -75,6 +75,12 @@ const Footer = () => {
               <Link href="/hakkimda" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
                 Hakkımda
               </Link>
+              <Link href="/basaksehir-matematik-ozel-ders" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Başakşehir Özel Ders
+              </Link>
+              <Link href="/blog" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
+                Blog
+              </Link>
               <Link href="/ucretler" className="block text-gray-300 hover:text-indigo-400 transition-colors duration-200">
                 Ücretler
               </Link>
@@ -124,8 +130,19 @@ const Footer = () => {
             © {new Date().getFullYear()} Emre Aktaş - Matematik Özel Ders. Tüm hakları saklıdır.
           </p>
           <p className="text-xs lg:text-sm mt-2 text-gray-500">
-            15 yıllık deneyimli matematik öğretmeni - İstanbul'da matematik özel ders hizmeti
+            15 yıllık deneyimli matematik öğretmeni - Başakşehir, Bahçeşehir, Florya ve İstanbul'un tüm ilçelerinde matematik özel ders hizmeti
           </p>
+          <div className="mt-4 text-xs text-gray-600">
+            <Link href="/gizlilik-politikasi" className="hover:text-indigo-400 transition-colors mr-4">
+              Gizlilik Politikası
+            </Link>
+            <Link href="/kullanim-kosullari" className="hover:text-indigo-400 transition-colors mr-4">
+              Kullanım Koşulları
+            </Link>
+            <Link href="/cerez-politikasi" className="hover:text-indigo-400 transition-colors">
+              Çerez Politikası
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

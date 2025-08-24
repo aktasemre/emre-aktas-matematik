@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { CONTACT_INFO } from '@/constants/contact'
+import RelatedLinks from '@/components/common/RelatedLinks'
 
 export default function Home() {
   return (
@@ -323,6 +324,34 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* İlgili Sayfalar */}
+      <RelatedLinks 
+        title="Popüler Sayfalar ve Rehberler"
+        links={[
+          {
+            href: "/blog/basaksehir-lgs-matematik-basari-rehberi",
+            title: "LGS Matematik Başarı Rehberi",
+            description: "2025 LGS matematik hazırlık stratejileri ve çalışma programı. Ücretsiz PDF rehber.",
+            category: "Blog",
+            categoryColor: "bg-blue-100 text-blue-800"
+          },
+          {
+            href: "/basaksehir-matematik-ozel-ders",
+            title: "Başakşehir Matematik Özel Ders",
+            description: "Başakşehir'de evde veya online matematik özel ders. Ücretsiz deneme dersi.",
+            category: "Özel Ders",
+            categoryColor: "bg-green-100 text-green-800"
+          },
+          {
+            href: "/metodoloji",
+            title: "Öğretim Metodolojimiz",
+            description: "15 yıllık deneyimle geliştirilmiş özel matematik öğretim yöntemlerimiz.",
+            category: "Eğitim",
+            categoryColor: "bg-purple-100 text-purple-800"
+          }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="py-16 bg-indigo-900 text-white">

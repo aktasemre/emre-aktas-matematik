@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CONTACT_INFO } from '@/constants/contact'
+import Breadcrumb from '@/components/common/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Başakşehir Matematik Özel Ders | Emre Aktaş (LGS, TYT/AYT)',
@@ -46,6 +47,15 @@ export const metadata: Metadata = {
 export default function BasaksehirMatematikOzelDers() {
   return (
     <main className="min-h-screen">
+      {/* Breadcrumb */}
+      <Breadcrumb 
+        items={[
+          { label: 'Ana Sayfa', href: '/' },
+          { label: 'Matematik', href: '/matematik' },
+          { label: 'Başakşehir Matematik Özel Ders' }
+        ]} 
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white py-16 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
