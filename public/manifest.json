@@ -1,0 +1,35 @@
+{
+  "name": "Matematik Akademi - Emre Aktaş",
+  "short_name": "Matematik Akademi",
+  "description": "Başakşehir'de 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT özel ders",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "tr",
+  "dir": "ltr"
+}

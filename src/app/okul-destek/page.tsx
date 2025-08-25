@@ -189,23 +189,23 @@ export default function OkulDestekPage() {
             <h3 className="text-xl font-bold mb-4 text-blue-800">Lise Konuları</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-bold text-gray-800 mb-2">9. Sınıf</h4>
+                <h4 className="font-bold text-gray-800 mb-2">9. Sınıf (2025-2026)</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Kümeler</li>
-                  <li>• Denklemler ve eşitsizlikler</li>
-                  <li>• Fonksiyonlar</li>
-                  <li>• Üçgenler</li>
-                  <li>• Vektörler</li>
+                  <li>• Mantık (Önermeler, Niceleyiciler)</li>
+                  <li>• Kümeler ve İşlemler</li>
+                  <li>• Denklemler ve Eşitsizlikler</li>
+                  <li>• Üçgenler (Eşlik, Benzerlik, Trigonometri)</li>
+                  <li>• Veri Analizi</li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-gray-800 mb-2">10. Sınıf</h4>
+                <h4 className="font-bold text-gray-800 mb-2">10. Sınıf (2025-2026)</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Fonksiyonlar</li>
-                  <li>• Polinomlar</li>
-                  <li>• İkinci dereceden denklemler</li>
-                  <li>• Dörtgenler</li>
-                  <li>• Çokgenler</li>
+                  <li>• Trigonometrik Oranlar ve Özdeşlikler</li>
+                  <li>• Analitik Geometri</li>
+                  <li>• İstatistiksel Araştırma</li>
+                  <li>• Olasılık</li>
                 </ul>
               </div>
               <div>

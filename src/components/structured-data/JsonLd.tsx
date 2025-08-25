@@ -403,8 +403,92 @@ export default function JsonLd() {
     }
   }
 
+  // Review schema for testimonials
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "EducationalService",
+      "name": "Matematik Akademi - Emre Aktaş"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ayşe Hanım"
+    },
+    "reviewBody": "Oğlum LGS'ye Emre Hoca ile hazırlandı. Başakşehir 4. Etap'ta evimize geliyordu. Çok sabırlı ve ilgili bir öğretmen. Matematik notları 70'lerden 95'lere çıktı. Kesinlikle tavsiye ederim.",
+    "datePublished": "2024-01-15",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Matematik Akademi"
+    }
+  }
+
+  // AggregateRating schema for overall rating
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "AggregateRating",
+    "itemReviewed": {
+      "@type": "EducationalService",
+      "name": "Matematik Akademi - Emre Aktaş"
+    },
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "127",
+    "reviewCount": "98"
+  }
+
+  // Event schema for free trial lessons
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Ücretsiz Matematik Deneme Dersi",
+    "description": "Başakşehir'de ücretsiz matematik deneme dersi. Öğrenci seviye tespiti ve veli görüşmesi.",
+    "startDate": "2024-01-20T10:00:00+03:00",
+    "endDate": "2024-01-20T11:30:00+03:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Başakşehir, İstanbul",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Başakşehir",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      }
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Emre Aktaş",
+      "telephone": "+905424513769",
+      "email": "aktasemre1988@gmail.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2024-01-15T00:00:00+03:00"
+    },
+    "performer": {
+      "@type": "Person",
+      "name": "Emre Aktaş",
+      "jobTitle": "Matematik Öğretmeni",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Matematik Akademi"
+      }
+    }
+  }
+
   // Combine all schemas
-  const allSchemas = [educationalService, localBusiness, faqSchema, courseSchema]
+  const allSchemas = [educationalService, localBusiness, faqSchema, courseSchema, reviewSchema, aggregateRatingSchema, eventSchema]
 
   return (
     <>

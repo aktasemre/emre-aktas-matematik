@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CONTACT_INFO } from '@/constants/contact'
 
 export const metadata: Metadata = {
   title: 'Matematik Eğitimi Blog | Emre Aktaş',

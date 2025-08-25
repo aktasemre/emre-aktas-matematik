@@ -1,3 +1,17 @@
+import withPWA from 'next-pwa'
+import withBundleAnalyzer from '@next/bundle-analyzer'
+
+const pwaConfig = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development'
+})
+
+const bundleAnalyzerConfig = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Next.js teknik verilerini gizleme
@@ -73,4 +87,4 @@ const nextConfig = {
   staticPageGenerationTimeout: 120,
 }
 
-export default nextConfig
+export default bundleAnalyzerConfig(pwaConfig(nextConfig))

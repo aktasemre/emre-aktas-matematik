@@ -7,10 +7,24 @@ import { trackWhatsAppClick, trackPhoneCall } from '@/lib/analytics';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (activeDropdown && !event.target.closest('.dropdown-container')) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeDropdown]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,15 +42,32 @@ const Header = () => {
     trackPhoneCall('header');
   };
 
-  const navItems = [
+  const toggleDropdown = (dropdown) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const mainNavItems = [
     { href: '/', label: 'Ana Sayfa' },
     { href: '/hakkimda', label: 'Hakkımda' },
-    { href: '/matematik', label: 'Matematik' },
-    { href: '/lgs', label: 'LGS Hazırlık' },
-    { href: '/tyt-ayt', label: 'TYT/AYT' },
-    { href: '/okul-destek', label: 'Okul Desteği' },
-    { href: '/metodoloji', label: 'Metodoloji' },
-    { href: '/blog', label: 'Blog' },
+    { 
+      label: 'Hizmetler', 
+      type: 'dropdown',
+      items: [
+        { href: '/matematik', label: 'Matematik' },
+        { href: '/lgs', label: 'LGS Hazırlık' },
+        { href: '/tyt-ayt', label: 'TYT/AYT' },
+        { href: '/okul-destek', label: 'Okul Desteği' }
+      ]
+    },
+    { 
+      label: 'Kaynaklar', 
+      type: 'dropdown',
+      items: [
+        { href: '/metodoloji', label: 'Metodoloji' },
+        { href: '/matematik-ogrenme-merkezi', label: 'Ücretsiz Kaynaklar' },
+        { href: '/blog', label: 'Blog' }
+      ]
+    },
     { href: '/ucretler', label: 'Ücretler' },
     { href: '/referanslar', label: 'Referanslar' },
     { href: '/iletisim', label: 'İletişim' }
@@ -52,15 +83,44 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
+          <nav className="hidden md:flex items-center space-x-6">
+            {mainNavItems.map((item, index) => (
+              <div key={index} className="relative">
+                {item.type === 'dropdown' ? (
+                  <div className="dropdown-container">
+                    <button
+                      onClick={() => toggleDropdown(item.label)}
+                      className="text-gray-700 hover:text-indigo-600 font-medium transition-colors flex items-center gap-1"
+                    >
+                      {item.label}
+                      <svg className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {activeDropdown === item.label && (
+                      <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                        {item.items.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -103,15 +163,47 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
-                >
-                  {item.label}
-                </Link>
+              {mainNavItems.map((item, index) => (
+                <div key={index}>
+                  {item.type === 'dropdown' ? (
+                    <div className="dropdown-container">
+                      <button
+                        onClick={() => toggleDropdown(item.label)}
+                        className="text-gray-700 hover:text-indigo-600 font-medium transition-colors flex items-center justify-between w-full"
+                      >
+                        {item.label}
+                        <svg className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {activeDropdown === item.label && (
+                        <div className="ml-4 mt-2 space-y-2">
+                          {item.items.map((subItem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              href={subItem.href}
+                              onClick={() => {
+                                closeMenu();
+                                setActiveDropdown(null);
+                              }}
+                              className="block text-gray-600 hover:text-indigo-600 transition-colors"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                 <a
