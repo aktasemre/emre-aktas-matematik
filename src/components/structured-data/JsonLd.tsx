@@ -265,17 +265,16 @@ export default function JsonLd() {
     ]
   }
 
-  // LocalBusiness schema for local SEO
-  const localBusiness = {
+  // LocalBusiness Schema - Güçlendirilmiş
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Matematik Akademi - Emre Aktaş",
-    "description": "Başakşehir'de matematik özel ders. 15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT hazırlık.",
+    "alternateName": "Emre Aktaş Matematik Özel Ders",
+    "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile LGS, TYT/AYT ve okula yardımcı matematik özel dersleri. Başakşehir'de premium matematik eğitimi.",
     "url": "https://matematik-akademi.com",
-    "telephone": `+${CONTACT_INFO.PHONE}`,
-    "email": CONTACT_INFO.EMAIL,
-    "image": "https://matematik-akademi.com/LOGO.jpeg",
-    "logo": "https://matematik-akademi.com/LOGO.jpeg",
+    "telephone": "+90 542 451 37 69",
+    "email": "aktasemre1988@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Başakşehir",
@@ -286,36 +285,188 @@ export default function JsonLd() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "41.1257",
-      "longitude": "28.7686"
+      "latitude": 41.0082,
+      "longitude": 28.9784
     },
-    "openingHours": [
-      "Mo-Fr 09:00-21:00",
-      "Sa 09:00-18:00",
-      "Su 10:00-16:00"
-    ],
-    "priceRange": "₺₺₺",
-    "areaServed": [
+    "openingHoursSpecification": [
       {
-        "@type": "Place",
-        "name": "Başakşehir, İstanbul"
-      },
-      {
-        "@type": "Place",
-        "name": "Bahçeşehir, İstanbul"
-      },
-      {
-        "@type": "Place",
-        "name": "Kayaşehir, İstanbul"
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "127",
-      "bestRating": "5"
+    "priceRange": "₺₺₺",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "currenciesAccepted": "TRY",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Başakşehir"
+      },
+      {
+        "@type": "City", 
+        "name": "Bahçeşehir"
+      },
+      {
+        "@type": "City",
+        "name": "Florya"
+      },
+      {
+        "@type": "City",
+        "name": "Küçükçekmece"
+      },
+      {
+        "@type": "City",
+        "name": "Esenler"
+      },
+      {
+        "@type": "City",
+        "name": "Sultangazi"
+      },
+      {
+        "@type": "City",
+        "name": "Arnavutköy"
+      },
+      {
+        "@type": "City",
+        "name": "Ataköy"
+      },
+      {
+        "@type": "City",
+        "name": "Bakırköy"
+      },
+      {
+        "@type": "City",
+        "name": "Avcılar"
+      }
+    ],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.0082,
+        "longitude": 28.9784
+      },
+      "geoRadius": "50000"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Matematik Özel Ders Hizmetleri",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "LGS Matematik Özel Ders",
+            "description": "LGS sınavına hazırlık matematik özel dersleri"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "TYT AYT Matematik Özel Ders",
+            "description": "Üniversite sınavına hazırlık matematik özel dersleri"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Okula Yardımcı Matematik",
+            "description": "9. ve 10. sınıf okula yardımcı matematik özel dersleri"
+          }
+        }
+      ]
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Emre Aktaş",
+      "jobTitle": "Matematik Öğretmeni",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Boğaziçi Üniversitesi"
+      },
+      "knowsAbout": ["Matematik", "Eğitim", "LGS", "TYT", "AYT", "Özel Ders"],
+      "description": "15 yıllık deneyimli matematik öğretmeni"
+    },
+    "foundingDate": "2010",
+    "numberOfEmployees": "1",
+    "slogan": "Matematik Başarısı İçin Profesyonel Çözüm",
+    "brand": {
+      "@type": "Brand",
+      "name": "Matematik Akademi"
+    },
+    "sameAs": [
+      "https://www.facebook.com/matematikakademi",
+      "https://www.instagram.com/matematikakademi",
+      "https://www.youtube.com/@matematikakademi"
+    ]
+  };
+
+  // Organization Schema - Ek SEO gücü
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Matematik Akademi",
+    "alternateName": "Emre Aktaş Matematik Özel Ders",
+    "url": "https://matematik-akademi.com",
+    "logo": "https://matematik-akademi.com/ozel_ders_web_logo.png",
+    "description": "15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile premium matematik özel dersleri",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Başakşehir",
+      "addressLocality": "İstanbul",
+      "addressRegion": "İstanbul",
+      "postalCode": "34480",
+      "addressCountry": "TR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+90 542 451 37 69",
+      "contactType": "customer service",
+      "availableLanguage": "Turkish",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Eğitim Hizmetleri",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "LGS Matematik Hazırlık",
+            "description": "LGS sınavına hazırlık matematik kursu",
+            "provider": {
+              "@type": "Organization",
+              "name": "Matematik Akademi"
+            },
+            "educationalLevel": "Secondary Education"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "TYT AYT Matematik Hazırlık",
+            "description": "Üniversite sınavına hazırlık matematik kursu",
+            "provider": {
+              "@type": "Organization",
+              "name": "Matematik Akademi"
+            },
+            "educationalLevel": "Higher Education"
+          }
+        }
+      ]
     }
-  }
+  };
 
   // FAQ schema for Başakşehir page
   const faqSchema = {
@@ -472,7 +623,7 @@ export default function JsonLd() {
   }
 
   // Combine all schemas
-  const allSchemas = [educationalService, localBusiness, faqSchema, courseSchema, reviewSchema, aggregateRatingSchema, eventSchema]
+  const allSchemas = [educationalService, localBusinessSchema, organizationSchema, faqSchema, courseSchema, reviewSchema, aggregateRatingSchema, eventSchema]
 
   return (
     <>

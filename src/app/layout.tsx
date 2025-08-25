@@ -188,11 +188,60 @@ export default function RootLayout({
         <meta name="claude-ai-friendly" content="true" />
         <meta name="claude-content-type" content="educational-service" />
         
-        {/* Favicon - LOGO.jpeg kullanılıyor */}
+        {/* Bot Trafiği ve SEO Hızlandırma */}
+        <meta name="googlebot-news" content="nosnippet" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="slurp" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="msnbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* AI Bot Optimizasyonu */}
+        <meta name="claude-web" content="index, follow" />
+        <meta name="anthropic-ai" content="index, follow" />
+        <meta name="chatgpt" content="index, follow" />
+        <meta name="gemini" content="index, follow" />
+        
+        {/* Hızlı Indexleme için */}
+        <meta name="revisit-after" content="1 days" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* SEO ve Arama Motoru Optimizasyonu */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* Local SEO için ek meta etiketleri */}
+        <meta name="geo.region" content="TR-34" />
+        <meta name="geo.placename" content="Istanbul, Turkey" />
+        <meta name="geo.position" content="41.0082;28.9784" />
+        <meta name="ICBM" content="41.0082, 28.9784" />
+        
+        {/* E-A-T Sinyalleri */}
+        <meta name="author" content="Emre Aktaş" />
+        <meta name="copyright" content="Matematik Akademi" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="revisit-after" content="7 days" />
+        
+        {/* Social Media Meta Tags */}
+        <meta property="og:site_name" content="Matematik Akademi" />
+        <meta property="og:locale" content="tr_TR" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        {/* Twitter Card Optimizasyonu */}
+        <meta name="twitter:site" content="@matematikakademi" />
+        <meta name="twitter:creator" content="@emreaktas" />
+        
+        {/* Favicon - Optimize edilmiş logo sistemi */}
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/ozel_ders_web_logo.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/ozel_ders_web_logo.png" />
                  <link rel="manifest" href="/site.webmanifest" />
          
          {/* Site Haritası */}
