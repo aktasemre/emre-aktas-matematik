@@ -148,6 +148,8 @@ const Header = () => {
           <button
             onClick={toggleMenu}
             className="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none"
+            aria-label="Menüyü aç/kapat"
+            aria-expanded={isMenuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (

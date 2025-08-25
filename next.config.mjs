@@ -72,10 +72,15 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // Performans optimizasyonları
+
+  
+  // Modern JavaScript için
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['@next/font'],
   },
+  
+
   
   // Compression
   compress: true,

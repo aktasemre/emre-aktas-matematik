@@ -12,15 +12,16 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white py-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/hero-math.jpg"
-            alt="Matematik Eğitimi"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-            quality={85}
-          />
+                          <Image
+                  src="/images/hero-math.jpg"
+                  alt="Matematik Eğitimi"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="100vw"
+                  quality={75}
+                  fetchPriority="high"
+                />
         </div>
         
         <div className="relative container mx-auto px-4">
@@ -53,7 +54,8 @@ export default function Home() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  quality={85}
+                  quality={75}
+                  fetchPriority="high"
                 />
               </div>
             </div>
@@ -99,7 +101,7 @@ export default function Home() {
                   className="object-cover"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  quality={75}
+                  quality={65}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-indigo-600">LGS Hazırlık</h3>
