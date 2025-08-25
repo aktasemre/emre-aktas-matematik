@@ -31,7 +31,7 @@ export default function OkulDestekPage() {
                   Okula Yardımcı Matematik
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                  Ortaokul ve lise matematik desteği. Okul müfredatına uyumlu, ödev takipli matematik özel dersleri.
+                  Ortaokul ve lise matematik desteği. MEB 2025-2026 müfredatına uyumlu, ödev takipli matematik özel dersleri.
                 </p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function OkulDestekPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4 text-green-800">Ortaokul Matematik</h3>
             <p className="text-gray-700 mb-4">
-              5-8. sınıf öğrencileri için okul müfredatına uyumlu matematik desteği.
+              5-8. sınıf öğrencileri için MEB 2025-2026 müfredatına uyumlu matematik desteği.
             </p>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
@@ -107,12 +107,12 @@ export default function OkulDestekPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4 text-blue-800">Lise Matematik</h3>
             <p className="text-gray-700 mb-4">
-              9-12. sınıf öğrencileri için kapsamlı matematik eğitimi ve destek.
+              9-12. sınıf öğrencileri için MEB 2025-2026 müfredatına uyumlu kapsamlı matematik eğitimi ve destek.
             </p>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
                 <span className="text-green-500 mr-3 mt-1">✓</span>
-                <span>Lise müfredatı takibi</span>
+                <span>MEB 2025-2026 müfredatı takibi</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-500 mr-3 mt-1">✓</span>
@@ -137,7 +137,7 @@ export default function OkulDestekPage() {
 
       {/* Konu Detayları */}
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Matematik Konuları</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">MEB 2025-2026 Matematik Müfredatı</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-4 text-green-800">Ortaokul Konuları</h3>
@@ -188,26 +188,98 @@ export default function OkulDestekPage() {
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl">
             <h3 className="text-xl font-bold mb-4 text-blue-800">Lise Konuları</h3>
             <div className="space-y-4">
-              <div>
-                <h4 className="font-bold text-gray-800 mb-2">9. Sınıf (2025-2026)</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Mantık (Önermeler, Niceleyiciler)</li>
-                  <li>• Kümeler ve İşlemler</li>
-                  <li>• Denklemler ve Eşitsizlikler</li>
-                  <li>• Üçgenler (Eşlik, Benzerlik, Trigonometri)</li>
-                  <li>• Veri Analizi</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-800 mb-2">10. Sınıf (2025-2026)</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Fonksiyonlar</li>
-                  <li>• Trigonometrik Oranlar ve Özdeşlikler</li>
-                  <li>• Analitik Geometri</li>
-                  <li>• İstatistiksel Araştırma</li>
-                  <li>• Olasılık</li>
-                </ul>
-              </div>
+                                             <div>
+                  <h4 className="font-bold text-gray-800 mb-2">9. Sınıf (2025-2026)</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Sayılar</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Gerçek sayıların üslü ve köklü gösterimleri</li>
+                        <li>• Gerçek sayı aralıkları ve işlemler</li>
+                        <li>• Sayı kümeleri ve işlem özellikleri</li>
+                        <li>• İki kare farkı ve tamkare özdeşlikleri</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Fonksiyonlar</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Doğrusal fonksiyonlar ve mutlak değer</li>
+                        <li>• Doğrusal denklem ve eşitsizlikler</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Algoritma ve Mantık</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Algoritma temelli problemler</li>
+                        <li>• Mantık bağlaçları ve niceleyiciler</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Geometri</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Üçgenlerde açı ve kenar özellikleri</li>
+                        <li>• Geometrik dönüşümler</li>
+                        <li>• Üçgenlerde eşlik ve benzerlik</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">İstatistik ve Olasılık</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• İstatistiksel araştırma süreci</li>
+                        <li>• Deneysel ve teorik olasılık</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-800 mb-2">10. Sınıf (2025-2026)</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Sayılar</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• EBOB ve EKOK</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Fonksiyonlar</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Fonksiyonlar</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Algoritma ve Sayma</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Sayma stratejileri</li>
+                        <li>• Cebirsel ve fonksiyonel algoritmalar</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Trigonometri</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Dik üçgende trigonometrik oranlar</li>
+                        <li>• Trigonometrik özdeşlikler</li>
+                        <li>• Üçgende yardımcı elemanlar</li>
+                        <li>• Üçgende alan</li>
+                        <li>• Sinüs ve kosinüs teoremleri</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">Analitik Geometri</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Analitik geometri</li>
+                        <li>• İki nokta arası uzaklık</li>
+                        <li>• Doğru parçası bölme</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-700 text-xs uppercase tracking-wide mb-1">İstatistik ve Olasılık</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• İstatistiksel araştırma süreci</li>
+                        <li>• Olasılık</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               <div>
                 <h4 className="font-bold text-gray-800 mb-2">11. Sınıf</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -248,7 +320,7 @@ export default function OkulDestekPage() {
             <div className="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
             <h3 className="text-xl font-bold mb-3 text-blue-800">Müfredat Takibi</h3>
             <p className="text-gray-700">
-              Okul müfredatına uyumlu, okul dersleriyle paralel eğitim veririz.
+              MEB 2025-2026 müfredatına uyumlu, okul dersleriyle paralel eğitim veririz.
             </p>
           </div>
           <div className="text-center">
@@ -308,9 +380,9 @@ export default function OkulDestekPage() {
       {/* CTA Section */}
       <div className="text-center bg-gradient-to-r from-green-600 to-blue-700 text-white p-8 rounded-xl">
         <h2 className="text-3xl font-bold mb-4">Okul Başarınızı Artırın!</h2>
-        <p className="text-xl mb-6 text-green-100">
-          Emre Aktaş ile okula yardımcı matematik dersleri alarak notlarınızı yükseltin.
-        </p>
+                 <p className="text-xl mb-6 text-green-100">
+           Emre Aktaş ile MEB 2025-2026 müfredatına uyumlu matematik dersleri alarak notlarınızı yükseltin.
+         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
             href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent('Okula yardımcı matematik dersleri hakkında bilgi almak istiyorum')}`}
