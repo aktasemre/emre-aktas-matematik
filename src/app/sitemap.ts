@@ -89,18 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     // AI arama motorları için ek sayfalar
-    {
-      url: `${baseUrl}/sitemap.xml`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/robots.txt`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
+
     {
       url: `${baseUrl}/gizlilik-politikasi`,
       lastModified: new Date(),
