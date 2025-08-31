@@ -219,30 +219,65 @@ export default function MatematikOgrenmeMerkezi() {
               </div>
             </div>
 
-            {/* Test Edilmiş LGS Örnek Soruları */}
+            {/* EBA LGS Örnek Soru PDF'leri */}
             <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
               <h3 className="text-xl font-bold mb-6 text-gray-800 text-center">
-                ✅ Test Edilmiş LGS Örnek Soruları
+                📄 EBA LGS Örnek Soru PDF'leri
               </h3>
               <p className="text-center text-gray-600 mb-6">
-                Aşağıdaki linkler test edilmiş ve çalıştığı doğrulanmıştır.
+                MEB EBA platformundan direkt PDF indirme linkleri. Test edilmiş ve çalıştığı doğrulanmıştır.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1425" target="_blank" rel="noopener noreferrer" className="bg-purple-50 p-6 rounded-lg hover:bg-purple-100 transition-colors text-center">
-                  <div className="text-3xl mb-3">📚</div>
-                  <h4 className="font-semibold text-purple-800 mb-2">Üçüncü Örnek Soru Kitapçığı</h4>
-                  <p className="text-sm text-purple-600">Sözel ve Sayısal Bölüm Örnek Soruları</p>
-                </a>
-                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1424" target="_blank" rel="noopener noreferrer" className="bg-indigo-50 p-6 rounded-lg hover:bg-indigo-100 transition-colors text-center">
-                  <div className="text-3xl mb-3">📖</div>
-                  <h4 className="font-semibold text-indigo-800 mb-2">İkinci Örnek Soru Kitapçığı</h4>
-                  <p className="text-sm text-indigo-600">LGS Hazırlık Örnek Soruları</p>
-                </a>
-                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1423" target="_blank" rel="noopener noreferrer" className="bg-teal-50 p-6 rounded-lg hover:bg-teal-100 transition-colors text-center">
-                  <div className="text-3xl mb-3">📝</div>
-                  <h4 className="font-semibold text-teal-800 mb-2">Birinci Örnek Soru Kitapçığı</h4>
-                  <p className="text-sm text-teal-600">LGS Örnek Soruları</p>
-                </a>
+              
+              {/* 2025 Yılı */}
+              <div className="mb-8">
+                <h4 className="text-lg font-semibold mb-4 text-blue-800 flex items-center gap-2">
+                  <span className="bg-blue-100 px-3 py-1 rounded-full text-sm">2025</span>
+                  LGS Örnek Soruları
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <a href="https://cdn.eba.gov.tr/yardimcikaynaklar/2025/04/ornek/sayisall.pdf" target="_blank" rel="noopener noreferrer" className="bg-red-50 p-4 rounded-lg hover:bg-red-100 transition-colors text-center border-2 border-red-200">
+                    <div className="text-2xl mb-2">🔢</div>
+                    <h5 className="font-semibold text-red-800 mb-1">Nisan 2025 - Sayısal Bölüm</h5>
+                    <p className="text-xs text-red-600">PDF İndir</p>
+                  </a>
+                  <a href="https://cdn.eba.gov.tr/yardimcikaynaklar/2025/04/ornek/sozel.pdf" target="_blank" rel="noopener noreferrer" className="bg-green-50 p-4 rounded-lg hover:bg-green-100 transition-colors text-center border-2 border-green-200">
+                    <div className="text-2xl mb-2">📝</div>
+                    <h5 className="font-semibold text-green-800 mb-1">Nisan 2025 - Sözel Bölüm</h5>
+                    <p className="text-xs text-green-600">PDF İndir</p>
+                  </a>
+                  <a href="https://cdn.eba.gov.tr/yardimcikaynaklar/2025/03/ornek/sayisall.pdf" target="_blank" rel="noopener noreferrer" className="bg-red-50 p-4 rounded-lg hover:bg-red-100 transition-colors text-center border-2 border-red-200">
+                    <div className="text-2xl mb-2">🔢</div>
+                    <h5 className="font-semibold text-red-800 mb-1">Mart 2025 - Sayısal Bölüm</h5>
+                    <p className="text-xs text-red-600">PDF İndir</p>
+                  </a>
+                  <a href="https://cdn.eba.gov.tr/yardimcikaynaklar/2025/03/ornek/sozel.pdf" target="_blank" rel="noopener noreferrer" className="bg-green-50 p-4 rounded-lg hover:bg-green-100 transition-colors text-center border-2 border-green-200">
+                    <div className="text-2xl mb-2">📝</div>
+                    <h5 className="font-semibold text-green-800 mb-1">Mart 2025 - Sözel Bölüm</h5>
+                    <p className="text-xs text-green-600">PDF İndir</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* ODSGM Linkleri */}
+              <div className="border-t pt-6">
+                <h4 className="text-lg font-semibold mb-4 text-purple-800">📋 ODSGM Örnek Sorular</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1425" target="_blank" rel="noopener noreferrer" className="bg-purple-50 p-4 rounded-lg hover:bg-purple-100 transition-colors text-center">
+                    <div className="text-2xl mb-2">📚</div>
+                    <h5 className="font-semibold text-purple-800 mb-1">Üçüncü Örnek Soru Kitapçığı</h5>
+                    <p className="text-xs text-purple-600">Sözel ve Sayısal Bölüm</p>
+                  </a>
+                  <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1424" target="_blank" rel="noopener noreferrer" className="bg-indigo-50 p-4 rounded-lg hover:bg-indigo-100 transition-colors text-center">
+                    <div className="text-2xl mb-2">📖</div>
+                    <h5 className="font-semibold text-indigo-800 mb-1">İkinci Örnek Soru Kitapçığı</h5>
+                    <p className="text-xs text-indigo-600">LGS Hazırlık Örnek Soruları</p>
+                  </a>
+                  <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1423" target="_blank" rel="noopener noreferrer" className="bg-teal-50 p-4 rounded-lg hover:bg-teal-100 transition-colors text-center">
+                    <div className="text-2xl mb-2">📝</div>
+                    <h5 className="font-semibold text-teal-800 mb-1">Birinci Örnek Soru Kitapçığı</h5>
+                    <p className="text-xs text-teal-600">LGS Örnek Soruları</p>
+                  </a>
+                </div>
               </div>
             </div>
 
