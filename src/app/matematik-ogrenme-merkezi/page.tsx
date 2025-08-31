@@ -205,16 +205,21 @@ export default function MatematikOgrenmeMerkezi() {
               <h3 className="text-xl font-bold mb-6 text-gray-800 text-center">
                 🔗 MEB Resmi Kaynakları
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="https://odsgm.meb.gov.tr" target="_blank" rel="noopener noreferrer" className="bg-blue-50 p-6 rounded-lg hover:bg-blue-100 transition-colors text-center">
                   <div className="text-3xl mb-3">🏛️</div>
                   <h4 className="font-semibold text-blue-800 mb-2">ODSGM Ana Sayfası</h4>
                   <p className="text-sm text-blue-600">MEB Ölçme Değerlendirme ve Sınav Hizmetleri</p>
                 </a>
-                <a href="https://www.meb.gov.tr/lgskapsamindakimerkezisinavailiskinorneksorularerisimeacildi/haber/27799/tr" target="_blank" rel="noopener noreferrer" className="bg-green-50 p-6 rounded-lg hover:bg-green-100 transition-colors text-center">
+                <a href="https://www.meb.gov.tr/lgs-merkez-sinavina-yonelik-yeni-ornek-sorulari-yayimlandi/haber/35444/tr" target="_blank" rel="noopener noreferrer" className="bg-green-50 p-6 rounded-lg hover:bg-green-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">🆕</div>
+                  <h4 className="font-semibold text-green-800 mb-2">2024-2025 LGS Örnek Soruları</h4>
+                  <p className="text-sm text-green-600">En güncel LGS örnek soruları duyurusu</p>
+                </a>
+                <a href="https://www.meb.gov.tr/lgskapsamindakimerkezisinavailiskinorneksorularerisimeacildi/haber/27799/tr" target="_blank" rel="noopener noreferrer" className="bg-purple-50 p-6 rounded-lg hover:bg-purple-100 transition-colors text-center">
                   <div className="text-3xl mb-3">📋</div>
-                  <h4 className="font-semibold text-green-800 mb-2">LGS Örnek Sorular Duyurusu</h4>
-                  <p className="text-sm text-green-600">MEB'in resmi LGS örnek soru duyurusu</p>
+                  <h4 className="font-semibold text-purple-800 mb-2">LGS Örnek Sorular Duyurusu</h4>
+                  <p className="text-sm text-purple-600">MEB'in resmi LGS örnek soru duyurusu</p>
                 </a>
               </div>
             </div>
@@ -281,6 +286,28 @@ export default function MatematikOgrenmeMerkezi() {
               </div>
             </div>
 
+            {/* Popüler Eğitim Siteleri */}
+            <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-800 text-center">
+                🌟 Popüler Eğitim Siteleri
+              </h3>
+              <p className="text-center text-gray-600 mb-6">
+                Bu siteler MEB LGS örnek sorularını organize eder ve güncel linkleri toplar.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://kerimhoca.com/lgs" target="_blank" rel="noopener noreferrer" className="bg-orange-50 p-6 rounded-lg hover:bg-orange-100 transition-colors text-center border-2 border-orange-200">
+                  <div className="text-3xl mb-3">👨‍🏫</div>
+                  <h4 className="font-semibold text-orange-800 mb-2">Kerimhoca.com</h4>
+                  <p className="text-sm text-orange-600">LGS hazırlık ve örnek sorular</p>
+                </a>
+                <a href="https://matematikciler.com/lgs-ornek-sorular" target="_blank" rel="noopener noreferrer" className="bg-cyan-50 p-6 rounded-lg hover:bg-cyan-100 transition-colors text-center border-2 border-cyan-200">
+                  <div className="text-3xl mb-3">📚</div>
+                  <h4 className="font-semibold text-cyan-800 mb-2">Matematikciler.com</h4>
+                  <p className="text-sm text-cyan-600">Matematik odaklı LGS kaynakları</p>
+                </a>
+              </div>
+            </div>
+
             {/* Bilgilendirme */}
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
               <div className="flex items-start">
@@ -289,8 +316,8 @@ export default function MatematikOgrenmeMerkezi() {
                   <h4 className="text-yellow-800 font-semibold mb-2">Önemli Bilgi</h4>
                   <p className="text-yellow-700 text-sm">
                     MEB'in örnek soru linkleri sürekli güncellenmektedir. En güncel örnek sorulara 
-                    erişmek için yukarıdaki "LGS Örnek Sorular" linkini kullanarak MEB'in resmi 
-                    sayfasından aylık örnek soruları indirebilirsiniz.
+                    erişmek için yukarıdaki MEB resmi linklerini veya popüler eğitim sitelerini 
+                    kullanarak aylık örnek soruları indirebilirsiniz.
                   </p>
                 </div>
               </div>
