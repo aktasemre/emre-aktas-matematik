@@ -19,7 +19,7 @@ export default function LgsPage() {
         <div className="relative mb-8">
           <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/classroom.jpg"
+              src="/images/math-tutoring-2.jpg"
               alt="LGS Hazırlık - Matematik Eğitimi"
               fill
               className="object-cover"
@@ -66,7 +66,7 @@ export default function LgsPage() {
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/images/math-books.jpg"
+                src="/images/math-tutoring-3.jpg"
                 alt="LGS Program İçeriği"
                 fill
                 className="object-cover"

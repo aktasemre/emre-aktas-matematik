@@ -49,7 +49,7 @@ export default function Home() {
             <div className="hidden lg:block">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/teacher-student.jpg"
+                  src="/images/math-tutoring-3.jpg"
                   alt="Emre Aktaş - Matematik Öğretmeni"
                   fill
                   className="object-cover"
@@ -95,7 +95,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/classroom.jpg"
+                  src="/images/math-tutoring-1.jpg"
                   alt="LGS Hazırlık"
                   fill
                   className="object-cover"
@@ -113,7 +113,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/math-books.jpg"
+                  src="/images/math-tutoring-2.jpg"
                   alt="TYT/AYT Hazırlık"
                   fill
                   className="object-cover"
@@ -173,7 +173,7 @@ export default function Home() {
             <div className="text-center">
               <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/math-books.jpg"
+                  src="/images/math-tutoring-2.jpg"
                   alt="Sistematik Eğitim"
                   fill
                   className="object-cover"
@@ -227,7 +227,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/one-on-one-tutoring.jpg"
+                  src="/images/math-tutoring-4.jpg"
                   alt="Bireysel Dersler"
                   fill
                   className="object-cover"
@@ -247,7 +247,7 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/classroom.jpg"
+                  src="/images/math-tutoring-1.jpg"
                   alt="Grup Dersleri"
                   fill
                   className="object-cover"

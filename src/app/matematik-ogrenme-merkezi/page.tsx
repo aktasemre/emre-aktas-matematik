@@ -188,6 +188,82 @@ export default function MatematikOgrenmeMerkezi() {
         </div>
       </section>
 
+      {/* MEB LGS Örnek Soruları */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+              📋 MEB LGS Örnek Soruları
+            </h2>
+            <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+              MEB tarafından yayınlanan resmi LGS örnek soruları. Aşağıdaki linklerden 
+              MEB'in resmi sayfasına giderek güncel örnek soruları indirebilirsiniz.
+            </p>
+            
+            {/* MEB Ana Linkler */}
+            <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-800 text-center">
+                🔗 MEB Resmi Kaynakları
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://odsgm.meb.gov.tr" target="_blank" rel="noopener noreferrer" className="bg-blue-50 p-6 rounded-lg hover:bg-blue-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">🏛️</div>
+                  <h4 className="font-semibold text-blue-800 mb-2">ODSGM Ana Sayfası</h4>
+                  <p className="text-sm text-blue-600">MEB Ölçme Değerlendirme ve Sınav Hizmetleri</p>
+                </a>
+                <a href="https://www.meb.gov.tr/lgskapsamindakimerkezisinavailiskinorneksorularerisimeacildi/haber/27799/tr" target="_blank" rel="noopener noreferrer" className="bg-green-50 p-6 rounded-lg hover:bg-green-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">📋</div>
+                  <h4 className="font-semibold text-green-800 mb-2">LGS Örnek Sorular Duyurusu</h4>
+                  <p className="text-sm text-green-600">MEB'in resmi LGS örnek soru duyurusu</p>
+                </a>
+              </div>
+            </div>
+
+            {/* Test Edilmiş LGS Örnek Soruları */}
+            <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-800 text-center">
+                ✅ Test Edilmiş LGS Örnek Soruları
+              </h3>
+              <p className="text-center text-gray-600 mb-6">
+                Aşağıdaki linkler test edilmiş ve çalıştığı doğrulanmıştır.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1425" target="_blank" rel="noopener noreferrer" className="bg-purple-50 p-6 rounded-lg hover:bg-purple-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">📚</div>
+                  <h4 className="font-semibold text-purple-800 mb-2">Üçüncü Örnek Soru Kitapçığı</h4>
+                  <p className="text-sm text-purple-600">Sözel ve Sayısal Bölüm Örnek Soruları</p>
+                </a>
+                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1424" target="_blank" rel="noopener noreferrer" className="bg-indigo-50 p-6 rounded-lg hover:bg-indigo-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">📖</div>
+                  <h4 className="font-semibold text-indigo-800 mb-2">İkinci Örnek Soru Kitapçığı</h4>
+                  <p className="text-sm text-indigo-600">LGS Hazırlık Örnek Soruları</p>
+                </a>
+                <a href="https://odsgm.meb.gov.tr/www/ornek-sorular/icerik/1423" target="_blank" rel="noopener noreferrer" className="bg-teal-50 p-6 rounded-lg hover:bg-teal-100 transition-colors text-center">
+                  <div className="text-3xl mb-3">📝</div>
+                  <h4 className="font-semibold text-teal-800 mb-2">Birinci Örnek Soru Kitapçığı</h4>
+                  <p className="text-sm text-teal-600">LGS Örnek Soruları</p>
+                </a>
+              </div>
+            </div>
+
+            {/* Bilgilendirme */}
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+              <div className="flex items-start">
+                <div className="text-yellow-400 text-2xl mr-3">⚠️</div>
+                <div>
+                  <h4 className="text-yellow-800 font-semibold mb-2">Önemli Bilgi</h4>
+                  <p className="text-yellow-700 text-sm">
+                    MEB'in örnek soru linkleri sürekli güncellenmektedir. En güncel örnek sorulara 
+                    erişmek için yukarıdaki "LGS Örnek Sorular" linkini kullanarak MEB'in resmi 
+                    sayfasından aylık örnek soruları indirebilirsiniz.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Video Dersler */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">

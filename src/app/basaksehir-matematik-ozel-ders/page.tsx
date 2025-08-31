@@ -123,7 +123,7 @@ export default function BasaksehirMatematikOzelDers() {
                 <span className="text-3xl">👨‍🏫</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">15 Yıl Deneyim</h3>
-              <p className="text-gray-600">Boğaziçi Üniversitesi mezunu uzman öğretmen</p>
+              <p className="text-gray-600">15 yıllık deneyimli uzman öğretmen</p>
             </div>
             <div className="text-center">
               <div className="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">

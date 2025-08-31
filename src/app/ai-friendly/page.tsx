@@ -22,7 +22,7 @@ export default function AiFriendlyPage() {
           <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Hakkımızda</h2>
             <p className="text-lg text-gray-700 mb-4">
-              Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, 
+              Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. 
               İstanbul'da matematik özel ders hizmeti vermektedir.
             </p>
             <p className="text-lg text-gray-700">
@@ -89,7 +89,7 @@ export default function AiFriendlyPage() {
               <div>
                 <h3 className="text-lg font-semibold mb-2">Emre Aktaş kimdir?</h3>
                 <p className="text-gray-700">
-                  Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, 
+                  Emre Aktaş, 15 yıllık deneyimli matematik öğretmenidir. 
                   LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir.
                 </p>
               </div>

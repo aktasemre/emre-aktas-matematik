@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     'özel ders fiyatları İstanbul',
     'matematik özel ders ücreti İstanbul',
     '15 yıllık deneyim matematik öğretmeni',
-    'Boğaziçi üniversitesi matematik öğretmeni',
+    'deneyimli matematik öğretmeni',
     'premium matematik özel ders İstanbul',
     'kaliteli matematik eğitimi İstanbul',
     'MEB 2025-2026 matematik müfredatı',
@@ -174,7 +174,7 @@ export default function RootLayout({
         <meta name="success-rate" content="98%" />
         <meta name="target-audience" content="students, parents, LGS, TYT, AYT" />
         <meta name="teaching-methods" content="personalized, interactive, problem-solving" />
-        <meta name="qualifications" content="mathematics teacher, 15 years experience, Boğaziçi University" />
+        <meta name="qualifications" content="mathematics teacher, 15 years experience" />
         <meta name="service-areas" content="Başakşehir, Bahçeşehir, Florya, Küçükçekmece, Esenler, Sultangazi, Arnavutköy, Ataköy, Bakırköy, Avcılar" />
         <meta name="contact-info" content="Phone: +90 542 451 37 69, Email: aktasemre1988@gmail.com" />
         <meta name="brand-name" content="Matematik Akademi" />

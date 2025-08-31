@@ -15,7 +15,7 @@ export default function IletisimPage() {
       <section className="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/teacher-student.jpg"
+            src="/images/math-tutoring-5.jpg"
             alt="İletişim - Emre Aktaş"
             fill
             className="object-cover"
@@ -103,7 +103,7 @@ export default function IletisimPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/classroom.jpg"
+                  src="/images/math-tutoring-1.jpg"
                   alt="Hizmet Bölgeleri - İstanbul"
                   fill
                   className="object-cover"

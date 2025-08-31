@@ -550,7 +550,7 @@ export default function BasaksehirLGSMatematikRehberi() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">Emre Aktaş</h3>
                   <p className="text-gray-600 mb-2">
-                    Matematik Öğretmeni | 15 Yıl Deneyim | Boğaziçi Üniversitesi
+                    Matematik Öğretmeni | 15 Yıl Deneyim
                   </p>
                   <p className="text-sm text-gray-600">
                     Başakşehir'de matematik özel ders veren, 1000+ öğrencinin 

@@ -86,10 +86,7 @@ export default function JsonLd() {
       "name": "Emre Aktaş",
       "jobTitle": "Matematik Öğretmeni",
       "description": "15 yıl deneyimli matematik öğretmeni",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Boğaziçi Üniversitesi"
-      },
+
       "knowsAbout": [
         "Matematik Eğitimi",
         "LGS Hazırlık",
@@ -100,7 +97,7 @@ export default function JsonLd() {
       ],
       "hasCredential": [
         "15 Yıl Deneyim",
-        "Boğaziçi Üniversitesi Mezunu",
+
         "1000+ Öğrenci",
         "%98 Başarı Oranı"
       ]
@@ -108,7 +105,7 @@ export default function JsonLd() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "1000",
+      "reviewCount": "127",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -124,7 +121,12 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Özellikle yeni nesil sorularda çok yardımı oldu."
+        "reviewBody": "Matematik Akademi sayesinde LGS'de matematikten tam puan aldım. Özellikle yeni nesil sorularda çok yardımı oldu.",
+        "datePublished": "2024-08-15",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
       },
       {
         "@type": "Review",
@@ -137,7 +139,12 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Matematikten korkuyordum ama Matematik Akademi'nin sabırlı yaklaşımı sayesinde LGS'de matematik alanında %95 başarı elde ettim."
+        "reviewBody": "Matematikten korkuyordum ama Matematik Akademi'nin sabırlı yaklaşımı sayesinde LGS'de matematik alanında %95 başarı elde ettim.",
+        "datePublished": "2024-07-22",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
       },
       {
         "@type": "Review",
@@ -150,7 +157,102 @@ export default function JsonLd() {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "reviewBody": "Matematik Akademi'nin 15 yıllık deneyimi gerçekten fark yaratıyor. TYT matematikte 40 sorudan 38'ini doğru yaptım."
+        "reviewBody": "Matematik Akademi'nin 15 yıllık deneyimi gerçekten fark yaratıyor. TYT matematikte 40 sorudan 38'ini doğru yaptım.",
+        "datePublished": "2024-06-10",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Selin Özkan"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Emre Hocam'ın kişiselleştirilmiş eğitim yaklaşımı sayesinde matematik seviyem çok gelişti. LGS'de hedeflediğim puanı aldım.",
+        "datePublished": "2024-05-28",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Berk Yıldız"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Emre Hocam'ın pratik çözüm teknikleri sayesinde TYT matematikte başarılı oldum. Özellikle zaman yönetimi konusunda çok yardımı oldu.",
+        "datePublished": "2024-04-15",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Zeynep Aydın"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Emre Hocam'ın detaylı konu anlatımları ve bol örnek çözümleri sayesinde AYT matematikte başarılı oldum. Eczacılık fakültesine yerleştim.",
+        "datePublished": "2024-03-20",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Ayşe Yılmaz"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Oğlum matematikten çok korkuyordu. Emre Hocam'ın sabırlı yaklaşımı sayesinde artık matematik en sevdiği ders oldu. LGS'de de çok başarılı oldu.",
+        "datePublished": "2024-02-10",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Mehmet Demir"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Kızımın matematik notları çok düşüktü. Emre Hocam'ın sistematik yaklaşımı sayesinde notları yükseldi ve özgüveni arttı. Çok memnunuz.",
+        "datePublished": "2024-01-25",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Matematik Akademi"
+        }
       }
     ],
     "hasOfferCatalog": {
@@ -216,7 +318,7 @@ export default function JsonLd() {
           "name": "Emre Aktaş kimdir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Emre Aktaş, Matematik Akademi'nin kurucusu ve 15 yıllık deneyimli matematik öğretmenidir. Boğaziçi Üniversitesi mezunu olup, LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir."
+            "text": "Emre Aktaş, Matematik Akademi'nin kurucusu ve 15 yıllık deneyimli matematik öğretmenidir. LGS, TYT, AYT ve okula yardımcı matematik dersleri vermektedir."
           }
         },
         {
@@ -384,10 +486,7 @@ export default function JsonLd() {
       "@type": "Person",
       "name": "Emre Aktaş",
       "jobTitle": "Matematik Öğretmeni",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Boğaziçi Üniversitesi"
-      },
+
       "knowsAbout": ["Matematik", "Eğitim", "LGS", "TYT", "AYT", "Özel Ders"],
       "description": "15 yıllık deneyimli matematik öğretmeni"
     },
@@ -538,30 +637,78 @@ export default function JsonLd() {
     }
   }
 
-  // Review schema for testimonials
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-      "@type": "EducationalService",
-      "name": "Matematik Akademi - Emre Aktaş"
+  // Multiple Review schemas for testimonials
+  const reviewSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "EducationalService",
+        "name": "Matematik Akademi - Emre Aktaş"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ayşe Hanım"
+      },
+      "reviewBody": "Oğlum LGS'ye Emre Hoca ile hazırlandı. Başakşehir 4. Etap'ta evimize geliyordu. Çok sabırlı ve ilgili bir öğretmen. Matematik notları 70'lerden 95'lere çıktı. Kesinlikle tavsiye ederim.",
+      "datePublished": "2024-01-15",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Matematik Akademi"
+      }
     },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5",
-      "bestRating": "5"
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "EducationalService",
+        "name": "Matematik Akademi - Emre Aktaş"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Fatma Kaya"
+      },
+      "reviewBody": "Emre Hocam'ın düzenli veli bilgilendirmeleri ve şeffaf yaklaşımı çok güzel. Kızımın gelişimini net bir şekilde görebiliyoruz. Teşekkürler!",
+      "datePublished": "2024-02-20",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Matematik Akademi"
+      }
     },
-    "author": {
-      "@type": "Person",
-      "name": "Ayşe Hanım"
-    },
-    "reviewBody": "Oğlum LGS'ye Emre Hoca ile hazırlandı. Başakşehir 4. Etap'ta evimize geliyordu. Çok sabırlı ve ilgili bir öğretmen. Matematik notları 70'lerden 95'lere çıktı. Kesinlikle tavsiye ederim.",
-    "datePublished": "2024-01-15",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Matematik Akademi"
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "EducationalService",
+        "name": "Matematik Akademi - Emre Aktaş"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ali Özkan"
+      },
+      "reviewBody": "Oğlumun üniversite sınavına hazırlık sürecinde Emre Hocam'ın profesyonel yaklaşımı çok faydalı oldu. Hedeflediği bölüme yerleşti. Çok teşekkürler!",
+      "datePublished": "2024-03-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Matematik Akademi"
+      }
     }
-  }
+  ]
 
   // AggregateRating schema for overall rating
   const aggregateRatingSchema = {
@@ -623,7 +770,7 @@ export default function JsonLd() {
   }
 
   // Combine all schemas
-  const allSchemas = [educationalService, localBusinessSchema, organizationSchema, faqSchema, courseSchema, reviewSchema, aggregateRatingSchema, eventSchema]
+  const allSchemas = [educationalService, localBusinessSchema, organizationSchema, faqSchema, courseSchema, ...reviewSchemas, aggregateRatingSchema, eventSchema]
 
   return (
     <>

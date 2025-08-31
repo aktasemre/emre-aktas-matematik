@@ -19,7 +19,7 @@ export default function TytAytPage() {
         <div className="relative mb-8">
           <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/math-tutoring.jpg"
+              src="/images/math-tutoring-4.jpg"
               alt="TYT/AYT Hazırlık - Matematik Eğitimi"
               fill
               className="object-cover"
@@ -66,7 +66,7 @@ export default function TytAytPage() {
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/images/one-on-one-tutoring.jpg"
+                src="/images/math-tutoring-5.jpg"
                 alt="TYT Matematik"
                 fill
                 className="object-cover"
@@ -107,7 +107,7 @@ export default function TytAytPage() {
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/images/personalized-learning.jpg"
+                src="/images/math-tutoring-1.jpg"
                 alt="AYT Matematik"
                 fill
                 className="object-cover"

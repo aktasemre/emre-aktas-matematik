@@ -48,7 +48,7 @@ export default function HakkimdaPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/profil/emreaktas.jpg"
+                    src="/images/profil/Emre AKTAS_prf.png"
                     alt="Emre Aktaş - Matematik Öğretmeni"
                     width={400}
                     height={500}

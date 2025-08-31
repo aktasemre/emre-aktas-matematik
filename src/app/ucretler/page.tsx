@@ -49,6 +49,7 @@ export default function UcretlerPage() {
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold mb-4">Premium Bireysel Özel Ders</h3>
                 <div className="text-6xl font-bold mb-2">₺2.500</div>
+                <div className="text-lg text-indigo-200 mb-2">40 dakika</div>
                 <p className="text-xl text-indigo-100">Saatlik</p>
                 <p className="text-sm text-indigo-200 mt-2">* Kalite garantili, başarı odaklı</p>
               </div>
@@ -169,7 +170,7 @@ export default function UcretlerPage() {
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
                   <Image
-                    src="/images/one-on-one-tutoring.jpg"
+                    src="/images/math-tutoring-3.jpg"
                     alt="Premium Hizmet"
                     fill
                     className="object-cover"
@@ -208,7 +209,7 @@ export default function UcretlerPage() {
                   <p className="text-gray-600">10 derslik premium program</p>
                 </div>
                 <ul className="space-y-3 text-gray-700 mb-6">
-                  <li>• 10 ders paketi: ₺22.500</li>
+                  <li>• 10 ders paketi: ₺22.500 (40 dk x 10)</li>
                   <li>• Kişisel çalışma planı</li>
                   <li>• Detaylı ilerleme raporu</li>
                   <li>• 7/24 WhatsApp desteği</li>
@@ -227,7 +228,7 @@ export default function UcretlerPage() {
                 <div className="text-center mb-6">
                   <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
                     <Image
-                      src="/images/teacher-student.jpg"
+                      src="/images/math-tutoring-2.jpg"
                       alt="VIP Paket"
                       fill
                       className="object-cover"
@@ -238,7 +239,7 @@ export default function UcretlerPage() {
                   <p className="text-gray-600">20 derslik VIP program</p>
                 </div>
                 <ul className="space-y-3 text-gray-700 mb-6">
-                  <li>• 20 ders paketi: ₺42.500</li>
+                  <li>• 20 ders paketi: ₺42.500 (40 dk x 20)</li>
                   <li>• Özel VIP materyaller</li>
                   <li>• Haftalık veli görüşmesi</li>
                   <li>• Öncelikli randevu hakkı</li>
@@ -263,7 +264,7 @@ export default function UcretlerPage() {
                   <p className="text-gray-600">30 derslik elite program</p>
                 </div>
                 <ul className="space-y-3 text-gray-700 mb-6">
-                  <li>• 30 ders paketi: ₺60.000</li>
+                  <li>• 30 ders paketi: ₺60.000 (40 dk x 30)</li>
                   <li>• Elite özel materyaller</li>
                   <li>• Aylık başarı analizi</li>
                   <li>• Özel sınav stratejileri</li>
@@ -293,7 +294,7 @@ export default function UcretlerPage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">Premium Grup (2 Kişi)</h3>
-                <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.500</div>
+                <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.500 / 40 dk</div>
                 <ul className="space-y-3 text-gray-700">
                   <li>• Aynı seviye öğrenciler</li>
                   <li>• Kişiselleştirilmiş grup programı</li>
@@ -305,14 +306,14 @@ export default function UcretlerPage() {
               <div className="bg-white rounded-xl p-8 shadow-lg">
                 <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/images/classroom.jpg"
+                    src="/images/math-tutoring-4.jpg"
                     alt="Elite Grup (3 Kişi)"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">Elite Grup (3 Kişi)</h3>
-                <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.200</div>
+                <div className="text-3xl font-bold text-indigo-600 mb-4">Kişi Başı ₺1.200 / 40 dk</div>
                 <ul className="space-y-3 text-gray-700">
                   <li>• Maksimum 3 kişilik grup</li>
                   <li>• Yoğunlaştırılmış program</li>
@@ -342,7 +343,7 @@ export default function UcretlerPage() {
                 </div>
                 <div className="text-4xl mb-4">💻</div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">Zoom/Skype Üzerinden Premium Eğitim</h3>
-                <div className="text-3xl font-bold text-indigo-600 mb-2">Saatlik: ₺2.000</div>
+                <div className="text-3xl font-bold text-indigo-600 mb-2">₺2.000 / 40 dk</div>
                 <p className="text-gray-600">Aynı kalitede eğitim, esnek saatler</p>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
