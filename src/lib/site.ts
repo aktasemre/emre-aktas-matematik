@@ -8,7 +8,14 @@ export const siteConfig = {
   url: "https://www.matematik-akademi.com",
   locale: "tr_TR",
   areaServed: "İstanbul Avrupa Yakası",
-  serviceAreas: ["Florya", "Bakırköy", "Başakşehir", "Göktürk"],
+  serviceAreas: [
+    "Başakşehir",
+    "Florya",
+    "Bahçeşehir",
+    "Göktürk",
+    "Atakent",
+    "Ispartakule",
+  ],
   teacher: {
     name: "Emre Aktaş",
     title: "Matematik Öğretmeni",

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { locationPages } from "@/lib/locations";
 import { consultationSteps, faqs } from "@/lib/marketing";
 import { serviceCards, siteConfig } from "@/lib/site";
 
@@ -69,6 +70,7 @@ export default function Home() {
           alt="Matematik çalışması için hazırlanmış grafik ve notlar"
           fill
           fetchPriority="high"
+          loading="eager"
           sizes="100vw"
           className="object-cover"
         />
@@ -237,21 +239,15 @@ export default function Home() {
             </div>
             <div className="rounded-[8px] border border-[#1d252f]/10 bg-white p-6">
               <div className="flex flex-wrap gap-2">
-                {siteConfig.serviceAreas.map((area) =>
-                  area === "Başakşehir" ? (
-                    <Link
-                      key={area}
-                      href="/basaksehir-matematik-ozel-ders"
-                      className="rounded-md border border-[#147874]/35 bg-[#eaf3ef] px-3 py-2 text-sm font-semibold text-[#147874] transition hover:border-[#147874]/70 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
-                    >
-                      {area}
-                    </Link>
-                  ) : (
-                    <span key={area} className="rounded-md border border-[#147874]/25 bg-[#eaf3ef] px-3 py-2 text-sm font-semibold text-[#147874]">
-                      {area}
-                    </span>
-                  )
-                )}
+                {locationPages.map((area) => (
+                  <Link
+                    key={area.slug}
+                    href={`/${area.slug}`}
+                    className="rounded-md border border-[#147874]/35 bg-[#eaf3ef] px-3 py-2 text-sm font-semibold text-[#147874] transition hover:border-[#147874]/70 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                  >
+                    {area.name}
+                  </Link>
+                ))}
               </div>
               <p className="mt-5 text-sm leading-6 text-[#5b6670]">
                 Yakın çevrelerde yüz yüze ders uygunluğu, semt ve saat bilgisine göre değerlendirilir.

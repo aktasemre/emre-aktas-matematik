@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Matematik Akademi">
+  <rect width="512" height="512" rx="88" fill="#1f2930" />
+  <path d="M88 382V126h78l90 137 90-137h78v256h-76V244l-92 132-92-132v138H88Z" fill="#f3bf5f" />
+  <rect x="88" y="414" width="336" height="24" rx="12" fill="#147874" />
+</svg>

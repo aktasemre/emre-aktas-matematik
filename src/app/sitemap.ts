@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { sitemapEntries } from "@/lib/content";
+import { locationPages } from "@/lib/locations";
 import { archiveResources, resourceHubs } from "@/lib/resources";
 import { siteConfig } from "@/lib/site";
 
@@ -14,6 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: 0.85,
   }));
+  const locationEntries: MetadataRoute.Sitemap = locationPages.map((location) => ({
+    url: `${siteConfig.url}/${location.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
   const resourcePages: MetadataRoute.Sitemap = archiveResources.map((resource) => ({
     url: `${siteConfig.url}/kaynaklar/${resource.id}`,
     lastModified: resource.lastVerified ?? undefined,
@@ -21,5 +27,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...hubPages, ...resourcePages];
+  return [...staticPages, ...locationEntries, ...hubPages, ...resourcePages];
 }

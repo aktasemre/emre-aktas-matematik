@@ -4,11 +4,13 @@ import { siteConfig } from "@/lib/site";
 type ContactActionsProps = {
   variant?: "light" | "dark";
   compact?: boolean;
+  whatsappUrl?: string;
 };
 
 export function ContactActions({
   variant = "light",
   compact = false,
+  whatsappUrl = siteConfig.contact.whatsappUrl,
 }: ContactActionsProps) {
   const isDark = variant === "dark";
   const baseClass = compact
@@ -24,7 +26,7 @@ export function ContactActions({
   return (
     <div className="flex flex-wrap gap-3">
       <a
-        href={siteConfig.contact.whatsappUrl}
+        href={whatsappUrl}
         className={`inline-flex items-center justify-center gap-2 rounded-md font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 ${baseClass} ${whatsappClass}`}
       >
         <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />

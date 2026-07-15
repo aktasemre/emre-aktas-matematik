@@ -1,6 +1,7 @@
 import { AtSign, Clock3, MapPin } from "lucide-react";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
+import { locationPages } from "@/lib/locations";
 import { navItems, siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
@@ -75,13 +76,24 @@ export function SiteFooter() {
               </Link>
             ))}
           </nav>
-          <Link
-            href="/basaksehir-matematik-ozel-ders"
-            className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-white/68 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+          <p className="mt-6 text-xs font-semibold uppercase text-white/55">
+            Ders bölgeleri
+          </p>
+          <nav
+            aria-label="Matematik özel ders bölgeleri"
+            className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-xs"
           >
-            <MapPin aria-hidden="true" size={14} />
-            Başakşehir matematik özel ders
-          </Link>
+            {locationPages.map((location) => (
+              <Link
+                key={location.slug}
+                href={`/${location.slug}`}
+                className="inline-flex items-center gap-2 text-white/68 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+              >
+                <MapPin aria-hidden="true" size={13} />
+                {location.name}
+              </Link>
+            ))}
+          </nav>
           <p className="mt-8 text-xs leading-5 text-white/55">
             {siteConfig.teacher.name} | {siteConfig.teacher.title}
           </p>

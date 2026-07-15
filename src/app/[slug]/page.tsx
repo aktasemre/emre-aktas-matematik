@@ -12,9 +12,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactActions } from "@/components/contact-actions";
+import {
+  getLocationMetadata,
+  LocationLessonPage,
+} from "@/components/location-lesson-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { contentPages, getContentPage, type ContentPage } from "@/lib/content";
+import { getLocationPage, locationPages } from "@/lib/locations";
 import { siteConfig } from "@/lib/site";
 
 type PageProps = {
@@ -46,7 +51,10 @@ const pageThemes: Record<
 };
 
 export function generateStaticParams() {
-  return contentPages.map((page) => ({ slug: page.slug }));
+  return [
+    ...contentPages.map((page) => ({ slug: page.slug })),
+    ...locationPages.map((location) => ({ slug: location.slug })),
+  ];
 }
 
 export const dynamicParams = false;
@@ -55,6 +63,12 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const location = getLocationPage(slug);
+
+  if (location) {
+    return getLocationMetadata(location);
+  }
+
   const page = getContentPage(slug);
 
   if (!page) {
@@ -88,6 +102,12 @@ export async function generateMetadata({
 
 export default async function ContentPage({ params }: PageProps) {
   const { slug } = await params;
+  const location = getLocationPage(slug);
+
+  if (location) {
+    return <LocationLessonPage location={location} />;
+  }
+
   const page = getContentPage(slug);
 
   if (!page) {
@@ -106,6 +126,7 @@ export default async function ContentPage({ params }: PageProps) {
             alt=""
             fill
             fetchPriority="high"
+            loading="eager"
             sizes="100vw"
             className={theme.heroImageClass}
           />

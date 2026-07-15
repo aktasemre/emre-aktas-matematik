@@ -224,7 +224,6 @@ export const sitemapEntries = [
   "hakkimda",
   "iletisim",
   "kaynaklar",
-  "basaksehir-matematik-ozel-ders",
   "gizlilik-politikasi",
   "kullanim-kosullari",
   "cerez-politikasi",
