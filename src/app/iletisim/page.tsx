@@ -1,196 +1,116 @@
-import { CONTACT_INFO } from '@/constants/contact'
-import { Metadata } from 'next'
-import Image from 'next/image'
+import type { Metadata } from "next";
+import { AtSign, CalendarDays, Clock3, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ContactActions } from "@/components/contact-actions";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { consultationSteps, suggestedWhatsAppMessage } from "@/lib/marketing";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'İletişim | Emre Aktaş - Matematik Özel Ders',
-  description: 'Emre Aktaş ile iletişime geçin. 15 yıllık deneyimli matematik öğretmeni. LGS, TYT, AYT ve okula yardımcı matematik özel dersleri için randevu alın.',
-  keywords: 'Emre Aktaş iletişim, matematik özel ders randevu, İstanbul matematik öğretmeni, LGS matematik özel ders',
-}
+  title: "Ücretsiz Ön Görüşme",
+  description: `${siteConfig.teacher.name} ile LGS, YKS ve ara sınıf matematik için ücretsiz ön görüşme planlayın.`,
+  alternates: {
+    canonical: "/iletisim",
+  },
+};
 
-export default function IletisimPage() {
+export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/math-tutoring-5.jpg"
-            alt="İletişim - Emre Aktaş"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="block">İletişime</span>
-            <span className="block text-yellow-400">Geçin</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-            Emre Aktaş ile iletişime geçin. 15 yıllık deneyimli matematik öğretmeni. 
-            LGS, TYT, AYT ve okula yardımcı matematik özel dersleri için randevu alın.
-          </p>
-        </div>
-      </section>
-
-      {/* İletişim Bilgileri */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg text-center">
-                <div className="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                  📞
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">Telefon</h3>
-                <p className="text-gray-600 mb-2">{CONTACT_INFO.PHONE_DISPLAY}</p>
-                <a 
-                  href={`tel:+${CONTACT_INFO.PHONE}`}
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
-                >
-                  Hemen Ara
-                </a>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl shadow-lg text-center">
-                <div className="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                  📱
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">WhatsApp</h3>
-                <p className="text-gray-600 mb-2">Hızlı İletişim</p>
-                <a 
-                  href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-600 hover:text-green-800 font-semibold"
-                >
-                  Mesaj Gönder
-                </a>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl shadow-lg text-center">
-                <div className="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                  📧
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">E-posta</h3>
-                <p className="text-gray-600 mb-2">{CONTACT_INFO.EMAIL}</p>
-                <a 
-                  href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="text-purple-600 hover:text-purple-800 font-semibold"
-                >
-                  E-posta Gönder
-                </a>
-              </div>
-
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl shadow-lg text-center">
-                <div className="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                  🕒
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">Çalışma Saatleri</h3>
-                <p className="text-gray-600 mb-2">Pazartesi - Pazar</p>
-                <p className="text-sm text-gray-500">09:00 - 21:00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hizmet Bölgeleri */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Hizmet Bölgeleri</h2>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/math-tutoring-1.jpg"
-                  alt="Hizmet Bölgeleri - İstanbul"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <p className="text-lg text-gray-700 mb-6 text-center">
-                İstanbul genelinde ev dersi, Türkiye genelinde online ders hizmeti veriyoruz. 
-                Özellikle aşağıdaki bölgelerde aktif hizmet veriyoruz:
+    <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
+      <SiteHeader />
+      <main>
+        <section className="border-b border-[#1d252f]/10 bg-white">
+          <div className="mx-auto grid max-w-6xl gap-9 px-5 py-16 sm:px-6 lg:grid-cols-[0.62fr_0.38fr] lg:py-24">
+            <div>
+              <p className="text-sm font-semibold uppercase text-[#147874]">Ücretsiz ön görüşme</p>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.1] sm:text-5xl">
+                Önce öğrenciyi tanıyalım, sonra doğru ders planını kuralım
+              </h1>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5b6670]">
+                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmede öğrencinin sınıfını, hedefini, mevcut matematik seviyesini ve ihtiyaçlarını değerlendiriyoruz. Karşılıklı uygunluk sonrası 90 dakikalık ücretli birebir ders planını birlikte netleştiriyoruz.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {CONTACT_INFO.SERVICE_AREAS.map((area, index) => (
-                  <div key={index} className="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-lg text-center">
-                    <span className="font-semibold text-gray-800">{area}</span>
-                  </div>
-                ))}
+              <div className="mt-8">
+                <ContactActions />
+              </div>
+            </div>
+
+            <aside className="rounded-[8px] bg-[#1f2930] p-7 text-white">
+              <p className="text-sm font-semibold text-[#f3bf5f]">Ulaşılabilirlik</p>
+              <div className="mt-6 grid gap-5 text-sm leading-6 text-white/80">
+                <p className="flex gap-3"><Clock3 aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />{siteConfig.contact.availability}</p>
+                <p className="flex gap-3"><MapPin aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />{siteConfig.areaServed}</p>
+                <p className="flex gap-3"><CalendarDays aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />90 dakikalık birebir ders periyotları</p>
+              </div>
+              <p className="mt-6 border-t border-white/15 pt-5 text-sm leading-6 text-white/80">
+                {siteConfig.pricingNote}
+              </p>
+              <a
+                href={siteConfig.instagram.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+              >
+                <AtSign aria-hidden="true" size={17} />
+                Instagram&apos;da {siteConfig.instagram.handle}
+              </a>
+            </aside>
+          </div>
+        </section>
+
+        <section className="bg-[#eaf3ef]">
+          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase text-[#147874]">Görüşme kapsamı</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">Ön görüşmede ne konuşuyoruz?</h2>
+            </div>
+            <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {consultationSteps.map((step) => (
+                <article key={step.title} className="rounded-[8px] border border-[#1d252f]/10 bg-white p-5">
+                  <h3 className="text-lg font-semibold">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5b6670]">{step.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+            <div>
+              <p className="text-sm font-semibold uppercase text-[#985700]">Hazır mesaj</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">Yazmaya nereden başlayacağınızı düşünmeyin</h2>
+            </div>
+            <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-6">
+              <p className="text-sm leading-7 text-[#43505d]">{suggestedWhatsAppMessage}</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={siteConfig.contact.whatsappUrl}
+                  className="inline-flex items-center gap-2 rounded-md bg-[#147874] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+                >
+                  <MessageCircle aria-hidden="true" size={17} />
+                  Mesajı WhatsApp&apos;ta aç
+                </a>
+                <a
+                  href={siteConfig.contact.phoneUrl}
+                  className="inline-flex items-center gap-2 rounded-md border border-[#1d252f]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ece7dc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+                >
+                  <Phone aria-hidden="true" size={17} />
+                  {siteConfig.contact.phoneDisplay}
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SSS */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Sık Sorulan Sorular</h2>
-            
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Dersler nerede yapılıyor?</h3>
-                <p className="text-gray-700">
-                  Dersler öğrencinin evinde veya uygun bir mekanda yapılır. Online ders seçeneği de mevcuttur.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">İlk ders ücretsiz mi?</h3>
-                <p className="text-gray-700">
-                  İlk ders ücretlidir ancak memnun kalmazsanız ücret iade edilir. 
-                  Kalite garantisi ile güvenle başlayabilirsiniz.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Hangi bölgelerde hizmet veriyorsunuz?</h3>
-                <p className="text-gray-700">
-                  İstanbul genelinde ev dersi, Türkiye genelinde online ders hizmeti veriyoruz. 
-                  Özellikle {CONTACT_INFO.SERVICE_AREAS.slice(0, 5).join(', ')} ve diğer bölgelerde aktif hizmet veriyoruz.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Ders süresi ne kadar?</h3>
-                <p className="text-gray-700">
-                  Standart ders süresi 60 dakikadır. İhtiyaca göre 90 dakika veya 120 dakika ders seçenekleri de mevcuttur.
-                </p>
-              </div>
-            </div>
+        <section className="bg-[#fbfaf6]">
+          <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:py-16">
+            <p className="text-sm leading-6 text-[#5b6670]">
+              {siteConfig.pricingNote} Yüz yüze ders için öncelikli bölgeler: {siteConfig.serviceAreas.join(", ")}.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* İletişim CTA */}
-      <section className="py-16 bg-indigo-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Hemen İletişime Geçin!</h2>
-          <p className="text-xl mb-8 text-gray-200">
-            15 yıllık deneyimli matematik öğretmeni Emre Aktaş ile tanışın.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-            >
-              <span>📱 WhatsApp ile İletişim</span>
-            </a>
-            <a 
-              href={`tel:+${CONTACT_INFO.PHONE}`}
-              className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-            >
-              <span>📞 Hemen Ara</span>
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      <SiteFooter />
     </div>
-  )
+  );
 }

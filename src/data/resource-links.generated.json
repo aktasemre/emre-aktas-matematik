@@ -1,0 +1,412 @@
+{
+  "generatedAt": "2026-07-10T06:16:07.408Z",
+  "resources": [
+    {
+      "id": "mebi-2026-march-example-questions",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/mebi039de-lgs-ogrencileri-icin-mart-ayi-ornek-sorulari-yayimlandi/icerik/1550/tr",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "MEBİ'yi aç",
+          "href": "https://mebi.eba.gov.tr/",
+          "kind": "platform"
+        }
+      ]
+    },
+    {
+      "id": "mebi-2026-lgs-denemeleri",
+      "sourceUrl": "https://mebi.eba.gov.tr/",
+      "verifiedAt": "2026-07-10",
+      "actions": []
+    },
+    {
+      "id": "meb-2026-lgs-workbooks",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-calisma-kitaplari-seti/icerik/1583",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Türkçe çalışma kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/04/lgscalismakitabi/lgs_turkce.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "8. sınıf matematik çalışma kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/04/lgscalismakitabi/lgs_matematik.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Fen çalışma kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/04/lgscalismakitabi/lgs_fen.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel dersler çalışma kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/04/lgscalismakitabi/lgs_sozel.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "meb-2025-lgs-third-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ucuncu-ornek-soru-kitapciklari-yayimlandi/icerik/1425",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/04/ornek/sozel.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/04/ornek/sayisall.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://www.youtube.com/watch?v=c6f0qY2ZZHA&feature=youtu.be",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://www.youtube.com/watch?v=Fn_FyHarmDw&feature=youtu.be",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2025-lgs-second-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ikinci-ornek-soru-kitapciklari-yayimlandi/icerik/1405",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/02/ornek/sozel.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/02/ornek/sayisal.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://www.youtube.com/watch?v=Xpa6F4JNh1Y&feature=youtu.be",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://www.youtube.com/watch?v=mdqaBRAv7CM&feature=youtu.be",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2024-lgs-april-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1206",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/04/ornek/soz.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/04/ornek/say2.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://www.youtube.com/watch?v=YI6QsTA4Do0&feature=youtu.be",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://www.youtube.com/watch?v=xxnQWoNJNJM&feature=youtu.be",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2024-lgs-first-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1118",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/11/ornek/soz.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/11/ornek/say.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://www.youtube.com/watch?v=dQaL45CuzG0&feature=youtu.be",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://www.youtube.com/watch?v=0aUY_9aBqI8&feature=youtu.be",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2023-lgs-may-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/975",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/05/ornek/SOZEL_ORNEK_648653.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/05/ornek/SAYISAL_ORNEK_159336.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://www.youtube.com/watch?v=5SirslBGBm4&feature=youtu.be",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://www.youtube.com/watch?v=G2P9JQpHc0I&feature=youtu.be",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2023-lgs-january-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinav039a-yonelik-ocak-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/934",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/01/ornek/SOZEL_ORNEK_667885.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2023/01/ornek/SAYISAL_ORNEK_326454.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel çözüm",
+          "href": "https://youtu.be/cuXOZm71Pjk",
+          "kind": "video"
+        },
+        {
+          "label": "Sayısal çözüm",
+          "href": "https://youtu.be/8H1NPDWS3V8",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "meb-2022-lgs-may-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-yayimlandi/icerik/818",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/05/orneksorular/08_MAYIS_SAYISAL_ORNEK_SORULAR_OP63U85_1.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/05/orneksorular/08_MAYIS_SOZEL_ORNEK_SORULAR_235KL9F.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "meb-2022-lgs-march-sample",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinava-yonelik-mart-ayi-ornek-sorulari-yayimlandi/icerik/628",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "Sayısal PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/01/odsgm/ornek/2021/03_MART_SAYISAL_36974825_ORNEK_SORULAR.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "Sözel PDF",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/01/odsgm/ornek/2021/03_MART_SOZEL_66357831_ORNEK_SORULAR.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "meb-basic-education-books",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/temel-egitim-kitaplari/icerik/834",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "8. sınıf matematik soru kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/01/odsgm/ekitap/lgs/lgs2/lgs_mat_1_a.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "8. sınıf matematik çalışma kitabı",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2022/01/odsgm/ekitap/lgs/8matcalisma.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "meb-2026-math-topic-distribution-second-term",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/2-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1529",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "6. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/01/KSDT/mat6.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "7. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/01/KSDT/mat7.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "9. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/01/KSDT/mat9.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "10. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/01/KSDT/mat10.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "11. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2026/01/KSDT/mat11.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "meb-2026-math-topic-distribution-first-term",
+      "sourceUrl": "https://odsgm.meb.gov.tr/www/1-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1474",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "6. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/09/konusoru/mat6.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "7. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/09/konusoru/mat7_1.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "9. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/09/konusoru/mat9.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "10. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/09/konusoru/mat10.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "11. sınıf matematik tablosu",
+          "href": "https://cdn.eba.gov.tr/yardimcikaynaklar/2025/09/konusoru/mat11.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "osym-2026-yks-questions",
+      "sourceUrl": "https://www.osym.gov.tr/TR%2C34128/2026-yuksekogretim-kurumlari-sinavi-2026-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-21062026.html",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "2026 TYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_tyt_2026_kitapcik_d350.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "2026 AYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_ayt_2026_kitapcik_kt12.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "osym-2025-yks-questions",
+      "sourceUrl": "https://www.osym.gov.tr/TR%2C33278/2025-yuksekogretim-kurumlari-sinavi-2025-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-22062025.html",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "2025 TYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2025/YKS/TSK/yks_tyt_2025_kitapcik_d250.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "2025 AYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2025/YKS/TSK/yks_ayt_2025_kitapcik_st12.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "osym-2024-yks-questions",
+      "sourceUrl": "https://www.osym.gov.tr/TR%2C29434/2024-yuksekogretim-kurumlari-sinavi-2024-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-09062024.html",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "2024 TYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_tyt_2024_kitapcik_T24kt.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "2024 AYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_ayt_2024_kitapcik_ts85k.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "osym-2023-yks-questions",
+      "sourceUrl": "https://www.osym.gov.tr/TR%2C25586/2023-yuksekogretim-kurumlari-sinavi-2023-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-18062023.html",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "2023 TYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2023/YKS/TSK/yks_tyt_2023_kitapcik_T23ky.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "2023 AYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2023/YKS/TSK/yks_ayt_2023_kitapcik_g5A2H.pdf",
+          "kind": "document"
+        }
+      ]
+    },
+    {
+      "id": "osym-2022-yks-questions",
+      "sourceUrl": "https://www.osym.gov.tr/TR%2C23822/2022-yuksekogretim-kurumlari-sinavi-2022-yks-oturumlari-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-19062022.html",
+      "verifiedAt": "2026-07-10",
+      "actions": [
+        {
+          "label": "2022 TYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2022/YKS/TSK/yks_2022_tyt.pdf",
+          "kind": "document"
+        },
+        {
+          "label": "2022 AYT soru kitapçığı",
+          "href": "https://dokuman.osym.gov.tr/pdfdokuman/2022/YKS/TSK/yks_2022_ayt.pdf",
+          "kind": "document"
+        }
+      ]
+    }
+  ]
+}

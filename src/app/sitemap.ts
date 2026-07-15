@@ -1,118 +1,25 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import { sitemapEntries } from "@/lib/content";
+import { archiveResources, resourceHubs } from "@/lib/resources";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://matematik-akademi.com'
+  const staticPages: MetadataRoute.Sitemap = sitemapEntries.map((path) => ({
+    url: path ? `${siteConfig.url}/${path}` : siteConfig.url,
+    changeFrequency: path ? "monthly" : "weekly",
+    priority: path ? 0.75 : 1,
+  }));
+  const hubPages: MetadataRoute.Sitemap = resourceHubs.map((hub) => ({
+    url: `${siteConfig.url}/kaynaklar/${hub.slug}`,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+  const resourcePages: MetadataRoute.Sitemap = archiveResources.map((resource) => ({
+    url: `${siteConfig.url}/kaynaklar/${resource.id}`,
+    lastModified: resource.lastVerified ?? undefined,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/matematik`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/lgs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/tyt-ayt`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/okul-destek`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/metodoloji`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/hakkimda`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/ucretler`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/referanslar`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/iletisim`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/ai-friendly`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/basaksehir-matematik-ozel-ders`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/basaksehir-lgs-matematik-basari-rehberi`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    // AI arama motorları için ek sayfalar
-
-    {
-      url: `${baseUrl}/gizlilik-politikasi`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/kullanim-kosullari`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cerez-politikasi`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/matematik-ogrenme-merkezi`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-  ]
+  return [...staticPages, ...hubPages, ...resourcePages];
 }

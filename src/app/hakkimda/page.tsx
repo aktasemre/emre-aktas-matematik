@@ -1,194 +1,168 @@
-import { CONTACT_INFO } from '@/constants/contact'
-import { Metadata } from 'next'
-import Image from 'next/image'
+import type { Metadata } from "next";
+import { AtSign, BookOpenCheck, CalendarCheck, GraduationCap, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ContactActions } from "@/components/contact-actions";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Emre Aktaş - 15 Yıllık Deneyimli Matematik Öğretmeni | Hakkımda',
-  description: '15 yıllık deneyimli matematik öğretmeni Emre Aktaş\'ın eğitim geçmişi, deneyimi ve başarıları. LGS, TYT, AYT ve okul desteği için özel matematik dersleri.',
-  keywords: 'Emre Aktaş, matematik öğretmeni, 15 yıllık deneyim, LGS matematik, TYT matematik, AYT matematik, özel ders, İstanbul',
-}
+  title: `${siteConfig.teacher.name} Hakkında`,
+  description: `${siteConfig.teacher.name}, ${siteConfig.teacher.experienceYears} yıllık deneyimiyle LGS, YKS ve ara sınıf matematik özel dersleri veriyor.`,
+  alternates: {
+    canonical: "/hakkimda",
+  },
+};
 
-export default function HakkimdaPage() {
+const profilePoints = [
+  {
+    title: "Seviyeye göre ilerleme",
+    text: "Her öğrenci için aynı hızda değil, mevcut seviye ve hedefe göre bir ders planı oluşturulur.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Takipli çalışma sistemi",
+    text: "Konu anlatımı, öğrenci çözümü ve yanlış analizi aynı ders döngüsü içinde ele alınır.",
+    icon: BookOpenCheck,
+  },
+  {
+    title: "Güncel müfredat yaklaşımı",
+    text: "LGS, YKS ve Yeni Maarif Modeli gelişmeleri ders planı hazırlanırken dikkate alınır.",
+    icon: CalendarCheck,
+  },
+];
+
+export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Sol taraf - Metin */}
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="block">Emre Aktaş</span>
-                  <span className="block text-yellow-400">Matematik Öğretmeni</span>
-                </h1>
-                <p className="text-xl mb-8 text-gray-200 leading-relaxed">
-                  15 yıldır matematik öğretmenliği yapıyorum. Her öğrencinin kendine özgü öğrenme tarzı olduğuna inanıyorum ve 
-                  bu doğrultuda kişiselleştirilmiş eğitim programları hazırlıyorum.
+    <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
+      <SiteHeader />
+      <main>
+        <section className="border-b border-[#1d252f]/10 bg-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.38fr_0.62fr] lg:py-24">
+            <div className="relative min-h-80 overflow-hidden rounded-[8px] bg-[#1f2930] sm:min-h-[22rem]">
+              <Image
+                src={siteConfig.teacher.profileImage}
+                alt={`Matematik öğretmeni ${siteConfig.teacher.name}`}
+                fill
+                sizes="(max-width: 1023px) 100vw, 38vw"
+                className="object-cover object-[60%_45%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1f2930]/92 via-[#1f2930]/24 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7 text-white">
+                <p className="text-lg font-semibold">{siteConfig.teacher.name}</p>
+                <p className="mt-2 text-sm font-semibold text-[#f3bf5f]">
+                  {siteConfig.teacher.experienceYears} yıllık öğretmenlik deneyimi
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-                  >
-                    <span>📱 WhatsApp'tan Yaz</span>
-                  </a>
-                  <a
-                    href={`tel:+${CONTACT_INFO.PHONE}`}
-                    className="bg-white text-indigo-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-                  >
-                    <span>📞 Hemen Ara</span>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Sağ taraf - Resim */}
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/profil/Emre AKTAS_prf.png"
-                    alt="Emre Aktaş - Matematik Öğretmeni"
-                    width={400}
-                    height={500}
-                    className="w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
+                <p className="mt-4 text-sm leading-6 text-white/80">{siteConfig.areaServed}</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* İstatistikler */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">15+</div>
-                <div className="text-gray-600 font-medium">Yıl Deneyim</div>
+            <div className="self-center">
+              <p className="text-sm font-semibold uppercase text-[#147874]">
+                Matematik Öğretmeni
+              </p>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.1] sm:text-5xl">
+                {siteConfig.teacher.name}
+              </h1>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5b6670]">
+                {siteConfig.teacher.experienceYears} yıllık öğretmenlik deneyimiyle
+                LGS, YKS ve ara sınıf matematikte öğrencinin seviyesine göre
+                ilerleyen birebir dersler veriyorum.
+              </p>
+              <p className="mt-4 max-w-3xl text-sm leading-6 text-[#5b6670]">
+                {siteConfig.teacher.curriculumNote}
+              </p>
+              <div className="mt-7">
+                <ContactActions />
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-600 mb-2">1000+</div>
-                <div className="text-gray-600 font-medium">Öğrenci</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-purple-600 mb-2">%98</div>
-                <div className="text-gray-600 font-medium">Başarı Oranı</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-orange-600 mb-2">5000+</div>
-                <div className="text-gray-600 font-medium">Ders Saati</div>
-              </div>
+              <Link
+                href={siteConfig.instagram.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+              >
+                <AtSign aria-hidden="true" size={17} />
+                Instagram&apos;da {siteConfig.instagram.handle}
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Deneyim ve Uzmanlık */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Deneyim ve Uzmanlık</h2>
-            
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6 text-indigo-600">Öğretim Deneyimi</h3>
-                <ul className="space-y-4 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-500 text-xl">✓</span>
-                    <span>15 yıldır aktif matematik öğretmenliği</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-500 text-xl">✓</span>
-                    <span>LGS, TYT, AYT sınav hazırlık deneyimi</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-500 text-xl">✓</span>
-                    <span>Okul müfredatına uygun destek dersleri</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-500 text-xl">✓</span>
-                    <span>Bireysel ve grup dersleri</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-2xl font-semibold mb-6 text-indigo-600">Uzmanlık Alanları</h3>
-                <ul className="space-y-4 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-500 text-xl">•</span>
-                    <span>LGS Matematik Hazırlık</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-500 text-xl">•</span>
-                    <span>TYT Matematik</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-500 text-xl">•</span>
-                    <span>AYT Matematik</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-500 text-xl">•</span>
-                    <span>Okul Desteği ve Takviye</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-blue-500 text-xl">•</span>
-                    <span>Matematik Korkusu Tedavisi</span>
-                  </li>
-                </ul>
-              </div>
+        <section className="bg-[#eaf3ef]">
+          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase text-[#147874]">Ders yaklaşımı</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+                Öğrencinin ihtiyacını anlayan, takip eden ve somut hedefe bağlayan bir sistem
+              </h2>
+            </div>
+            <div className="mt-9 grid gap-4 md:grid-cols-3">
+              {profilePoints.map((point) => {
+                const Icon = point.icon;
+
+                return (
+                  <article key={point.title} className="rounded-[8px] border border-[#1d252f]/10 bg-white p-6">
+                    <Icon aria-hidden="true" size={24} className="text-[#147874]" />
+                    <h3 className="mt-5 text-xl font-semibold">{point.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#5b6670]">{point.text}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Eğitim Felsefesi */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800">Eğitim Felsefesi</h2>
-            <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              "Her öğrenci benzersizdir ve kendine özgü öğrenme tarzı vardır. Matematik korkutucu değil, 
-              anlaşılabilir bir dildir. Amacım, öğrencilerimin bu dili sevmesini sağlamak ve 
-              matematiksel düşünme becerilerini geliştirmektir."
-            </p>
-            <div className="text-right">
-              <p className="text-lg font-semibold text-indigo-600">- Emre Aktaş</p>
+        <section className="bg-white">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+            <div>
+              <p className="text-sm font-semibold uppercase text-[#985700]">Ders düzeni</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+                90 dakikalık birebir ders modeli
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-6">
+                <h3 className="text-xl font-semibold">Ders öncesi</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5b6670]">
+                  Öğrencinin hedefi, son deneme/yazılı sonucu ve zorlandığı konu başlıkları değerlendirilir.
+                </p>
+              </div>
+              <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-6">
+                <h3 className="text-xl font-semibold">Ders içinde</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5b6670]">
+                  Konu anlatımı, örnek soru, öğrenci çözümü ve yanlış analizi birlikte ilerler.
+                </p>
+              </div>
+              <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-6">
+                <h3 className="text-xl font-semibold">Ders sonrası</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5b6670]">
+                  Bir sonraki derse kadar izlenecek çalışma hedefi ve soru çözüm önceliği belirlenir.
+                </p>
+              </div>
+              <p className="px-1 text-sm leading-6 text-[#5b6670]">
+                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası ders programı, 90 dakikalık ücretli birebir derslerle devam eder.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* İletişim CTA */}
-      <section className="py-16 bg-indigo-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Hemen İletişime Geçin</h2>
-          <p className="text-xl mb-8 text-gray-200">
-            Matematik başarınızı artırmak için size yardımcı olmaya hazırım.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={`https://wa.me/${CONTACT_INFO.WHATSAPP}?text=${encodeURIComponent(CONTACT_INFO.WHATSAPP_DEFAULT_TEXT)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-            >
-              <span>📱 WhatsApp'tan Yaz</span>
-            </a>
-            <a
-              href={`tel:+${CONTACT_INFO.PHONE}`}
-              className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-            >
-              <span>📞 Hemen Ara</span>
-            </a>
+        <section className="bg-[#fbfaf6]">
+          <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-12 sm:px-6 md:flex-row md:items-center md:justify-between lg:py-16">
+            <div>
+              <p className="flex items-center gap-2 text-sm font-semibold text-[#147874]">
+                <MapPin aria-hidden="true" size={17} />
+                {siteConfig.areaServed}
+              </p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5b6670]">
+                Florya, Bakırköy, Başakşehir, Göktürk ve yakın çevre için yüz yüze ders uygunluğu görüşmede netleştirilir.
+              </p>
+            </div>
+            <ContactActions compact />
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      <SiteFooter />
     </div>
-  )
+  );
 }
