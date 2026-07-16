@@ -11,9 +11,26 @@ const outputPath = path.join(
   "data",
   "mebi-practice.generated.json"
 );
+
+function toDirectDownloadUrl(href) {
+  const url = new URL(href);
+  const pathMatch = url.pathname.match(/\/file\/d\/([^/]+)/);
+  const fileId = url.searchParams.get("id") ?? pathMatch?.[1];
+
+  if (!fileId) {
+    throw new Error(`Google Drive dosya kimliği bulunamadı: ${href}`);
+  }
+
+  const downloadUrl = new URL("https://drive.usercontent.google.com/download");
+  downloadUrl.searchParams.set("id", fileId);
+  downloadUrl.searchParams.set("export", "download");
+  downloadUrl.searchParams.set("confirm", "t");
+  return downloadUrl.toString();
+}
+
 const response = await fetch(sourceUrl, {
   headers: {
-    "user-agent": "MatematikAkademiResourceSync/2.0 (+https://www.matematik-akademi.com/)",
+    "user-agent": "MatematikAkademiResourceSync/3.0 (+https://www.matematik-akademi.com/)",
   },
 });
 
@@ -37,8 +54,9 @@ $("p").each((_, paragraph) => {
 
     cursor.find('a[href*="drive.google.com"]').each((__, anchor) => {
       const label = $(anchor).text().replace(/\s+/g, " ").trim().toLocaleUpperCase("tr-TR");
-      const href = $(anchor).attr("href")?.replaceAll("&amp;", "&");
-      if (!href) return;
+      const sourceHref = $(anchor).attr("href")?.replaceAll("&amp;", "&");
+      if (!sourceHref) return;
+      const href = toDirectDownloadUrl(sourceHref);
 
       if (label.includes("SÖZEL")) links.verbalHref = href;
       if (label.includes("SAYISAL")) links.quantitativeHref = href;

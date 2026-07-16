@@ -22,3 +22,72 @@ body {
   background: #f3bf5f;
   color: #1d252f;
 }
+
+@keyframes learning-cycle-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes learning-cycle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes learning-cycle-breathe {
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 0.58;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+.learning-cycle-orbit {
+  animation: learning-cycle-orbit 4.8s ease-out 1;
+  transform-box: view-box;
+  transform-origin: 50% 51.25%;
+}
+
+.learning-cycle-halo {
+  animation: learning-cycle-breathe 4.6s ease-in-out 1;
+  opacity: 0.42;
+  transform: translate(-50%, -50%);
+}
+
+.learning-cycle-step {
+  animation: learning-cycle-float 4.4s ease-in-out 1;
+}
+
+.learning-cycle-step--two {
+  animation-delay: 0.12s;
+}
+
+.learning-cycle-step--three {
+  animation-delay: 0.24s;
+}
+
+.learning-cycle-step--four {
+  animation-delay: 0.36s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learning-cycle-orbit,
+  .learning-cycle-halo,
+  .learning-cycle-step {
+    animation: none;
+  }
+
+  .learning-cycle-halo {
+    opacity: 0.42;
+    transform: translate(-50%, -50%);
+  }
+}

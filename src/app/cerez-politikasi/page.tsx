@@ -11,8 +11,15 @@ const sections: LegalSection[] = [
   {
     title: "Mevcut kullanım",
     paragraphs: [
-      "Matematik Akademi şu anda reklam, yeniden pazarlama veya ziyaretçi profilleme amacıyla çerez kullanmaz. Sitede Google Analytics ya da benzeri bir ziyaretçi analiz aracı etkin değildir.",
+      "Matematik Akademi reklam, yeniden pazarlama veya ziyaretçi profilleme amacıyla çerez kullanmaz. Sitede Google Analytics bulunmaz; toplulaştırılmış sayfa görüntüleme istatistikleri için çerez kullanmayan Vercel Web Analytics etkindir.",
       "Sitenin temel sayfalarını görüntülemek için ziyaretçinin cihazında kalıcı bir tercih veya pazarlama çerezi oluşturulması gerekmez.",
+    ],
+  },
+  {
+    title: "Vercel Web Analytics",
+    paragraphs: [
+      "Vercel Web Analytics; ziyaret edilen sayfa, yönlendiren adres, cihaz, işletim sistemi, tarayıcı ve yaklaşık konum gibi toplulaştırılmış teknik istatistikler oluşturabilir. Hizmet, ziyaretçileri farklı siteler arasında izleyen üçüncü taraf çerezleri kullanmaz.",
+      "Analiz verileri sitenin kullanımını ve teknik deneyimini iyileştirmek amacıyla değerlendirilir; reklam hedefleme amacıyla kullanılmaz.",
     ],
   },
   {
@@ -40,7 +47,7 @@ export default function CookiePolicyPage() {
     <LegalPage
       eyebrow="Tarayıcı verileri"
       title="Çerez Politikası"
-      intro="Sitede şu anda reklam veya ziyaretçi analizi çerezleri kullanılmaz. Bu sayfa mevcut teknik kullanımı ve harici bağlantıların sınırlarını açıklar."
+      intro="Sitede reklam veya ziyaretçi profilleme çerezleri kullanılmaz. Bu sayfa çerezsiz Vercel Web Analytics kullanımını, zorunlu teknik işlemleri ve harici bağlantıların sınırlarını açıklar."
       sections={sections}
     />
   );

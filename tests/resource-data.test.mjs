@@ -63,7 +63,13 @@ test("MEBİ harici arşivi açıkça etiketli ve 12 deneme eksiksiz", () => {
   for (const exam of mebi.exams) {
     const links = [exam.verbalHref, exam.quantitativeHref, exam.answerKeyHref];
     assert.equal(new Set(links).size, 3, `${exam.number}. denemede bağlantı tekrarı`);
-    links.forEach((href) => assert.match(href, /^https:\/\/drive\.google\.com\//));
+    links.forEach((href) => {
+      const url = new URL(href);
+      assert.equal(url.origin, "https://drive.usercontent.google.com");
+      assert.equal(url.pathname, "/download");
+      assert.ok(url.searchParams.get("id"));
+      assert.equal(url.searchParams.get("export"), "download");
+    });
   }
 });
 

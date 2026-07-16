@@ -16,6 +16,13 @@ const sections: LegalSection[] = [
     ],
   },
   {
+    title: "Ziyaretçi analizi",
+    paragraphs: [
+      "Site, hangi sayfaların ve cihaz türlerinin daha çok kullanıldığını toplu olarak görebilmek için Vercel Web Analytics kullanır. Bu hizmet üçüncü taraf pazarlama çerezi kullanmaz ve sayfa görüntüleme verilerini kişisel bir ziyaretçi profili oluşturmak amacıyla işlemez.",
+      "Analiz kapsamında ziyaret edilen yol, yönlendiren sayfa, cihaz ve tarayıcı türü ile yaklaşık ülke veya şehir gibi toplulaştırılmış teknik bilgiler işlenebilir. Site üzerinde kişisel bilgi içeren kullanıcı hesabı, profil adresi veya özel URL oluşturulmaz.",
+    ],
+  },
+  {
     title: "Telefon, WhatsApp ve Instagram",
     paragraphs: [
       "Telefon veya WhatsApp üzerinden paylaştığınız bilgiler yalnızca ön görüşme, ders uygunluğu ve iletişim talebinizin yürütülmesi amacıyla kullanılır.",
@@ -34,6 +41,7 @@ const sections: LegalSection[] = [
     paragraphs: [
       "İletişim sırasında paylaşılan bilgiler, talebin ve olası ders sürecinin gerektirdiği süre boyunca tutulur; artık gerekli olmadığında silinir veya güvenli şekilde erişim dışı bırakılır.",
       "Paylaştığınız bilgiler hakkında erişim, düzeltme veya silme talebinizi iletişim sayfasındaki telefon numarası üzerinden iletebilirsiniz.",
+      "Vercel Web Analytics verileri kişisel kullanıcı hesabıyla eşleştirilmez; analiz hizmetinin teknik saklama ve güvenlik uygulamalarında Vercel'in güncel gizlilik yaklaşımı geçerlidir.",
     ],
   },
 ];
@@ -43,7 +51,7 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       eyebrow="Kişisel veriler"
       title="Gizlilik Politikası"
-      intro="Matematik Akademi, ziyaretçiden yalnızca iletişim ve ders süreci için gerekli bilgileri ister; web sitesi üzerinde kullanıcı hesabı veya bilgi toplayan bir form kullanmaz."
+      intro="Matematik Akademi, ziyaretçiden yalnızca iletişim ve ders süreci için gerekli bilgileri ister; web sitesi üzerinde kullanıcı hesabı veya bilgi toplayan bir form kullanmaz. Ziyaret istatistikleri çerezsiz ve toplulaştırılmış analizle ölçülür."
       sections={sections}
     />
   );

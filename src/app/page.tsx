@@ -3,6 +3,7 @@ import { Award, BookOpenCheck, Clock3, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
+import { LearningCycleVisual } from "@/components/learning-cycle-visual";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages } from "@/lib/locations";
@@ -74,33 +75,37 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/94 via-[#1f2930]/72 to-[#1f2930]/20" />
-        <div className="relative z-10 mx-auto flex min-h-[72vh] max-w-6xl flex-col px-5 py-16 sm:px-6 lg:py-24">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
-              {siteConfig.teacher.name} | {siteConfig.teacher.experienceYears} yıllık matematik öğretmeni
-            </p>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
-              İstanbul Avrupa Yakası&apos;nda LGS, YKS ve okul matematiği özel ders
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/84">
-              İstanbul Avrupa Yakası&apos;nda 90 dakikalık derslerle konu eksiklerini kapatma, soru çözüm becerisini geliştirme ve düzenli takip sistemi.
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-white/78">
-              İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası başlayan 90 dakikalık birebir dersler ücretlidir.
-            </p>
-            <div className="mt-8">
-              <ContactActions variant="dark" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/96 via-[#1f2930]/84 to-[#1f2930]/58" />
+        <div className="relative z-10 mx-auto flex min-h-[72vh] max-w-6xl flex-col px-5 py-12 sm:px-6 sm:py-16 lg:py-20">
+          <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:gap-12">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
+                {siteConfig.teacher.name} | {siteConfig.teacher.experienceYears} yıllık matematik öğretmeni
+              </p>
+              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.06] min-[360px]:text-4xl sm:text-5xl lg:text-[3.4rem]">
+                İstanbul Avrupa Yakası&apos;nda LGS, YKS ve okul matematiği özel ders
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-white/84 sm:text-lg sm:leading-8">
+                90 dakikalık birebir derslerde seviye belirleme, öncelikli plan, öğrenci çözümü ve yanlış analizi aynı takip döngüsünde birleşir.
+              </p>
+              <div className="mt-7">
+                <ContactActions variant="dark" />
+              </div>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/78">
+                İlk ön değerlendirme ücretsizdir; uygunluk sonrası 90 dakikalık birebir dersler ücretlidir.
+              </p>
+              <Link
+                href="/hakkimda"
+                className="mt-5 inline-flex rounded-md px-1 py-2 text-sm font-semibold text-white/84 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+              >
+                {siteConfig.teacher.name} hakkında
+              </Link>
             </div>
-            <Link
-              href="/hakkimda"
-              className="mt-5 inline-flex rounded-md px-1 py-2 text-sm font-semibold text-white/84 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
-            >
-              {siteConfig.teacher.name} hakkında
-            </Link>
+
+            <LearningCycleVisual />
           </div>
 
-          <div className="mt-auto grid gap-3 pt-12 sm:grid-cols-3">
+          <div className="grid gap-3 pt-10 sm:grid-cols-3 lg:pt-12">
             {[
               `${siteConfig.teacher.experienceYears} yıl deneyim`,
               "LGS, YKS ve ara sınıflar",
@@ -211,7 +216,7 @@ export default function Home() {
         <section className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:py-24">
             <div>
-              <p className="text-sm font-semibold uppercase text-[#985700]">Ders sistemi</p>
+              <p className="text-sm font-semibold uppercase text-[#985700]">Matematik Akademi Takip Döngüsü</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
                 Ders, konu anlatımıyla bitmez; yanlış analiziyle tamamlanır
               </h2>

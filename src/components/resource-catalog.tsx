@@ -11,7 +11,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { useMemo, useSyncExternalStore } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import type {
   ArchiveResource,
   ResourceAction,
@@ -243,6 +243,9 @@ function ResourceFilters({
 }
 
 export function ResourceCatalog({ resources }: ResourceCatalogProps) {
+  const [expandedMobileSnapshot, setExpandedMobileSnapshot] = useState<
+    string | null
+  >(null);
   const academicYears = useMemo(
     () =>
       Array.from(
@@ -318,6 +321,8 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
   const hasActiveFilters = Boolean(
     query || audience !== "Tümü" || academicYear !== "Tümü" || category !== "Tümü"
   );
+  const isMobileListExpanded = expandedMobileSnapshot === urlSnapshot;
+  const hiddenMobileResourceCount = Math.max(filteredResources.length - 6, 0);
 
   const clearFilters = () => {
     updateFilterUrl({ ara: null, hedef: null, yil: null, tur: null });
@@ -398,12 +403,16 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
       </div>
 
       {filteredResources.length ? (
-        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {filteredResources.map((resource) => (
-            <article
-              key={resource.id}
-              className="flex min-h-[22rem] flex-col rounded-[8px] border border-[#1d252f]/10 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-[#147874]/60 hover:shadow-[0_18px_40px_rgba(29,37,47,0.12)]"
-            >
+        <>
+          <div
+            id="resource-results"
+            className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+          >
+            {filteredResources.map((resource, index) => (
+              <article
+                key={resource.id}
+                className={`${index >= 6 && !isMobileListExpanded ? "hidden md:flex" : "flex"} min-h-[22rem] flex-col rounded-[8px] border border-[#1d252f]/10 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-[#147874]/60 hover:shadow-[0_18px_40px_rgba(29,37,47,0.12)]`}
+              >
               <div className="flex items-start justify-between gap-4">
                 <span className="inline-flex rounded-md bg-[#eaf3ef] px-3 py-2 text-xs font-semibold text-[#147874]">
                   {resource.provider}
@@ -435,9 +444,25 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
                   <ArrowRight aria-hidden="true" size={16} />
                 </Link>
               </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+          {hiddenMobileResourceCount ? (
+            <button
+              type="button"
+              onClick={() =>
+                setExpandedMobileSnapshot(isMobileListExpanded ? null : urlSnapshot)
+              }
+              aria-controls="resource-results"
+              aria-expanded={isMobileListExpanded}
+              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-md border border-[#147874]/30 bg-[#eaf3ef] px-4 py-3 text-sm font-semibold text-[#147874] transition hover:border-[#147874]/60 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 md:hidden"
+            >
+              {isMobileListExpanded
+                ? "Daha az kaynak göster"
+                : `${hiddenMobileResourceCount} kaynak daha göster`}
+            </button>
+          ) : null}
+        </>
       ) : (
         <div className="mt-5 border border-dashed border-[#1d252f]/20 bg-white px-5 py-12 text-center">
           <p className="text-lg font-semibold">Uygun kaynak bulunamadı</p>

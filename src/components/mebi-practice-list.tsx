@@ -21,7 +21,8 @@ export function MebiPracticeList() {
             Her denemede sözel bölüm, sayısal bölüm ve cevap anahtarı bağlantıları
             ayrı ayrı yer alır. PDF bağlantıları {mebiPracticeArchive.sourceLabel}{" "}
             tarafından hazırlanan harici kaynak listesinden alınır; 12 denemelik
-            program MEB duyurusuyla doğrulanır.
+            program MEB duyurusuyla doğrulanır. İndirme düğmesine bastığınızda PDF
+            önizleme adımı olmadan doğrudan cihazınıza iner.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
             <a
@@ -59,35 +60,35 @@ export function MebiPracticeList() {
               <h3 className="text-lg font-semibold">
                 MEBİ LGS Deneme {String(exam.number).padStart(2, "0")}
               </h3>
-              <span className="text-xs font-semibold text-[#5b6670]">3 bağlantı</span>
+              <span className="text-xs font-semibold text-[#5b6670]">3 indirme</span>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href={exam.verbalHref}
-                target="_blank"
-                rel="noreferrer"
+                download
+                aria-label={`MEBİ LGS Deneme ${exam.number} sözel PDF'yi indir`}
                 className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <FileText aria-hidden="true" size={16} />
-                Sözel
+                Sözel indir
               </a>
               <a
                 href={exam.quantitativeHref}
-                target="_blank"
-                rel="noreferrer"
+                download
+                aria-label={`MEBİ LGS Deneme ${exam.number} sayısal PDF'yi indir`}
                 className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <FileText aria-hidden="true" size={16} />
-                Sayısal
+                Sayısal indir
               </a>
               <a
                 href={exam.answerKeyHref}
-                target="_blank"
-                rel="noreferrer"
+                download
+                aria-label={`MEBİ LGS Deneme ${exam.number} cevap anahtarını indir`}
                 className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <KeyRound aria-hidden="true" size={16} />
-                Cevap anahtarı
+                Cevap anahtarı indir
               </a>
             </div>
           </article>

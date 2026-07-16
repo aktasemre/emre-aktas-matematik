@@ -25,7 +25,8 @@ const sections: LegalSection[] = [
   {
     title: "Kaynak arşivi",
     paragraphs: [
-      "Arşivdeki belgeler ilgili kurumların resmî sayfalarına bağlantı verir. Belge hakları ve içerik sorumluluğu yayımlayan kuruma aittir.",
+      "Arşiv öncelikle MEB, EBA, MEBİ ve ÖSYM gibi resmî kurum sayfalarına bağlantı verir. Bazı belgeler, kaynağı açıkça belirtilen harici arşiv veya Google Drive bağlantıları üzerinden sunulabilir; bu bağlantılar resmî kurum bağlantısı olarak gösterilmez.",
+      "Belge hakları ve içerik sorumluluğu belgeyi yayımlayan kurum veya hak sahibine aittir. Matematik Akademi bu belgelerin sahibi olduğunu ileri sürmez; erişimi kolaylaştıran bir bağlantı dizini sunar.",
       "Harici sayfaların adresleri, erişim koşulları veya içerikleri zaman içinde değişebilir. Bağlantılar düzenli kontrol edilse de kesintisiz erişim garanti edilmez.",
     ],
   },

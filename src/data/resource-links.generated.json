@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-10T06:16:07.408Z",
+  "generatedAt": "2026-07-16T13:55:12.620Z",
   "resources": [
     {
       "id": "mebi-2026-march-example-questions",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/mebi039de-lgs-ogrencileri-icin-mart-ayi-ornek-sorulari-yayimlandi/icerik/1550/tr",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "MEBİ'yi aç",
@@ -16,13 +16,13 @@
     {
       "id": "mebi-2026-lgs-denemeleri",
       "sourceUrl": "https://mebi.eba.gov.tr/",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": []
     },
     {
       "id": "meb-2026-lgs-workbooks",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-calisma-kitaplari-seti/icerik/1583",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Türkçe çalışma kitabı",
@@ -49,7 +49,7 @@
     {
       "id": "meb-2025-lgs-third-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ucuncu-ornek-soru-kitapciklari-yayimlandi/icerik/1425",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -76,7 +76,7 @@
     {
       "id": "meb-2025-lgs-second-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ikinci-ornek-soru-kitapciklari-yayimlandi/icerik/1405",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -103,7 +103,7 @@
     {
       "id": "meb-2024-lgs-april-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1206",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -130,7 +130,7 @@
     {
       "id": "meb-2024-lgs-first-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1118",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -157,7 +157,7 @@
     {
       "id": "meb-2023-lgs-may-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/975",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -184,7 +184,7 @@
     {
       "id": "meb-2023-lgs-january-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinav039a-yonelik-ocak-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/934",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sözel PDF",
@@ -211,7 +211,7 @@
     {
       "id": "meb-2022-lgs-may-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-yayimlandi/icerik/818",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sayısal PDF",
@@ -228,7 +228,7 @@
     {
       "id": "meb-2022-lgs-march-sample",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinava-yonelik-mart-ayi-ornek-sorulari-yayimlandi/icerik/628",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "Sayısal PDF",
@@ -245,7 +245,7 @@
     {
       "id": "meb-basic-education-books",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/temel-egitim-kitaplari/icerik/834",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "8. sınıf matematik soru kitabı",
@@ -262,7 +262,7 @@
     {
       "id": "meb-2026-math-topic-distribution-second-term",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/2-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1529",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "6. sınıf matematik tablosu",
@@ -294,7 +294,7 @@
     {
       "id": "meb-2026-math-topic-distribution-first-term",
       "sourceUrl": "https://odsgm.meb.gov.tr/www/1-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1474",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "6. sınıf matematik tablosu",
@@ -326,7 +326,7 @@
     {
       "id": "osym-2026-yks-questions",
       "sourceUrl": "https://www.osym.gov.tr/TR%2C34128/2026-yuksekogretim-kurumlari-sinavi-2026-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-21062026.html",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "2026 TYT soru kitapçığı",
@@ -343,7 +343,7 @@
     {
       "id": "osym-2025-yks-questions",
       "sourceUrl": "https://www.osym.gov.tr/TR%2C33278/2025-yuksekogretim-kurumlari-sinavi-2025-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-22062025.html",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "2025 TYT soru kitapçığı",
@@ -360,7 +360,7 @@
     {
       "id": "osym-2024-yks-questions",
       "sourceUrl": "https://www.osym.gov.tr/TR%2C29434/2024-yuksekogretim-kurumlari-sinavi-2024-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-09062024.html",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "2024 TYT soru kitapçığı",
@@ -377,7 +377,7 @@
     {
       "id": "osym-2023-yks-questions",
       "sourceUrl": "https://www.osym.gov.tr/TR%2C25586/2023-yuksekogretim-kurumlari-sinavi-2023-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-18062023.html",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "2023 TYT soru kitapçığı",
@@ -394,7 +394,7 @@
     {
       "id": "osym-2022-yks-questions",
       "sourceUrl": "https://www.osym.gov.tr/TR%2C23822/2022-yuksekogretim-kurumlari-sinavi-2022-yks-oturumlari-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-19062022.html",
-      "verifiedAt": "2026-07-10",
+      "verifiedAt": "2026-07-16",
       "actions": [
         {
           "label": "2022 TYT soru kitapçığı",
