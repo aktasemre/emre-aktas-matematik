@@ -39,8 +39,8 @@ export default function AboutPage() {
       <SiteHeader />
       <main>
         <section className="border-b border-[#1d252f]/10 bg-white">
-          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:px-6 sm:py-14 lg:grid-cols-[0.38fr_0.62fr] lg:gap-10 lg:py-24">
-            <div className="relative order-2 h-60 overflow-hidden rounded-[8px] bg-[#1f2930] sm:h-72 lg:order-1 lg:h-auto lg:min-h-[22rem]">
+          <div className="mx-auto grid max-w-6xl gap-6 px-5 py-8 sm:px-6 sm:py-14 lg:grid-cols-[0.38fr_0.62fr] lg:gap-10 lg:py-24">
+            <div className="hero-card-reveal relative order-2 h-48 overflow-hidden rounded-[8px] bg-[#1f2930] sm:h-72 lg:order-1 lg:h-auto lg:min-h-[22rem]">
               <Image
                 src={siteConfig.teacher.profileImage}
                 alt={`Matematik öğretmeni ${siteConfig.teacher.name}`}
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 LGS, YKS ve ara sınıf matematikte öğrencinin seviyesine göre
                 ilerleyen birebir dersler veriyorum.
               </p>
-              <p className="mt-4 max-w-3xl text-sm leading-6 text-[#5b6670]">
+              <p className="mt-4 hidden max-w-3xl text-sm leading-6 text-[#5b6670] lg:block">
                 {siteConfig.teacher.curriculumNote}
               </p>
               <div className="mt-7">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 href={siteConfig.instagram.url}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                className="mt-5 hidden items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 lg:inline-flex"
               >
                 <AtSign aria-hidden="true" size={17} />
                 Instagram&apos;da {siteConfig.instagram.handle}
@@ -97,6 +97,20 @@ export default function AboutPage() {
               <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
                 Öğrencinin ihtiyacını anlayan, takip eden ve somut hedefe bağlayan bir sistem
               </h2>
+              <div className="mt-6 lg:hidden">
+                <p className="text-sm leading-6 text-[#5b6670]">
+                  {siteConfig.teacher.curriculumNote}
+                </p>
+                <Link
+                  href={siteConfig.instagram.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                >
+                  <AtSign aria-hidden="true" size={17} />
+                  Instagram&apos;da {siteConfig.instagram.handle}
+                </Link>
+              </div>
             </div>
             <div className="mt-9 grid gap-4 md:grid-cols-3">
               {profilePoints.map((point) => {

@@ -1,0 +1,155 @@
+@keyframes hero-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-motion-draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-motion-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-motion-pulse {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scale(0.72);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.08);
+  }
+}
+
+.hero-copy-reveal,
+.hero-facts-reveal,
+.hero-card-reveal {
+  animation: hero-reveal-up 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-facts-reveal {
+  animation-delay: 0.12s;
+}
+
+.hero-card-reveal {
+  animation-name: hero-card-reveal;
+  animation-duration: 0.56s;
+}
+
+.hero-motion {
+  --hero-motion-accent: #f3bf5f;
+  opacity: 0.58;
+  mask-image: linear-gradient(to left, #000 62%, transparent);
+  -webkit-mask-image: linear-gradient(to left, #000 62%, transparent);
+}
+
+.hero-motion--route {
+  --hero-motion-accent: #9ed8d1;
+}
+
+.hero-motion-guide,
+.hero-motion-path {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-motion-guide {
+  stroke: rgb(255 255 255 / 0.12);
+  stroke-width: 7;
+}
+
+.hero-motion-path {
+  animation: hero-motion-draw 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.18s forwards;
+  stroke: var(--hero-motion-accent);
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 2;
+}
+
+.hero-motion-node,
+.hero-motion-pulse {
+  fill: var(--hero-motion-accent);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-motion-node {
+  animation: hero-motion-node-in 0.4s ease-out 0.65s both;
+  opacity: 0;
+}
+
+.hero-motion-node--2 {
+  animation-delay: 0.82s;
+}
+
+.hero-motion-node--3 {
+  animation-delay: 0.99s;
+}
+
+.hero-motion-pulse {
+  animation: hero-motion-pulse 4.8s ease-in-out 1.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy-reveal,
+  .hero-facts-reveal,
+  .hero-card-reveal,
+  .hero-motion-path,
+  .hero-motion-node,
+  .hero-motion-pulse {
+    animation: none;
+  }
+
+  .hero-copy-reveal,
+  .hero-facts-reveal,
+  .hero-card-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-motion-path {
+    stroke-dashoffset: 0;
+  }
+
+  .hero-motion-node {
+    opacity: 0.9;
+    transform: none;
+  }
+
+  .hero-motion-pulse {
+    opacity: 0.16;
+    transform: none;
+  }
+}

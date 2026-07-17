@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactActions } from "@/components/contact-actions";
+import { HeroMotion } from "@/components/hero-motion";
 import {
   getLocationMetadata,
   LocationLessonPage,
@@ -131,8 +132,9 @@ export default async function ContentPage({ params }: PageProps) {
             className={theme.heroImageClass}
           />
           <div className={`absolute inset-0 ${theme.heroOverlayClass}`} />
-          <div className="relative mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
-            <div className="max-w-3xl">
+          <HeroMotion variant="progress" />
+          <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
+            <div className="hero-copy-reveal max-w-3xl">
               <p className={`text-sm font-semibold uppercase ${theme.accentClass}`}>
                 {page.eyebrow}
               </p>
@@ -150,7 +152,7 @@ export default async function ContentPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
+            <div className="hero-facts-reveal mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
               {page.heroFacts.map((fact) => (
                 <p
                   key={fact.label}

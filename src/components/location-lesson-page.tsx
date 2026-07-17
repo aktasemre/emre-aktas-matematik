@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
+import { HeroMotion } from "@/components/hero-motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages, type LocationPageData } from "@/lib/locations";
@@ -133,8 +134,9 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
             className="object-cover object-[72%_48%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/97 via-[#1f2930]/82 to-[#1f2930]/26" />
-          <div className="relative mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
-            <div className="max-w-3xl">
+          <HeroMotion variant="route" />
+          <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
+            <div className="hero-copy-reveal max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 {location.eyebrow}
               </p>
@@ -152,7 +154,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
               </div>
             </div>
 
-            <div className="mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
+            <div className="hero-facts-reveal mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
               {[
                 [`${siteConfig.teacher.experienceYears} yıl`, "öğretmenlik deneyimi"],
                 ["90 dakika", "birebir ders süresi"],
