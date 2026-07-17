@@ -17,6 +17,7 @@ import {
   getLocationMetadata,
   LocationLessonPage,
 } from "@/components/location-lesson-page";
+import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { contentPages, getContentPage, type ContentPage } from "@/lib/content";
@@ -120,6 +121,7 @@ export default async function ContentPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
       <SiteHeader variant="dark" />
+      <ScrollRevealController />
       <main>
         <section className="relative overflow-hidden bg-[#1f2930] text-white">
           <Image
@@ -138,7 +140,7 @@ export default async function ContentPage({ params }: PageProps) {
               <p className={`text-sm font-semibold uppercase ${theme.accentClass}`}>
                 {page.eyebrow}
               </p>
-              <h1 className="mt-4 text-3xl font-semibold leading-[1.08] sm:mt-5 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.02em] sm:mt-5 sm:text-5xl lg:text-6xl">
                 {page.title}
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
@@ -170,11 +172,11 @@ export default async function ContentPage({ params }: PageProps) {
 
         <section id="ders-yaklasimi" className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.42fr_0.58fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Başlangıç noktası
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 {page.audienceTitle}
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-7 text-[#5b6670]">
@@ -182,7 +184,7 @@ export default async function ContentPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="border-y border-[#1d252f]/10">
+            <div className="border-y border-[#1d252f]/10" data-scroll-reveal-group>
               {page.bullets.map((bullet) => (
                 <div
                   key={bullet}
@@ -202,11 +204,11 @@ export default async function ContentPage({ params }: PageProps) {
 
         <section id="kaynaklar" className="bg-[#fbfaf6]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-20">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Resmî kaynaklar
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Çalışma planındaki kaynağı doğrudan açın
               </h2>
               <p className="mt-5 text-sm leading-7 text-[#5b6670]">
@@ -215,7 +217,7 @@ export default async function ContentPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="mt-9 grid gap-4 md:grid-cols-2">
+            <div className="mt-9 grid gap-4 md:grid-cols-2" data-scroll-reveal-group>
               {page.resourceShortcuts.map((shortcut) => (
                 <article
                   key={shortcut.title}
@@ -256,16 +258,16 @@ export default async function ContentPage({ params }: PageProps) {
 
         <section className="bg-[#eaf3ef]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Ders sistemi
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 {page.processTitle}
               </h2>
             </div>
 
-            <div className="mt-9 grid gap-4 md:grid-cols-3">
+            <div className="mt-9 grid gap-4 md:grid-cols-3" data-scroll-reveal-group>
               {page.sections.map((section, index) => (
                 <article
                   key={section.title}
@@ -304,7 +306,7 @@ export default async function ContentPage({ params }: PageProps) {
               <p className="text-sm font-semibold uppercase text-[#985700]">
                 Öğretmen eşliği
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Dersin yönünü öğrencinin gerçek performansı belirler
               </h2>
               <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5b6670]">
@@ -337,7 +339,7 @@ export default async function ContentPage({ params }: PageProps) {
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 Ücretsiz ön görüşme
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ders programını başlamadan önce birlikte netleştirelim
               </h2>
               <p className="mt-5 max-w-3xl text-sm leading-7 text-white/76">

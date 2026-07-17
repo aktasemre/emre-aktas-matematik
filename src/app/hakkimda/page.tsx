@@ -3,6 +3,7 @@ import { AtSign, BookOpenCheck, CalendarCheck, GraduationCap, MapPin } from "luc
 import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
+import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site";
@@ -37,6 +38,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
       <SiteHeader />
+      <ScrollRevealController />
       <main>
         <section className="border-b border-[#1d252f]/10 bg-white">
           <div className="mx-auto grid max-w-6xl gap-6 px-5 py-8 sm:px-6 sm:py-14 lg:grid-cols-[0.38fr_0.62fr] lg:gap-10 lg:py-24">
@@ -63,7 +65,7 @@ export default function AboutPage() {
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Matematik Öğretmeni
               </p>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.1] sm:text-5xl">
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.1] tracking-[-0.02em] sm:text-5xl">
                 {siteConfig.teacher.name}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5b6670]">
@@ -92,9 +94,9 @@ export default function AboutPage() {
 
         <section className="bg-[#eaf3ef]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">Ders yaklaşımı</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Öğrencinin ihtiyacını anlayan, takip eden ve somut hedefe bağlayan bir sistem
               </h2>
               <div className="mt-6 lg:hidden">
@@ -112,7 +114,7 @@ export default function AboutPage() {
                 </Link>
               </div>
             </div>
-            <div className="mt-9 grid gap-4 md:grid-cols-3">
+            <div className="mt-9 grid gap-4 md:grid-cols-3" data-scroll-reveal-group>
               {profilePoints.map((point) => {
                 const Icon = point.icon;
 
@@ -130,13 +132,13 @@ export default function AboutPage() {
 
         <section className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#985700]">Ders düzeni</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 90 dakikalık birebir ders modeli
               </h2>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-4" data-scroll-reveal-group>
               <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-6">
                 <h3 className="text-xl font-semibold">Ders öncesi</h3>
                 <p className="mt-3 text-sm leading-6 text-[#5b6670]">

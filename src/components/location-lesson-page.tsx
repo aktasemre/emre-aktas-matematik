@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
   ArrowRight,
   BookOpenCheck,
-  CheckCircle2,
   Clock3,
   Laptop,
   MapPin,
@@ -13,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
 import { HeroMotion } from "@/components/hero-motion";
+import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages, type LocationPageData } from "@/lib/locations";
@@ -121,6 +121,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      <ScrollRevealController />
       <SiteHeader variant="dark" />
       <main>
         <section className="relative overflow-hidden bg-[#1f2930] text-white lg:min-h-[68vh]">
@@ -140,7 +141,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 {location.eyebrow}
               </p>
-              <h1 className="mt-4 text-3xl font-semibold leading-[1.08] sm:mt-5 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.02em] sm:mt-5 sm:text-5xl lg:text-6xl">
                 {location.name} matematik özel ders
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
@@ -171,13 +172,13 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
 
         <section className="bg-white">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">Ders alanları</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Sınav hedefine ve sınıf düzeyine göre çalışma planı
               </h2>
             </div>
-            <div className="mt-9 grid gap-4 md:grid-cols-3">
+            <div className="mt-9 grid gap-4 md:grid-cols-3" data-scroll-reveal-group>
               {studentGroups.map((group) => (
                 <Link
                   key={group.href}
@@ -201,7 +202,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.38fr_0.62fr] lg:py-24">
             <div>
               <p className="text-sm font-semibold uppercase text-[#147874]">Bölge planı</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 {location.name}&apos;de yüz yüze ders nasıl planlanır?
               </h2>
               <p className="mt-5 text-sm leading-7 text-[#5b6670]">
@@ -233,13 +234,13 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
 
         <section className="bg-[#fbfaf6]">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.38fr_0.62fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#985700]">Çalışma sistemi</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ön görüşmeden ders takibine dört adım
               </h2>
             </div>
-            <ol className="divide-y divide-[#1d252f]/10 border-y border-[#1d252f]/10">
+            <ol className="divide-y divide-[#1d252f]/10 border-y border-[#1d252f]/10" data-scroll-reveal-group>
               {process.map((step, index) => (
                 <li key={step} className="grid grid-cols-[44px_1fr] gap-4 py-5">
                   <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#1f2930] text-sm font-semibold text-white">
@@ -254,9 +255,9 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
 
         <section className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.38fr_0.62fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">Sıkça sorulanlar</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 {location.name}&apos;de ders süreci
               </h2>
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-[#5b6670]">
@@ -271,12 +272,17 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
                 </span>
               </div>
             </div>
-            <div className="grid gap-3">
+            <div className="grid gap-3" data-scroll-reveal-group>
               {faqs.map((faq) => (
                 <details key={faq.question} className="group rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-5">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
                     <span>{faq.question}</span>
-                    <CheckCircle2 aria-hidden="true" size={18} className="shrink-0 text-[#147874]" />
+                    <span
+                      aria-hidden="true"
+                      className="flex h-6 w-6 shrink-0 items-center justify-center text-xl font-medium leading-none text-[#147874] transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
+                    >
+                      +
+                    </span>
                   </summary>
                   <p className="mt-4 text-sm leading-6 text-[#5b6670]">{faq.answer}</p>
                 </details>
@@ -306,7 +312,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
         <section className="bg-[#1f2930] text-white">
           <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:py-20">
             <p className="text-sm font-semibold uppercase text-[#f3bf5f]">Ücretsiz ön görüşme</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
               Konum, hedef ve ders uygunluğunu birlikte netleştirelim
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-white/76">

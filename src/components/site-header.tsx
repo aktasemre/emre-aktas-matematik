@@ -133,15 +133,27 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
         </div>
       </div>
 
-      {isOpen ? (
+      <div
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out motion-reduce:transition-none lg:hidden ${
+          isOpen
+            ? "grid-rows-[1fr] opacity-100"
+            : "pointer-events-none grid-rows-[0fr] opacity-0"
+        }`}
+      >
         <nav
           id="mobile-navigation"
           aria-label="Mobil menü"
-          className={`border-t px-5 pb-5 lg:hidden ${
+          className={`min-h-0 overflow-hidden border-t px-5 ${
             isDark ? "border-white/15" : "border-[#1d252f]/10"
           }`}
         >
-          <div className="mx-auto grid max-w-6xl gap-1 pt-3">
+          <div
+            className={`mx-auto grid max-w-6xl gap-1 pb-5 pt-3 transition-transform duration-200 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
+              isOpen ? "translate-y-0" : "-translate-y-2"
+            }`}
+          >
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
@@ -149,6 +161,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
                 href={item.href}
                 className={navLinkClass(item.href)}
                 aria-current={isActive(item.href) ? "page" : undefined}
+                tabIndex={isOpen ? undefined : -1}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -157,13 +170,14 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
             <a
               href={siteConfig.contact.whatsappUrl}
               className={`mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+              tabIndex={isOpen ? undefined : -1}
             >
               <MessageCircle aria-hidden="true" size={17} strokeWidth={2.25} />
               WhatsApp&apos;tan ücretsiz ön görüşme
             </a>
           </div>
         </nav>
-      ) : null}
+      </div>
     </header>
   );
 }

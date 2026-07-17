@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Award, BookOpenCheck, Clock3, MapPin } from "lucide-react";
+import {
+  Award,
+  BookOpenCheck,
+  Clock3,
+  MapPin,
+  NotebookPen,
+  Sigma,
+  Target,
+  type LucideIcon,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
@@ -56,6 +65,12 @@ const lessonFlow = [
   "Konu anlatımı, örnek çözüm ve öğrenci çözümü birlikte ilerler.",
   "Yanlışlar ve deneme sonuçları bir sonraki ders planını belirler.",
 ];
+
+const serviceCardIcons: Record<string, LucideIcon> = {
+  "/lgs-matematik-ozel-ders": Target,
+  "/yks-matematik-ozel-ders": Sigma,
+  "/ara-sinif-matematik-ozel-ders": NotebookPen,
+};
 
 export default function Home() {
   return (
@@ -202,23 +217,32 @@ export default function Home() {
 
         <section className="bg-[#fbfaf6]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">Ders alanları</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Sınıfa ve sınav hedefine göre matematik desteği
               </h2>
             </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {serviceCards.map((card) => (
-                <Link
-                  key={card.href}
-                  href={card.href}
-                  className="rounded-[8px] border border-[#1d252f]/10 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-[#147874]/60 hover:shadow-[0_18px_40px_rgba(29,37,47,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
-                >
-                  <h3 className="text-xl font-semibold">{card.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-[#5b6670]">{card.text}</p>
-                </Link>
-              ))}
+            <div className="mt-8 grid gap-4 md:grid-cols-3" data-scroll-reveal-group>
+              {serviceCards.map((card) => {
+                const ServiceIcon = serviceCardIcons[card.href] ?? BookOpenCheck;
+
+                return (
+                  <Link
+                    key={card.href}
+                    href={card.href}
+                    className="rounded-[8px] border border-[#1d252f]/10 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-[#147874]/60 hover:shadow-[0_18px_40px_rgba(29,37,47,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[#147874]/15 bg-[#eaf3ef]/70 text-[#147874]">
+                        <ServiceIcon aria-hidden="true" size={20} strokeWidth={1.8} />
+                      </span>
+                      <h3 className="text-xl font-semibold">{card.title}</h3>
+                    </div>
+                    <p className="mt-4 text-sm leading-6 text-[#5b6670]">{card.text}</p>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -231,21 +255,21 @@ export default function Home() {
                 Ders, konu anlatımıyla bitmez; yanlış analiziyle tamamlanır
               </h2>
             </div>
-            <div className="grid gap-4" data-scroll-reveal-group>
+            <ol className="grid list-none gap-4" data-scroll-reveal-group>
               {lessonFlow.map((step, index) => (
-                <div key={step} className="grid grid-cols-[44px_1fr] gap-4 rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-[#147874] text-sm font-semibold text-white">
+                <li key={step} className="grid grid-cols-[44px_1fr] gap-4 rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-5">
+                  <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-md bg-[#147874] text-sm font-semibold text-white">
                     {index + 1}
                   </span>
                   <p className="self-center text-sm leading-6 text-[#43505d]">{step}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
         <section className="bg-[#eaf3ef]">
-          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24" data-scroll-reveal-group>
             <div>
               <p className="text-sm font-semibold uppercase text-[#147874]">Lokasyon ve ücretlendirme</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
@@ -295,7 +319,7 @@ export default function Home() {
         </section>
 
         <section className="bg-[#fbfaf6]">
-          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_1fr] lg:py-24">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_1fr] lg:py-24" data-scroll-reveal-group>
             <div>
               <p className="text-sm font-semibold uppercase text-[#985700]">Kaynak arşivi</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">

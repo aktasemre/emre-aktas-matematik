@@ -95,7 +95,7 @@ export function SiteFooter() {
             ))}
           </nav>
           <p className="mt-8 text-xs leading-5 text-white/55">
-            {siteConfig.teacher.name} | {siteConfig.teacher.title}
+            &copy; 2026 {siteConfig.teacher.name} | {siteConfig.teacher.title}
           </p>
         </div>
       </div>
