@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
 import { LearningCycleVisual } from "@/components/learning-cycle-visual";
+import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages } from "@/lib/locations";
@@ -63,6 +64,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <ScrollRevealController />
 
       <SiteHeader variant="dark" />
       <section className="relative overflow-hidden bg-[#1f2930] text-white lg:min-h-[72vh]">
@@ -77,16 +79,21 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/96 via-[#1f2930]/84 to-[#1f2930]/58" />
         <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-8 sm:px-6 sm:py-16 lg:min-h-[72vh] lg:py-20">
-          <div className="grid flex-1 items-center gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:gap-12">
+          <div className="grid flex-1 items-center gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)] lg:gap-12">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 {siteConfig.teacher.name} | {siteConfig.teacher.experienceYears} yıllık matematik öğretmeni
               </p>
-              <h1 className="mt-4 text-[2rem] font-semibold leading-[1.06] sm:mt-5 sm:text-5xl lg:text-[3.4rem]">
-                İstanbul Avrupa Yakası&apos;nda LGS, YKS ve okul matematiği özel ders
+              <h1 className="mt-4 max-w-[40rem] text-[2rem] font-semibold leading-[1.04] tracking-[-0.02em] sm:mt-5 sm:text-5xl lg:text-[2.75rem] xl:text-5xl">
+                <span className="block font-medium text-white/88">
+                  İstanbul Avrupa Yakası&apos;nda
+                </span>{" "}
+                <span className="mt-1 block text-white sm:mt-2">
+                  Takipli Matematik <span className="whitespace-nowrap">Özel Ders</span>
+                </span>
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
-                90 dakikalık birebir derslerde seviye belirleme, öncelikli plan, öğrenci çözümü ve yanlış analizi aynı takip döngüsünde birleşir.
+                LGS, YKS ve okul matematiği için 90 dakikalık birebir ders; seviye analizi, plan, öğrenci çözümü ve yanlış takibi aynı çalışma döngüsünde.
               </p>
               <div className="mt-5 sm:mt-7">
                 <ContactActions variant="dark" />
@@ -146,7 +153,7 @@ export default function Home() {
             </div>
             <div className="self-center">
               <p className="text-sm font-semibold uppercase text-[#147874]">Öğretmen profili</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Matematik Akademi&apos;nin arkasında tek bir öğretmen ve takipli bir sistem var
               </h2>
               <p className="mt-5 max-w-3xl text-sm leading-7 text-[#5b6670]">
@@ -170,16 +177,16 @@ export default function Home() {
 
         <section className="bg-[#eaf3ef]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">İlk adım</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ücretsiz ön görüşmede ne yapıyoruz?
               </h2>
               <p className="mt-5 text-sm leading-7 text-[#5b6670]">
                 İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Derse başlamadan önce öğrencinin ihtiyacını ve hedefini netleştiriyoruz; uygunluk sonrası başlayan 90 dakikalık birebir dersler ise ücretlidir. Böylece çalışma planı ezbere değil, öğrencinin gerçek durumuna göre kuruluyor.
               </p>
             </div>
-            <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4" data-scroll-reveal-group>
               {consultationSteps.map((step) => (
                 <article key={step.title} className="rounded-[8px] border border-[#1d252f]/10 bg-white p-5">
                   <h3 className="text-lg font-semibold">{step.title}</h3>
@@ -197,7 +204,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#147874]">Ders alanları</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Sınıfa ve sınav hedefine göre matematik desteği
               </h2>
             </div>
@@ -218,13 +225,13 @@ export default function Home() {
 
         <section className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#985700]">Matematik Akademi Takip Döngüsü</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ders, konu anlatımıyla bitmez; yanlış analiziyle tamamlanır
               </h2>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-4" data-scroll-reveal-group>
               {lessonFlow.map((step, index) => (
                 <div key={step} className="grid grid-cols-[44px_1fr] gap-4 rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-5">
                   <span className="flex h-11 w-11 items-center justify-center rounded-md bg-[#147874] text-sm font-semibold text-white">
@@ -241,7 +248,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
             <div>
               <p className="text-sm font-semibold uppercase text-[#147874]">Lokasyon ve ücretlendirme</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Avrupa Yakası&apos;nda yüz yüze ders için öncelikli bölgeler
               </h2>
             </div>
@@ -267,13 +274,13 @@ export default function Home() {
 
         <section className="bg-white">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:py-24">
-            <div>
+            <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#147874]">Sıkça sorulan sorular</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ön görüşme ve ders süreci hakkında
               </h2>
             </div>
-            <div className="grid gap-3">
+            <div className="grid gap-3" data-scroll-reveal-group>
               {faqs.map((faq) => (
                 <details key={faq.question} className="group rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-5">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold">
@@ -291,7 +298,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_1fr] lg:py-24">
             <div>
               <p className="text-sm font-semibold uppercase text-[#985700]">Kaynak arşivi</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 MEB ve ÖSYM kaynaklarını düzenli takip eden bir çalışma alanı
               </h2>
             </div>

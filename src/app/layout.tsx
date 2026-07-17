@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 import "./hero-motion.css";
+import "./reveal-motion.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
