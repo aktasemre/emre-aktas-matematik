@@ -133,40 +133,50 @@ function HubPage({ hub }: { hub: ResourceHub }) {
   return (
     <>
       <section className="bg-[#1f2930] text-white">
-        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:py-20">
+        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-14 lg:py-20">
           <Breadcrumbs current={hub.eyebrow} />
-          <div className="mt-12 max-w-4xl">
+          <div className="mt-6 max-w-4xl sm:mt-12">
             <p className="text-sm font-semibold uppercase text-[#f3bf5f]">{hub.eyebrow}</p>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-3 text-3xl font-semibold leading-[1.08] sm:mt-4 sm:text-5xl lg:text-6xl">
               {hub.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/80">{hub.description}</p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">{hub.description}</p>
+            <a
+              href="#kaynak-ara"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-2.5 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:hidden"
+            >
+              Kaynaklarda ara
+              <ArrowRight aria-hidden="true" size={17} />
+            </a>
           </div>
-          <div className="mt-12 grid gap-3 sm:grid-cols-3">
-            <p className="border-t border-white/25 pt-3 text-sm text-white/72">
-              <span className="block text-lg font-semibold text-white">{resources.length}</span>
-              kaynak kaydı
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-12">
+            <p className="border-t border-white/25 pt-2 text-xs leading-5 text-white/72 sm:pt-3 sm:text-sm">
+              <span className="block text-sm font-semibold text-white sm:text-lg">{resources.length}</span>
+              <span className="sm:hidden">kaynak</span>
+              <span className="hidden sm:inline">kaynak kaydı</span>
             </p>
-            <p className="border-t border-white/25 pt-3 text-sm text-white/72">
-              <span className="block text-lg font-semibold text-white">{directLinks}</span>
-              doğrudan PDF
+            <p className="border-t border-white/25 pt-2 text-xs leading-5 text-white/72 sm:pt-3 sm:text-sm">
+              <span className="block text-sm font-semibold text-white sm:text-lg">{directLinks}</span>
+              <span className="sm:hidden">PDF</span>
+              <span className="hidden sm:inline">doğrudan PDF</span>
             </p>
-            <p className="border-t border-white/25 pt-3 text-sm text-white/72">
-              <span className="block text-lg font-semibold text-white">Resmî</span>
-              MEB ve ÖSYM bağlantıları
+            <p className="border-t border-white/25 pt-2 text-xs leading-5 text-white/72 sm:pt-3 sm:text-sm">
+              <span className="block text-sm font-semibold text-white sm:text-lg">Resmî</span>
+              <span className="sm:hidden">bağlantı</span>
+              <span className="hidden sm:inline">MEB ve ÖSYM bağlantıları</span>
             </p>
           </div>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-16 lg:py-24">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase text-[#147874]">Kaynak listesi</p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-semibold leading-tight sm:mt-3 sm:text-4xl">
               Yıla ve kaynak türüne göre inceleyin
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[#5b6670]">
+            <p className="mt-5 hidden text-sm leading-7 text-[#5b6670] sm:block">
               Her karttan doğrudan belgeyi açabilir veya kaynak ayrıntılarına geçerek kullanım önerisini ve doğrulama bilgisini görebilirsiniz.
             </p>
           </div>
@@ -179,6 +189,8 @@ function HubPage({ hub }: { hub: ResourceHub }) {
 
 function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
   const tags = getResourceTags(resource);
+  const primaryAction =
+    resource.actions.find((action) => action.kind === "document") ?? resource.actions[0];
   const related = archiveResources
     .filter(
       (candidate) =>
@@ -211,28 +223,51 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
         }}
       />
       <section className="bg-[#1f2930] text-white">
-        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:py-20">
+        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-14 lg:py-20">
           <Breadcrumbs current={resource.title} />
-          <div className="mt-12 max-w-4xl">
+          <div className="mt-6 max-w-4xl sm:mt-12">
             <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
               {resource.provider} | {resource.academicYear}
             </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-3 text-3xl font-semibold leading-[1.08] sm:mt-4 sm:text-5xl lg:text-6xl">
               {resource.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/80">
+            <p className="mt-4 max-w-3xl text-base leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">
               {resource.description}
             </p>
+            {primaryAction ? (
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a
+                  href={primaryAction.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                >
+                  <ActionIcon kind={primaryAction.kind} />
+                  {primaryAction.label}
+                  <ExternalLink aria-hidden="true" size={16} />
+                </a>
+                {resource.actions.length > 1 ? (
+                  <a
+                    href="#tum-baglantilar"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold text-white/86 underline decoration-white/30 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                  >
+                    Tüm bağlantıları gör
+                    <ArrowRight aria-hidden="true" size={16} />
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
           </div>
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 lg:grid-cols-4">
             {[
               [resource.category, "kaynak türü"],
               [resource.published, "yayın dönemi"],
               [resource.format, "erişim biçimi"],
               [resource.lastVerified ?? "Bekliyor", "son bağlantı kontrolü"],
             ].map(([value, label]) => (
-              <p key={label} className="border-t border-white/25 pt-3 text-sm text-white/72">
-                <span className="block text-base font-semibold text-white">{value}</span>
+              <p key={label} className="border-t border-white/25 pt-2 text-xs leading-5 text-white/72 sm:pt-3 sm:text-sm">
+                <span className="block text-sm font-semibold text-white sm:text-base">{value}</span>
                 {label}
               </p>
             ))}
@@ -240,8 +275,8 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+      <section id="tum-baglantilar" className="scroll-mt-24 bg-white">
+        <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-16 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
             <div>
               <p className="text-sm font-semibold uppercase text-[#147874]">Doğrudan erişim</p>

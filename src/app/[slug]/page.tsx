@@ -131,32 +131,32 @@ export default async function ContentPage({ params }: PageProps) {
             className={theme.heroImageClass}
           />
           <div className={`absolute inset-0 ${theme.heroOverlayClass}`} />
-          <div className="relative mx-auto flex min-h-[68vh] max-w-6xl flex-col px-5 py-16 sm:px-6 lg:py-24">
+          <div className="relative mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
             <div className="max-w-3xl">
               <p className={`text-sm font-semibold uppercase ${theme.accentClass}`}>
                 {page.eyebrow}
               </p>
-              <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-3xl font-semibold leading-[1.08] sm:mt-5 sm:text-5xl lg:text-6xl">
                 {page.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/84">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
                 {page.intro}
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/76">
                 İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası başlayan 90 dakikalık birebir dersler ücretlidir.
               </p>
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <ContactActions variant="dark" />
               </div>
             </div>
 
-            <div className="mt-auto grid gap-3 pt-12 sm:grid-cols-3">
+            <div className="mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
               {page.heroFacts.map((fact) => (
                 <p
                   key={fact.label}
-                  className="border-t border-white/25 pt-3 text-sm text-white/78"
+                  className="rounded-lg border border-white/15 bg-white/[0.06] px-2 py-2 text-center text-[11px] leading-4 text-white/76 sm:rounded-none sm:border-x-0 sm:border-b-0 sm:bg-transparent sm:px-0 sm:pt-3 sm:text-left sm:text-sm sm:text-white/78"
                 >
-                  <span className="block text-lg font-semibold text-white">
+                  <span className="block text-sm font-semibold text-white sm:text-lg">
                     {fact.value}
                   </span>
                   {fact.label}

@@ -39,12 +39,13 @@ export default function AboutPage() {
       <SiteHeader />
       <main>
         <section className="border-b border-[#1d252f]/10 bg-white">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.38fr_0.62fr] lg:py-24">
-            <div className="relative min-h-80 overflow-hidden rounded-[8px] bg-[#1f2930] sm:min-h-[22rem]">
+          <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:px-6 sm:py-14 lg:grid-cols-[0.38fr_0.62fr] lg:gap-10 lg:py-24">
+            <div className="relative order-2 h-60 overflow-hidden rounded-[8px] bg-[#1f2930] sm:h-72 lg:order-1 lg:h-auto lg:min-h-[22rem]">
               <Image
                 src={siteConfig.teacher.profileImage}
                 alt={`Matematik öğretmeni ${siteConfig.teacher.name}`}
                 fill
+                loading="eager"
                 sizes="(max-width: 1023px) 100vw, 38vw"
                 className="object-cover object-[60%_45%]"
               />
@@ -58,7 +59,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="self-center">
+            <div className="order-1 self-center lg:order-2">
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Matematik Öğretmeni
               </p>

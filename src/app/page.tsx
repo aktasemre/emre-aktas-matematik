@@ -65,7 +65,7 @@ export default function Home() {
       />
 
       <SiteHeader variant="dark" />
-      <section className="relative min-h-[72vh] overflow-hidden bg-[#1f2930] text-white">
+      <section className="relative overflow-hidden bg-[#1f2930] text-white lg:min-h-[72vh]">
         <Image
           src={siteConfig.heroImage}
           alt="Matematik çalışması için hazırlanmış grafik ve notlar"
@@ -76,27 +76,30 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/96 via-[#1f2930]/84 to-[#1f2930]/58" />
-        <div className="relative z-10 mx-auto flex min-h-[72vh] max-w-6xl flex-col px-5 py-12 sm:px-6 sm:py-16 lg:py-20">
-          <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:gap-12">
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-8 sm:px-6 sm:py-16 lg:min-h-[72vh] lg:py-20">
+          <div className="grid flex-1 items-center gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:gap-12">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 {siteConfig.teacher.name} | {siteConfig.teacher.experienceYears} yıllık matematik öğretmeni
               </p>
-              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.06] min-[360px]:text-4xl sm:text-5xl lg:text-[3.4rem]">
+              <h1 className="mt-4 text-[2rem] font-semibold leading-[1.06] sm:mt-5 sm:text-5xl lg:text-[3.4rem]">
                 İstanbul Avrupa Yakası&apos;nda LGS, YKS ve okul matematiği özel ders
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/84 sm:text-lg sm:leading-8">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
                 90 dakikalık birebir derslerde seviye belirleme, öncelikli plan, öğrenci çözümü ve yanlış analizi aynı takip döngüsünde birleşir.
               </p>
-              <div className="mt-7">
+              <div className="mt-5 sm:mt-7">
                 <ContactActions variant="dark" />
               </div>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/78">
-                İlk ön değerlendirme ücretsizdir; uygunluk sonrası 90 dakikalık birebir dersler ücretlidir.
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-white/78 sm:mt-4">
+                <span className="sm:hidden">İlk ön değerlendirme ücretsizdir.</span>
+                <span className="hidden sm:inline">
+                  İlk ön değerlendirme ücretsizdir; uygunluk sonrası 90 dakikalık birebir dersler ücretlidir.
+                </span>
               </p>
               <Link
                 href="/hakkimda"
-                className="mt-5 inline-flex rounded-md px-1 py-2 text-sm font-semibold text-white/84 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                className="mt-5 hidden rounded-md px-1 py-2 text-sm font-semibold text-white/84 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:inline-flex"
               >
                 {siteConfig.teacher.name} hakkında
               </Link>
@@ -105,7 +108,7 @@ export default function Home() {
             <LearningCycleVisual />
           </div>
 
-          <div className="grid gap-3 pt-10 sm:grid-cols-3 lg:pt-12">
+          <div className="hidden gap-3 pt-10 sm:grid sm:grid-cols-3 lg:pt-12">
             {[
               `${siteConfig.teacher.experienceYears} yıl deneyim`,
               "LGS, YKS ve ara sınıflar",
@@ -113,7 +116,7 @@ export default function Home() {
             ].map((item) => (
               <p
                 key={item}
-                className="border-t border-white/22 pt-3 text-sm font-semibold text-white/88"
+                className="flex min-h-14 items-center justify-center rounded-lg border border-white/15 bg-white/[0.06] px-2 py-2 text-center text-[11px] font-semibold leading-4 text-white/88 sm:block sm:min-h-0 sm:rounded-none sm:border-x-0 sm:border-b-0 sm:bg-transparent sm:px-0 sm:pt-3 sm:text-left sm:text-sm"
               >
                 {item}
               </p>

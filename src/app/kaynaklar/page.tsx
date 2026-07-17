@@ -64,31 +64,38 @@ export default function ResourcesPage() {
             className="object-cover object-[74%_48%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/97 via-[#1f2930]/83 to-[#1f2930]/32" />
-          <div className="relative mx-auto flex min-h-[58vh] max-w-6xl flex-col px-5 py-16 sm:px-6 lg:py-20">
+          <div className="relative mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[58vh] lg:py-20">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 Kaynak arşivi
               </p>
-              <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 text-3xl font-semibold leading-[1.08] sm:mt-5 sm:text-5xl lg:text-6xl">
                 MEB kaynaklarını doğrudan açın
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/84">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
                 2021-2022&apos;den 2025-2026&apos;ya uzanan MEB LGS örnek soruları, çalışma kitapları ve denemeleri; ayrıca ara sınıf ve YKS kaynakları tek arşivde.
               </p>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-white/76">
+              <p className="mt-3 hidden max-w-2xl text-sm leading-6 text-white/76 sm:block">
                 Uygun olduğunda duyuru sayfasına uğramadan doğrudan PDF&apos;i, çözüm videosunu veya MEBİ&apos;yi açın.
               </p>
+              <a
+                href="#kaynak-ara"
+                className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-2.5 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:hidden"
+              >
+                Kaynaklarda ara
+                <ArrowRight aria-hidden="true" size={17} />
+              </a>
             </div>
 
-            <div className="mt-auto grid gap-3 pt-12 sm:grid-cols-3">
+            <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-auto sm:pt-12">
               {[
                 [`${lgsArchiveYears} eğitim yılı`, "MEB LGS arşivi"],
                 [`${archiveResources.length} kaynak`, "resmî bağlantı"],
                 [`${directDocumentCount} doğrudan PDF`, "resmî EBA belgesi"],
               ].map(([value, label]) => (
-                <p key={label} className="border-t border-white/25 pt-3 text-sm text-white/78">
-                  <span className="block text-lg font-semibold text-white">{value}</span>
-                  {label}
+                <p key={label} className="border-t border-white/25 pt-2 text-xs leading-5 text-white/78 sm:pt-3 sm:text-sm">
+                  <span className="block text-sm font-semibold text-white sm:text-lg">{value}</span>
+                  <span className="hidden sm:inline">{label}</span>
                 </p>
               ))}
             </div>
@@ -96,15 +103,15 @@ export default function ResourcesPage() {
         </section>
 
         <section className="bg-white">
-          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+          <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-16 lg:py-24">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 MEB ve ÖSYM arşivi
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="mt-2 text-2xl font-semibold leading-tight sm:mt-3 sm:text-4xl">
                 Hedefe, yıla ve kaynak türüne göre seçin; sonra doğrudan açın
               </h2>
-              <p className="mt-5 text-sm leading-7 text-[#5b6670]">
+              <p className="mt-5 hidden text-sm leading-7 text-[#5b6670] sm:block">
                 LGS için son beş eğitim öğretim yılındaki MEB örnek sorularını, MEBİ denemelerini ve çalışma kitaplarını; ara sınıf ve YKS için resmî kaynakları aynı yerde topladım. Bir kaynakta PDF veya çözüm bağlantısı varsa, karttan doğrudan açılır.
               </p>
             </div>

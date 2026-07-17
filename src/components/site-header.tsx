@@ -102,25 +102,35 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
           </a>
         </nav>
 
-        <button
-          ref={menuButtonRef}
-          type="button"
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-md border transition lg:hidden ${
-            isDark
-              ? "border-white/25 hover:bg-white/12"
-              : "border-[#1d252f]/15 hover:bg-[#ece7dc]"
-          } ${focusRing} ${focusOffsetClass}`}
-          aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setIsOpen((value) => !value)}
-        >
-          {isOpen ? (
-            <X aria-hidden="true" size={22} strokeWidth={2.25} />
-          ) : (
-            <Menu aria-hidden="true" size={22} strokeWidth={2.25} />
-          )}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={siteConfig.contact.whatsappUrl}
+            aria-label="WhatsApp'tan ücretsiz ön görüşme başlat"
+            title="WhatsApp"
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#f3bf5f] text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+          >
+            <MessageCircle aria-hidden="true" size={19} strokeWidth={2.25} />
+          </a>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-md border transition ${
+              isDark
+                ? "border-white/25 hover:bg-white/12"
+                : "border-[#1d252f]/15 hover:bg-[#ece7dc]"
+            } ${focusRing} ${focusOffsetClass}`}
+            aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsOpen((value) => !value)}
+          >
+            {isOpen ? (
+              <X aria-hidden="true" size={22} strokeWidth={2.25} />
+            ) : (
+              <Menu aria-hidden="true" size={22} strokeWidth={2.25} />
+            )}
+          </button>
+        </div>
       </div>
 
       {isOpen ? (
