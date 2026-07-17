@@ -1,4 +1,5 @@
 import { ExternalLink, FileText, KeyRound } from "lucide-react";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 import { mebiPracticeArchive, mebiPracticeExams } from "@/lib/mebi-practice-exams";
 
 export function MebiPracticeList() {
@@ -25,24 +26,36 @@ export function MebiPracticeList() {
             önizleme adımı olmadan doğrudan cihazınıza iner.
           </p>
           <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-            <a
+            <TrackedExternalLink
               href={mebiPracticeArchive.officialVerificationUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+              eventName="resource_open"
+              eventProperties={{
+                placement: "mebi_verification",
+                resource_id: "mebi-2026-lgs-denemeleri",
+              }}
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
             >
               MEB doğrulama duyurusu
               <ExternalLink aria-hidden="true" size={16} />
-            </a>
-            <a
+              <span className="sr-only"> (yeni sekmede açılır)</span>
+            </TrackedExternalLink>
+            <TrackedExternalLink
               href={mebiPracticeArchive.sourceUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#43505d] transition hover:text-[#1d252f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+              eventName="resource_open"
+              eventProperties={{
+                placement: "mebi_external_source",
+                resource_id: "mebi-2026-lgs-denemeleri",
+              }}
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#43505d] transition hover:text-[#1d252f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
             >
               Harici PDF kaynağı
               <ExternalLink aria-hidden="true" size={16} />
-            </a>
+              <span className="sr-only"> (yeni sekmede açılır)</span>
+            </TrackedExternalLink>
           </div>
           <p className="mt-3 text-xs leading-5 text-[#5b6670]">
             Son bağlantı kontrolü: {mebiPracticeArchive.lastVerified ?? "Henüz yapılmadı"}
@@ -63,33 +76,39 @@ export function MebiPracticeList() {
               <span className="text-xs font-semibold text-[#5b6670]">3 indirme</span>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
-              <a
+              <TrackedExternalLink
                 href={exam.verbalHref}
                 download
+                eventName="resource_download"
+                eventProperties={{ exam_number: exam.number, file_type: "verbal" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} sözel PDF'yi indir`}
-                className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <FileText aria-hidden="true" size={16} />
                 Sözel indir
-              </a>
-              <a
+              </TrackedExternalLink>
+              <TrackedExternalLink
                 href={exam.quantitativeHref}
                 download
+                eventName="resource_download"
+                eventProperties={{ exam_number: exam.number, file_type: "quantitative" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} sayısal PDF'yi indir`}
-                className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <FileText aria-hidden="true" size={16} />
                 Sayısal indir
-              </a>
-              <a
+              </TrackedExternalLink>
+              <TrackedExternalLink
                 href={exam.answerKeyHref}
                 download
+                eventName="resource_download"
+                eventProperties={{ exam_number: exam.number, file_type: "answer_key" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} cevap anahtarını indir`}
-                className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
               >
                 <KeyRound aria-hidden="true" size={16} />
                 Cevap anahtarı indir
-              </a>
+              </TrackedExternalLink>
             </div>
           </article>
         ))}

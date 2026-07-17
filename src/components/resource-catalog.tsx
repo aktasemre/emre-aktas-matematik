@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import {
   ArrowRight,
   BookOpenCheck,
@@ -81,9 +82,11 @@ function ResourceActionIcon({ kind }: { kind: ResourceAction["kind"] }) {
 function ResourceActionLinks({
   resource,
   limit = 4,
+  placement,
 }: {
   resource: ArchiveResource;
   limit?: number;
+  placement: "quick_access" | "catalog";
 }) {
   const actions = resource.actions.slice(0, limit);
 
@@ -95,16 +98,25 @@ function ResourceActionLinks({
           href={action.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex min-h-10 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+          onClick={() =>
+            track("resource_open", {
+              action_kind: action.kind,
+              placement,
+              provider: resource.provider,
+              resource_id: resource.id,
+            })
+          }
+          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           <ResourceActionIcon kind={action.kind} />
           {action.label}
+          <span className="sr-only"> (yeni sekmede açılır)</span>
         </a>
       ))}
       {resource.actions.length > limit ? (
         <Link
           href={`/kaynaklar/${resource.id}`}
-          className="inline-flex min-h-10 items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#147874] transition hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+          className="inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#147874] transition hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
         >
           +{resource.actions.length - limit} bağlantı
           <ArrowRight aria-hidden="true" size={16} />
@@ -150,6 +162,14 @@ function ResourceFilters({
               onChange={(event) =>
                 updateFilterUrl({ ara: event.target.value || null })
               }
+              onBlur={() => {
+                if (query.trim()) {
+                  track("resource_filter", {
+                    filter: "search",
+                    query_length: query.trim().length,
+                  });
+                }
+              }}
               placeholder="Yıl, kaynak veya konu ara"
               className="h-11 w-full rounded-md border border-[#1d252f]/15 bg-white pl-10 pr-3 text-sm text-[#1d252f] outline-none transition placeholder:text-[#7f8a94] focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
             />
@@ -160,11 +180,11 @@ function ResourceFilters({
           <span className="text-sm font-semibold text-[#43505d]">Eğitim yılı</span>
           <select
             value={academicYear}
-            onChange={(event) =>
-              updateFilterUrl({
-                yil: event.target.value === "Tümü" ? null : event.target.value,
-              })
-            }
+            onChange={(event) => {
+              const value = event.target.value;
+              updateFilterUrl({ yil: value === "Tümü" ? null : value });
+              track("resource_filter", { filter: "academic_year", value });
+            }}
             className="mt-2 h-11 w-full rounded-md border border-[#1d252f]/15 bg-white px-3 text-sm text-[#1d252f] outline-none transition focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
           >
             <option value="Tümü">Tüm yıllar</option>
@@ -180,11 +200,11 @@ function ResourceFilters({
           <span className="text-sm font-semibold text-[#43505d]">Kaynak türü</span>
           <select
             value={category}
-            onChange={(event) =>
-              updateFilterUrl({
-                tur: event.target.value === "Tümü" ? null : event.target.value,
-              })
-            }
+            onChange={(event) => {
+              const value = event.target.value;
+              updateFilterUrl({ tur: value === "Tümü" ? null : value });
+              track("resource_filter", { filter: "category", value });
+            }}
             className="mt-2 h-11 w-full rounded-md border border-[#1d252f]/15 bg-white px-3 text-sm text-[#1d252f] outline-none transition focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
           >
             <option value="Tümü">Tüm türler</option>
@@ -224,9 +244,10 @@ function ResourceFilters({
             <button
               key={item}
               type="button"
-              onClick={() =>
-                updateFilterUrl({ hedef: item === "Tümü" ? null : item })
-              }
+              onClick={() => {
+                updateFilterUrl({ hedef: item === "Tümü" ? null : item });
+                track("resource_filter", { filter: "audience", value: item });
+              }}
               aria-pressed={isActive}
               className={`rounded-md px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6] ${
                 isActive
@@ -323,10 +344,14 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
     query || audience !== "Tümü" || academicYear !== "Tümü" || category !== "Tümü"
   );
   const isMobileListExpanded = expandedMobileSnapshot === urlSnapshot;
-  const hiddenMobileResourceCount = Math.max(filteredResources.length - 6, 0);
+  const listedResources = hasActiveFilters
+    ? filteredResources
+    : filteredResources.filter((resource) => !resource.featured);
+  const hiddenMobileResourceCount = Math.max(listedResources.length - 6, 0);
 
   const clearFilters = () => {
     updateFilterUrl({ ara: null, hedef: null, yil: null, tur: null });
+    track("resource_filter", { filter: "clear", value: "all" });
   };
 
   return (
@@ -375,7 +400,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
                 <p className="mt-2 text-sm leading-6 text-[#4e5b65] sm:mt-3">
                   {resource.description}
                 </p>
-                <ResourceActionLinks resource={resource} />
+                <ResourceActionLinks resource={resource} placement="quick_access" />
                 <Link
                   href={`/kaynaklar/${resource.id}`}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
@@ -397,6 +422,9 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
           aria-atomic="true"
         >
           {filteredResources.length} kaynak
+          {!hasActiveFilters && featuredResources.length
+            ? ` · ${featuredResources.length} hızlı erişimde`
+            : ""}
         </p>
         {academicYear !== "Tümü" ? (
           <p className="text-sm text-[#5b6670]">{academicYear}</p>
@@ -409,7 +437,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
             id="resource-results"
             className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
           >
-            {filteredResources.map((resource, index) => (
+            {listedResources.map((resource, index) => (
               <article
                 key={resource.id}
                 className={`${index >= 6 && !isMobileListExpanded ? "hidden md:flex" : "flex"} flex-col rounded-[8px] border border-[#1d252f]/10 bg-white p-4 transition duration-200 hover:-translate-y-1 hover:border-[#147874]/60 hover:shadow-[0_18px_40px_rgba(29,37,47,0.12)] sm:p-5 md:min-h-[22rem]`}
@@ -436,7 +464,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
                   <span>{resource.format}</span>
                   <span className="text-[#147874]">Hızlı bağlantılar</span>
                 </div>
-                <ResourceActionLinks resource={resource} />
+                <ResourceActionLinks resource={resource} placement="catalog" />
                 <Link
                   href={`/kaynaklar/${resource.id}`}
                   className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"

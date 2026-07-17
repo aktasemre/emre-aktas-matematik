@@ -18,6 +18,7 @@ import { MebiPracticeList } from "@/components/mebi-practice-list";
 import { ResourceCatalog } from "@/components/resource-catalog";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 import {
   archiveResources,
   getArchiveResource,
@@ -237,16 +238,24 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
             </p>
             {primaryAction ? (
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a
+                <TrackedExternalLink
                   href={primaryAction.href}
                   target="_blank"
                   rel="noreferrer"
+                  eventName="resource_open"
+                  eventProperties={{
+                    action_kind: primaryAction.kind,
+                    placement: "resource_detail_primary",
+                    provider: resource.provider,
+                    resource_id: resource.id,
+                  }}
                   className="inline-flex min-h-12 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
                 >
                   <ActionIcon kind={primaryAction.kind} />
                   {primaryAction.label}
                   <ExternalLink aria-hidden="true" size={16} />
-                </a>
+                  <span className="sr-only"> (yeni sekmede açılır)</span>
+                </TrackedExternalLink>
                 {resource.actions.length > 1 ? (
                   <a
                     href="#tum-baglantilar"
@@ -287,19 +296,27 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {resource.actions.map((action) => (
-                <a
+                <TrackedExternalLink
                   key={`${action.kind}-${action.href}`}
                   href={action.href}
                   target="_blank"
                   rel="noreferrer"
+                  eventName="resource_open"
+                  eventProperties={{
+                    action_kind: action.kind,
+                    placement: "resource_detail_all_links",
+                    provider: resource.provider,
+                    resource_id: resource.id,
+                  }}
                   className="flex min-h-20 items-center justify-between gap-4 rounded-[8px] border border-[#1d252f]/12 bg-[#fbfaf6] px-5 py-4 text-sm font-semibold text-[#34424d] transition hover:-translate-y-0.5 hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                   <span className="flex items-center gap-3">
                     <ActionIcon kind={action.kind} />
                     {action.label}
+                    <span className="sr-only"> (yeni sekmede açılır)</span>
                   </span>
                   <ExternalLink aria-hidden="true" size={16} className="shrink-0" />
-                </a>
+                </TrackedExternalLink>
               ))}
             </div>
           </div>
@@ -411,7 +428,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
               Ücretsiz ön görüşmede sınıf, hedef ve konu eksiğine göre kaynak sırasını netleştirebiliriz.
             </p>
             <div className="mt-7">
-              <ContactActions variant="dark" />
+              <ContactActions variant="dark" analyticsPlacement="resource_detail_bottom" />
             </div>
           </div>
           <Link

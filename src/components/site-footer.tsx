@@ -30,16 +30,17 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="mt-6">
-            <ContactActions variant="dark" compact />
+            <ContactActions variant="dark" compact analyticsPlacement="footer" />
           </div>
           <a
             href={siteConfig.instagram.url}
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/72 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/72 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
           >
             <AtSign aria-hidden="true" size={17} />
             {siteConfig.instagram.handle}
+            <span className="sr-only"> (yeni sekmede açılır)</span>
           </a>
         </div>
 
@@ -52,7 +53,7 @@ export function SiteFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-2.5 py-1.5 text-white/75 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                className="inline-flex min-h-11 items-center rounded-md px-2.5 py-2 text-white/75 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
               >
                 {item.label}
               </Link>
@@ -70,7 +71,7 @@ export function SiteFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                className="inline-flex min-h-11 items-center transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
               >
                 {item.label}
               </Link>
@@ -87,7 +88,7 @@ export function SiteFooter() {
               <Link
                 key={location.slug}
                 href={`/${location.slug}`}
-                className="inline-flex items-center gap-2 text-white/68 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                className="inline-flex min-h-11 items-center gap-2 text-white/68 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
               >
                 <MapPin aria-hidden="true" size={13} />
                 {location.name}

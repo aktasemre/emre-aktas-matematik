@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { Menu, MessageCircle, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,6 +20,12 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
   const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
   const isDark = variant === "dark";
+  const trackHeaderWhatsApp = () =>
+    track("contact_click", {
+      channel: "whatsapp",
+      path: pathname,
+      placement: "header",
+    });
   const focusOffsetClass = isDark
     ? "focus-visible:ring-offset-[#1f2930]"
     : "focus-visible:ring-offset-[#fbfaf6]";
@@ -51,7 +58,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
 
     if (isDark) {
       return [
-        "rounded-md px-2.5 py-1.5 transition",
+        "inline-flex min-h-11 items-center rounded-md px-2.5 py-2 transition",
         focusRing,
         focusOffsetClass,
         active
@@ -61,7 +68,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
     }
 
     return [
-      "rounded-md px-2.5 py-1.5 transition",
+      "inline-flex min-h-11 items-center rounded-md px-2.5 py-2 transition",
       focusRing,
       focusOffsetClass,
       active
@@ -75,7 +82,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4 sm:px-6">
         <Link
           href="/"
-          className={`rounded-md text-lg font-semibold ${focusRing} ${focusOffsetClass}`}
+          className={`inline-flex min-h-11 items-center rounded-md text-lg font-semibold ${focusRing} ${focusOffsetClass}`}
           aria-label={`${siteConfig.name} ana sayfa`}
           onClick={() => setIsOpen(false)}
         >
@@ -95,7 +102,8 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
           ))}
           <a
             href={siteConfig.contact.whatsappUrl}
-            className={`ml-1 inline-flex items-center gap-2 rounded-md bg-[#f3bf5f] px-3.5 py-2 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+            onClick={trackHeaderWhatsApp}
+            className={`ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-3.5 py-2 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
           >
             <MessageCircle aria-hidden="true" size={16} strokeWidth={2.25} />
             WhatsApp
@@ -105,16 +113,17 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={siteConfig.contact.whatsappUrl}
+            onClick={trackHeaderWhatsApp}
             aria-label="WhatsApp'tan ücretsiz ön görüşme başlat"
             title="WhatsApp"
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#f3bf5f] text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#f3bf5f] text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
           >
             <MessageCircle aria-hidden="true" size={19} strokeWidth={2.25} />
           </a>
           <button
             ref={menuButtonRef}
             type="button"
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-md border transition ${
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-md border transition ${
               isDark
                 ? "border-white/25 hover:bg-white/12"
                 : "border-[#1d252f]/15 hover:bg-[#ece7dc]"
@@ -169,6 +178,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
             ))}
             <a
               href={siteConfig.contact.whatsappUrl}
+              onClick={trackHeaderWhatsApp}
               className={`mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
               tabIndex={isOpen ? undefined : -1}
             >

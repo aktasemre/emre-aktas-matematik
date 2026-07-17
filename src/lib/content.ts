@@ -92,7 +92,7 @@ export const contentPages: ContentPage[] = [
     ],
     teacherNote:
       "LGS hazırlığında soru sayısı tek başına yeterli değildir. Öğrencinin hangi soruda ve neden zorlandığını görmek, doğru çalışma temposunu kurmanın temelidir.",
-    cta: "Öğrencinin mevcut netini ve zorlandığı konuları paylaşın; ücretsiz ön görüşmede LGS matematik planını netleştirelim.",
+    cta: "Öğrencinin mevcut neti, zorlandığı konular ve deneme takvimiyle ilk çalışma önceliklerini birlikte çıkaralım.",
   },
   {
     slug: "yks-matematik-ozel-ders",
@@ -151,7 +151,7 @@ export const contentPages: ContentPage[] = [
     ],
     teacherNote:
       "YKS matematikte plan, tek bir konu listesi değildir. Öğrencinin hedefiyle bugünkü seviyesi arasındaki mesafeyi gören ve her denemeden sonra güncellenen bir yol haritasıdır.",
-    cta: "Hedef bölümünüzü, mevcut netinizi ve sınava kalan süreyi paylaşın; ücretsiz ön görüşmede TYT-AYT matematik planını çıkaralım.",
+    cta: "Hedef bölüm, mevcut net ve sınava kalan süreyle uygulanabilir ilk TYT-AYT çalışma planını birlikte çıkaralım.",
   },
   {
     slug: "ara-sinif-matematik-ozel-ders",
@@ -211,7 +211,7 @@ export const contentPages: ContentPage[] = [
     ],
     teacherNote:
       "Ara sınıflarda doğru zamanda kurulan çalışma alışkanlığı, öğrencinin özgüvenini ve sınav yılı geldiğindeki hareket alanını doğrudan etkiler.",
-    cta: "Öğrencinin sınıfını, okul konularını ve zorlandığı başlıkları gönderin; ücretsiz ön görüşmede uygun çalışma temposunu belirleyelim.",
+    cta: "Sınıf düzeyi, okul konuları ve zorlanılan başlıklarla uygun çalışma temposunu birlikte belirleyelim.",
   },
 ];
 

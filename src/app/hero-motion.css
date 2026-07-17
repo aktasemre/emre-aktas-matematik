@@ -78,6 +78,11 @@
   --hero-motion-accent: #9ed8d1;
 }
 
+.hero-motion--foundation {
+  --hero-motion-accent: #f3bf5f;
+  opacity: 0.5;
+}
+
 .hero-motion-guide,
 .hero-motion-path {
   fill: none;

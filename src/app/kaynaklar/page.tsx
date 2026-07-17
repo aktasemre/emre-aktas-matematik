@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ResourceCatalog } from "@/components/resource-catalog";
 import { ContactActions } from "@/components/contact-actions";
+import { HeroMotion } from "@/components/hero-motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -64,6 +65,7 @@ export default function ResourcesPage() {
             className="object-cover object-[74%_48%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1f2930]/97 via-[#1f2930]/83 to-[#1f2930]/32" />
+          <HeroMotion variant="route" />
           <div className="relative mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[58vh] lg:py-20">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
@@ -162,10 +164,10 @@ export default function ResourcesPage() {
                 Öğrenciye uygun kaynak sırasını birlikte belirleyelim
               </h2>
               <p className="mt-5 max-w-3xl text-sm leading-7 text-white/76">
-                Aynı kaynak bir öğrenci için başlangıç, başka bir öğrenci için tekrar materyali olabilir. Ücretsiz ön görüşmede sınıf, hedef ve konu eksiğine göre kaynak sırasını birlikte netleştirebiliriz.
+                Aynı kaynak bir öğrenci için başlangıç, başka bir öğrenci için tekrar materyali olabilir. Sınıf, hedef ve konu eksiğine göre ilk kaynak sırasını birlikte netleştirebiliriz.
               </p>
               <div className="mt-7">
-                <ContactActions variant="dark" />
+                <ContactActions variant="dark" analyticsPlacement="resources_plan" />
               </div>
             </div>
             <Link

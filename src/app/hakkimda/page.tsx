@@ -77,7 +77,7 @@ export default function AboutPage() {
                 {siteConfig.teacher.curriculumNote}
               </p>
               <div className="mt-7">
-                <ContactActions />
+                <ContactActions analyticsPlacement="about_hero" />
               </div>
               <Link
                 href={siteConfig.instagram.url}
@@ -87,6 +87,7 @@ export default function AboutPage() {
               >
                 <AtSign aria-hidden="true" size={17} />
                 Instagram&apos;da {siteConfig.instagram.handle}
+                <span className="sr-only"> (yeni sekmede açılır)</span>
               </Link>
             </div>
           </div>
@@ -111,6 +112,7 @@ export default function AboutPage() {
                 >
                   <AtSign aria-hidden="true" size={17} />
                   Instagram&apos;da {siteConfig.instagram.handle}
+                  <span className="sr-only"> (yeni sekmede açılır)</span>
                 </Link>
               </div>
             </div>
@@ -175,7 +177,7 @@ export default function AboutPage() {
                 Florya, Bakırköy, Başakşehir, Göktürk ve yakın çevre için yüz yüze ders uygunluğu görüşmede netleştirilir.
               </p>
             </div>
-            <ContactActions compact />
+            <ContactActions compact analyticsPlacement="about_bottom" />
           </div>
         </section>
       </main>

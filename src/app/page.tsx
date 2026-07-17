@@ -16,6 +16,7 @@ import { LearningCycleVisual } from "@/components/learning-cycle-visual";
 import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TrackingProof } from "@/components/tracking-proof";
 import { locationPages } from "@/lib/locations";
 import { consultationSteps, faqs } from "@/lib/marketing";
 import { serviceCards, siteConfig } from "@/lib/site";
@@ -111,7 +112,7 @@ export default function Home() {
                 LGS, YKS ve okul matematiği için 90 dakikalık birebir ders; seviye analizi, plan, öğrenci çözümü ve yanlış takibi aynı çalışma döngüsünde.
               </p>
               <div className="mt-5 sm:mt-7">
-                <ContactActions variant="dark" />
+                <ContactActions variant="dark" hidePhoneOnMobile analyticsPlacement="home_hero" />
               </div>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/78 sm:mt-4">
                 <span className="sm:hidden">İlk ön değerlendirme ücretsizdir.</span>
@@ -127,10 +128,12 @@ export default function Home() {
               </Link>
             </div>
 
-            <LearningCycleVisual />
+            <div className="hidden sm:block">
+              <LearningCycleVisual />
+            </div>
           </div>
 
-          <div className="hidden gap-3 pt-10 sm:grid sm:grid-cols-3 lg:pt-12">
+          <div className="grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-10 lg:pt-12">
             {[
               `${siteConfig.teacher.experienceYears} yıl deneyim`,
               "LGS, YKS ve ara sınıflar",
@@ -190,6 +193,8 @@ export default function Home() {
           </div>
         </section>
 
+        <TrackingProof />
+
         <section className="bg-[#eaf3ef]">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
             <div className="max-w-3xl" data-scroll-reveal>
@@ -210,7 +215,7 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-8">
-              <ContactActions compact />
+              <ContactActions compact analyticsPlacement="home_consultation" />
             </div>
           </div>
         </section>
@@ -292,6 +297,13 @@ export default function Home() {
                 Yakın çevrelerde yüz yüze ders uygunluğu, semt ve saat bilgisine göre değerlendirilir.
               </p>
               <p className="mt-4 text-sm leading-6 text-[#5b6670]">{siteConfig.pricingNote}</p>
+              <ul className="mt-4 grid gap-2 text-sm text-[#43505d] sm:grid-cols-2">
+                {siteConfig.pricingFactors.map((factor) => (
+                  <li key={factor} className="rounded-md border border-[#1d252f]/8 bg-[#fbfaf6] px-3 py-2">
+                    {factor}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

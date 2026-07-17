@@ -16,7 +16,7 @@ import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages, type LocationPageData } from "@/lib/locations";
-import { siteConfig } from "@/lib/site";
+import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type LocationLessonPageProps = {
   location: LocationPageData;
@@ -68,7 +68,7 @@ export function getLocationMetadata(location: LocationPageData): Metadata {
 
 export function LocationLessonPage({ location }: LocationLessonPageProps) {
   const whatsappMessage = `Merhaba Emre Hocam, ${location.name} için ücretsiz ön görüşme planlamak istiyorum. Öğrencim ... sınıf, hedefimiz ...`;
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.phoneE164}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = buildWhatsAppUrl(whatsappMessage);
   const process = [
     "Ücretsiz ön görüşmede öğrencinin sınıfı, hedefi ve mevcut matematik seviyesi konuşulur.",
     `${location.name}'deki açık adres, ulaşım ve ders saati uygunluğu birlikte değerlendirilir.`,
@@ -151,7 +151,11 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
                 İlk tanışma ve ön değerlendirme ücretsizdir. Uygunluk sonrasında başlayan 90 dakikalık birebir dersler ücretlidir.
               </p>
               <div className="mt-6 sm:mt-8">
-                <ContactActions variant="dark" whatsappUrl={whatsappUrl} />
+                <ContactActions
+                  variant="dark"
+                  whatsappUrl={whatsappUrl}
+                  analyticsPlacement="location_hero"
+                />
               </div>
             </div>
 
@@ -319,7 +323,11 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
               {location.cta}
             </p>
             <div className="mt-7">
-              <ContactActions variant="dark" whatsappUrl={whatsappUrl} />
+              <ContactActions
+                variant="dark"
+                whatsappUrl={whatsappUrl}
+                analyticsPlacement="location_bottom"
+              />
             </div>
           </div>
         </section>

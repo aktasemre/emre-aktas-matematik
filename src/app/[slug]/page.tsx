@@ -20,9 +20,10 @@ import {
 import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TrackedExternalLink } from "@/components/tracked-external-link";
 import { contentPages, getContentPage, type ContentPage } from "@/lib/content";
 import { getLocationPage, locationPages } from "@/lib/locations";
-import { siteConfig } from "@/lib/site";
+import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -30,25 +31,33 @@ type PageProps = {
 
 const pageThemes: Record<
   ContentPage["theme"],
-  { heroImageClass: string; heroOverlayClass: string; accentClass: string }
+  {
+    heroImageClass: string;
+    heroOverlayClass: string;
+    accentClass: string;
+    motionVariant: "progress" | "route" | "foundation";
+  }
 > = {
   lgs: {
     heroImageClass: "object-cover object-[66%_50%]",
     heroOverlayClass:
       "bg-gradient-to-r from-[#1f2930]/93 via-[#1f2930]/70 to-[#1f2930]/20",
     accentClass: "text-[#f3bf5f]",
+    motionVariant: "progress",
   },
   yks: {
     heroImageClass: "object-cover object-[80%_48%]",
     heroOverlayClass:
       "bg-gradient-to-r from-[#182b35]/97 via-[#1f2930]/84 to-[#1f2930]/35",
     accentClass: "text-[#9ed8d1]",
+    motionVariant: "route",
   },
   school: {
     heroImageClass: "object-cover object-[68%_55%]",
     heroOverlayClass:
       "bg-gradient-to-r from-[#123f4b]/97 via-[#1f2930]/82 to-[#1f2930]/34",
     accentClass: "text-[#f3bf5f]",
+    motionVariant: "foundation",
   },
 };
 
@@ -117,6 +126,8 @@ export default async function ContentPage({ params }: PageProps) {
   }
 
   const theme = pageThemes[page.theme];
+  const whatsappMessage = `Merhaba Emre Hocam, ${page.title} için ücretsiz ön görüşme planlamak istiyorum. Öğrenci ... sınıf. Mevcut durum / net: ... Hedefimiz: ...`;
+  const whatsappUrl = buildWhatsAppUrl(whatsappMessage);
 
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
@@ -134,8 +145,8 @@ export default async function ContentPage({ params }: PageProps) {
             className={theme.heroImageClass}
           />
           <div className={`absolute inset-0 ${theme.heroOverlayClass}`} />
-          <HeroMotion variant="progress" />
-          <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
+          <HeroMotion variant={theme.motionVariant} />
+          <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-8 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
             <div className="hero-copy-reveal max-w-3xl">
               <p className={`text-sm font-semibold uppercase ${theme.accentClass}`}>
                 {page.eyebrow}
@@ -147,10 +158,16 @@ export default async function ContentPage({ params }: PageProps) {
                 {page.intro}
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/76">
-                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası başlayan 90 dakikalık birebir dersler ücretlidir.
+                <span className="sm:hidden">Ön görüşme ücretsiz; birebir dersler 90 dakika ve ücretlidir.</span>
+                <span className="hidden sm:inline">İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası başlayan 90 dakikalık birebir dersler ücretlidir.</span>
               </p>
               <div className="mt-6 sm:mt-8">
-                <ContactActions variant="dark" />
+                <ContactActions
+                  variant="dark"
+                  whatsappUrl={whatsappUrl}
+                  hidePhoneOnMobile
+                  analyticsPlacement="service_hero"
+                />
               </div>
             </div>
 
@@ -231,16 +248,23 @@ export default async function ContentPage({ params }: PageProps) {
                     {shortcut.description}
                   </p>
                   {shortcut.external ? (
-                    <a
+                    <TrackedExternalLink
                       href={shortcut.href}
                       target="_blank"
                       rel="noreferrer"
+                      eventName="resource_open"
+                      eventProperties={{
+                        placement: "service_shortcut",
+                        resource_label: shortcut.title,
+                        service: page.theme,
+                      }}
                       className="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
                       <Download aria-hidden="true" size={17} />
                       {shortcut.label}
                       <ExternalLink aria-hidden="true" size={15} />
-                    </a>
+                      <span className="sr-only"> (yeni sekmede açılır)</span>
+                    </TrackedExternalLink>
                   ) : (
                     <Link
                       href={shortcut.href}
@@ -337,7 +361,7 @@ export default async function ContentPage({ params }: PageProps) {
           <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:px-6 lg:grid-cols-[0.62fr_0.38fr] lg:items-center lg:py-20">
             <div>
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
-                Ücretsiz ön görüşme
+                Kişisel çalışma planı
               </p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
                 Ders programını başlamadan önce birlikte netleştirelim
@@ -346,7 +370,11 @@ export default async function ContentPage({ params }: PageProps) {
                 {page.cta}
               </p>
               <div className="mt-7">
-                <ContactActions variant="dark" />
+                <ContactActions
+                  variant="dark"
+                  whatsappUrl={whatsappUrl}
+                  analyticsPlacement="service_bottom"
+                />
               </div>
             </div>
             <div className="grid gap-4 border-t border-white/18 pt-5 text-sm leading-6 text-white/76 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">

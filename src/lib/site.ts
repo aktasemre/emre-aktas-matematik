@@ -3,6 +3,10 @@ const whatsappMessage =
 
 const phoneE164 = "905424513769";
 
+export function buildWhatsAppUrl(message: string) {
+  return `https://wa.me/${phoneE164}?text=${encodeURIComponent(message)}`;
+}
+
 export const siteConfig = {
   name: "Matematik Akademi",
   url: "https://www.matematik-akademi.com",
@@ -30,7 +34,7 @@ export const siteConfig = {
     phoneE164,
     phoneUrl: `tel:+${phoneE164}`,
     whatsappMessage,
-    whatsappUrl: `https://wa.me/${phoneE164}?text=${encodeURIComponent(whatsappMessage)}`,
+    whatsappUrl: buildWhatsAppUrl(whatsappMessage),
     availability: "Haftanın 7 günü, 22.00'ye kadar",
   },
   instagram: {
@@ -40,7 +44,13 @@ export const siteConfig = {
     profileName: "Emre Aktaş | Matematik Öğretmeni",
   },
   pricingNote:
-    "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Sonrasında başlayan 90 dakikalık birebir dersler ücretlidir; ücret, öğrencinin sınıfı, hedefi, ders formatı ve lokasyona göre netleştirilir.",
+    "İlk tanışma ve ön değerlendirme ücretsizdir. Birebir ders ücreti, öğrencinin ihtiyacı ve ders planı netleştikten sonra paylaşılır.",
+  pricingFactors: [
+    "Sınıf ve çalışma hedefi",
+    "Yüz yüze veya online ders",
+    "Semt ve ulaşım süresi",
+    "Ders sıklığı ve program uygunluğu",
+  ],
   lessonRequestNote:
     "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmede öğrencinin sınıfı, hedefi, mevcut matematik seviyesi, semt bilgisi ve ders beklentisi birlikte değerlendirilir.",
   description:

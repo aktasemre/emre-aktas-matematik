@@ -1,5 +1,5 @@
 type HeroMotionProps = {
-  variant: "progress" | "route";
+  variant: "progress" | "route" | "foundation";
 };
 
 const variants = {
@@ -17,6 +17,15 @@ const variants = {
       [42, 126],
       [218, 226],
       [438, 380],
+    ],
+  },
+  foundation: {
+    path: "M38 410 C106 410 110 338 178 338 S246 258 314 258 S376 174 442 174",
+    nodes: [
+      [38, 410],
+      [178, 338],
+      [314, 258],
+      [442, 174],
     ],
   },
 } as const;
