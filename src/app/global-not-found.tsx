@@ -39,13 +39,13 @@ export default function GlobalNotFound() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/"
-              className="inline-flex rounded-md bg-[#1f2930] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#31414c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+              className="btn btn-dark btn-lg"
             >
               Ana sayfaya dön
             </Link>
             <Link
               href="/kaynaklar"
-              className="inline-flex rounded-md border border-[#1d252f]/15 bg-white px-5 py-3 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ece7dc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+              className="btn btn-outline-light btn-lg"
             >
               Kaynak arşivini aç
             </Link>
@@ -64,7 +64,7 @@ export default function GlobalNotFound() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-[#147874] underline decoration-[#147874]/35 underline-offset-4 transition hover:decoration-[#147874] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                  className="btn btn-ghost"
                 >
                   {item.label}
                 </Link>

@@ -122,7 +122,7 @@ export default function Home() {
               </p>
               <Link
                 href="/hakkimda"
-                className="mt-5 hidden rounded-md px-1 py-2 text-sm font-semibold text-white/84 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:inline-flex"
+                className="btn btn-ghost-dark mt-5 hidden sm:inline-flex"
               >
                 {siteConfig.teacher.name} hakkında
               </Link>
@@ -185,7 +185,7 @@ export default function Home() {
               </div>
               <Link
                 href="/hakkimda"
-                className="mt-7 inline-flex rounded-md bg-[#1f2930] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#31414c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                className="btn btn-dark btn-compact mt-7"
               >
                 Öğretmen profiline bak
               </Link>
@@ -344,7 +344,7 @@ export default function Home() {
               </p>
               <Link
                 href="/kaynaklar"
-                className="mt-5 inline-flex rounded-md bg-[#1f2930] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#31414c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                className="btn btn-dark btn-compact mt-5"
               >
                 Kaynak arşivini incele
               </Link>

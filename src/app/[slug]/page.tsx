@@ -258,7 +258,7 @@ export default async function ContentPage({ params }: PageProps) {
                         resource_label: shortcut.title,
                         service: page.theme,
                       }}
-                      className="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                      className="btn btn-ghost mt-auto w-fit pt-6"
                     >
                       <Download aria-hidden="true" size={17} />
                       {shortcut.label}
@@ -268,7 +268,7 @@ export default async function ContentPage({ params }: PageProps) {
                   ) : (
                     <Link
                       href={shortcut.href}
-                      className="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                      className="btn btn-ghost mt-auto w-fit pt-6"
                     >
                       {shortcut.label}
                       <ArrowRight aria-hidden="true" size={17} />
@@ -348,7 +348,7 @@ export default async function ContentPage({ params }: PageProps) {
               </div>
               <Link
                 href="/hakkimda"
-                className="mt-7 inline-flex items-center gap-2 rounded-md bg-[#1f2930] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#31414c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+                className="btn btn-dark btn-compact mt-7"
               >
                 Öğretmen profiline bak
                 <ArrowRight aria-hidden="true" size={17} />

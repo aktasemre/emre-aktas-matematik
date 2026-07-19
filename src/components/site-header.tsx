@@ -103,7 +103,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
           <a
             href={siteConfig.contact.whatsappUrl}
             onClick={trackHeaderWhatsApp}
-            className={`ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-3.5 py-2 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+            className={`btn btn-primary btn-compact ${isDark ? "btn-offset-dark" : ""}`}
           >
             <MessageCircle aria-hidden="true" size={16} strokeWidth={2.25} />
             WhatsApp
@@ -116,18 +116,14 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
             onClick={trackHeaderWhatsApp}
             aria-label="WhatsApp'tan ücretsiz ön görüşme başlat"
             title="WhatsApp"
-            className={`inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#f3bf5f] text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+            className={`btn btn-primary btn-square ${isDark ? "btn-offset-dark" : ""}`}
           >
             <MessageCircle aria-hidden="true" size={19} strokeWidth={2.25} />
           </a>
           <button
             ref={menuButtonRef}
             type="button"
-            className={`inline-flex h-11 w-11 items-center justify-center rounded-md border transition ${
-              isDark
-                ? "border-white/25 hover:bg-white/12"
-                : "border-[#1d252f]/15 hover:bg-[#ece7dc]"
-            } ${focusRing} ${focusOffsetClass}`}
+            className={`btn btn-square ${isDark ? "btn-outline-dark btn-offset-dark" : "btn-outline-light"}`}
             aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -179,7 +175,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
             <a
               href={siteConfig.contact.whatsappUrl}
               onClick={trackHeaderWhatsApp}
-              className={`mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ffd37b] ${focusRing} ${focusOffsetClass}`}
+              className={`btn btn-primary mt-3 w-full ${isDark ? "btn-offset-dark" : ""}`}
               tabIndex={isOpen ? undefined : -1}
             >
               <MessageCircle aria-hidden="true" size={17} strokeWidth={2.25} />

@@ -137,19 +137,20 @@ export function ConsultationBuilder() {
                   lesson_format: lessonFormat,
                 })
               }
-              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-[#147874] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6] sm:w-auto"
+              className="btn btn-secondary w-full sm:w-auto"
             >
               <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />
               Hazırlanan mesajı WhatsApp&apos;ta aç
             </a>
           ) : (
-            <span
-              aria-disabled="true"
-              className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center gap-2 rounded-md bg-[#1d252f]/10 px-5 py-3 text-sm font-semibold text-[#5b6670] sm:w-auto"
+            <button
+              type="button"
+              disabled
+              className="btn btn-secondary w-full sm:w-auto"
             >
               <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />
               Önce üç seçimi tamamlayın
-            </span>
+            </button>
           )}
           <p className="mt-3 flex items-start gap-2 text-xs leading-5 text-[#5b6670]">
             <ShieldCheck aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-[#147874]" />

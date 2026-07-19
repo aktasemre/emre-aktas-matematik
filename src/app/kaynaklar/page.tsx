@@ -82,7 +82,7 @@ export default function ResourcesPage() {
               </p>
               <a
                 href="#kaynak-ara"
-                className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-2.5 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:hidden"
+                className="btn btn-primary btn-compact btn-offset-dark mt-6 sm:hidden"
               >
                 Kaynaklarda ara
                 <ArrowRight aria-hidden="true" size={17} />
@@ -172,7 +172,7 @@ export default function ResourcesPage() {
             </div>
             <Link
               href="/iletisim"
-              className="inline-flex w-fit items-center gap-2 rounded-md border border-white/22 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+              className="btn btn-outline-dark btn-offset-dark w-fit"
             >
               Ön görüşme ayrıntılarına bak
               <ArrowRight aria-hidden="true" size={17} />

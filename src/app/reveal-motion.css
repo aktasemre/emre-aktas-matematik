@@ -9,6 +9,23 @@
   }
 }
 
+/* Controller calisamazsa veya JS kapaliysa icerik gorunur kalsin */
+[data-scroll-reveal]:not([data-reveal-state]),
+[data-scroll-reveal-group]:not([data-reveal-state]) > * {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@media (scripting: none) {
+  [data-scroll-reveal],
+  [data-scroll-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   [data-scroll-reveal][data-reveal-state="pending"] {
     opacity: 0;

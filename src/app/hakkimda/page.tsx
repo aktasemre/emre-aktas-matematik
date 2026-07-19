@@ -83,7 +83,7 @@ export default function AboutPage() {
                 href={siteConfig.instagram.url}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 hidden items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 lg:inline-flex"
+                className="btn btn-ghost mt-5 hidden lg:inline-flex"
               >
                 <AtSign aria-hidden="true" size={17} />
                 Instagram&apos;da {siteConfig.instagram.handle}
@@ -108,7 +108,7 @@ export default function AboutPage() {
                   href={siteConfig.instagram.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 inline-flex items-center gap-2 rounded-md px-1 py-2 text-sm font-semibold text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                  className="btn btn-ghost mt-3"
                 >
                   <AtSign aria-hidden="true" size={17} />
                   Instagram&apos;da {siteConfig.instagram.handle}

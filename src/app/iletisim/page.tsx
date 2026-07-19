@@ -43,7 +43,7 @@ function AvailabilityPanel({ className = "" }: { className?: string }) {
         href={siteConfig.instagram.url}
         target="_blank"
         rel="noreferrer"
-        className="mt-5 inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:mt-6"
+        className="btn btn-outline-dark btn-compact btn-offset-dark mt-5 sm:mt-6"
       >
         <AtSign aria-hidden="true" size={17} />
         Instagram&apos;da {siteConfig.instagram.handle}
@@ -76,7 +76,7 @@ export default function ContactPage() {
                 <div className="flex flex-wrap gap-3">
                   <a
                     href="#gorusme-hazirlayici"
-                    className="inline-flex min-h-12 items-center gap-2 rounded-md bg-[#147874] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                    className="btn btn-secondary btn-lg"
                   >
                     Görüşme mesajını hazırla
                     <ArrowDown aria-hidden="true" size={17} />
@@ -89,7 +89,7 @@ export default function ContactPage() {
                       path: "/iletisim",
                       placement: "contact_hero",
                     }}
-                    className="inline-flex min-h-12 items-center gap-2 rounded-md border border-[#1d252f]/15 bg-white px-5 py-3 text-sm font-semibold text-[#1d252f] transition hover:bg-[#ece7dc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                    className="btn btn-outline-light btn-lg"
                   >
                     <Phone aria-hidden="true" size={17} />
                     {siteConfig.contact.phoneDisplay}

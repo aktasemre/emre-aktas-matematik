@@ -144,7 +144,7 @@ function HubPage({ hub }: { hub: ResourceHub }) {
             <p className="mt-4 max-w-3xl text-base leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">{hub.description}</p>
             <a
               href="#kaynak-ara"
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-2.5 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930] sm:hidden"
+              className="btn btn-primary btn-compact btn-offset-dark mt-6 sm:hidden"
             >
               Kaynaklarda ara
               <ArrowRight aria-hidden="true" size={17} />
@@ -249,7 +249,7 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
                     provider: resource.provider,
                     resource_id: resource.id,
                   }}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-md bg-[#f3bf5f] px-4 py-3 text-sm font-semibold text-[#1f2930] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                  className="btn btn-primary btn-lg btn-offset-dark"
                 >
                   <ActionIcon kind={primaryAction.kind} />
                   {primaryAction.label}
@@ -259,7 +259,7 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
                 {resource.actions.length > 1 ? (
                   <a
                     href="#tum-baglantilar"
-                    className="inline-flex min-h-11 items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold text-white/86 underline decoration-white/30 underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+                    className="btn btn-ghost-dark"
                   >
                     Tüm bağlantıları gör
                     <ArrowRight aria-hidden="true" size={16} />
@@ -433,7 +433,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
           </div>
           <Link
             href="/kaynaklar"
-            className="inline-flex w-fit items-center gap-2 rounded-md border border-white/22 px-4 py-3 text-sm font-semibold transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+            className="btn btn-outline-dark btn-offset-dark w-fit"
           >
             <ArrowLeft aria-hidden="true" size={17} />
             Tüm kaynaklara dön

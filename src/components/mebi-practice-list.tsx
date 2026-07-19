@@ -35,7 +35,7 @@ export function MebiPracticeList() {
                 placement: "mebi_verification",
                 resource_id: "mebi-2026-lgs-denemeleri",
               }}
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+              className="btn btn-ghost"
             >
               MEB doğrulama duyurusu
               <ExternalLink aria-hidden="true" size={16} />
@@ -50,7 +50,7 @@ export function MebiPracticeList() {
                 placement: "mebi_external_source",
                 resource_id: "mebi-2026-lgs-denemeleri",
               }}
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#43505d] transition hover:text-[#1d252f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+              className="btn btn-ghost"
             >
               Harici PDF kaynağı
               <ExternalLink aria-hidden="true" size={16} />
@@ -82,7 +82,7 @@ export function MebiPracticeList() {
                 eventName="resource_download"
                 eventProperties={{ exam_number: exam.number, file_type: "verbal" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} sözel PDF'yi indir`}
-                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="btn btn-outline-light btn-compact"
               >
                 <FileText aria-hidden="true" size={16} />
                 Sözel indir
@@ -93,7 +93,7 @@ export function MebiPracticeList() {
                 eventName="resource_download"
                 eventProperties={{ exam_number: exam.number, file_type: "quantitative" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} sayısal PDF'yi indir`}
-                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="btn btn-outline-light btn-compact"
               >
                 <FileText aria-hidden="true" size={16} />
                 Sayısal indir
@@ -104,7 +104,7 @@ export function MebiPracticeList() {
                 eventName="resource_download"
                 eventProperties={{ exam_number: exam.number, file_type: "answer_key" }}
                 aria-label={`MEBİ LGS Deneme ${exam.number} cevap anahtarını indir`}
-                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#edf4f6]"
+                className="btn btn-outline-light btn-compact"
               >
                 <KeyRound aria-hidden="true" size={16} />
                 Cevap anahtarı indir

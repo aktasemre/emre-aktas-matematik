@@ -36,7 +36,7 @@ export function SiteFooter() {
             href={siteConfig.instagram.url}
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/72 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f2930]"
+            className="btn btn-ghost-dark btn-compact btn-offset-dark mt-5"
           >
             <AtSign aria-hidden="true" size={17} />
             {siteConfig.instagram.handle}

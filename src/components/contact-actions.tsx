@@ -22,15 +22,10 @@ export function ContactActions({
 }: ContactActionsProps) {
   const pathname = usePathname();
   const isDark = variant === "dark";
-  const baseClass = compact
-    ? "px-4 py-2.5 text-sm"
-    : "px-5 py-3 text-sm";
-  const whatsappClass = isDark
-    ? "bg-[#f3bf5f] text-[#1d252f] hover:bg-[#ffd37b] focus-visible:ring-offset-[#1f2930]"
-    : "bg-[#147874] text-white hover:bg-[#0f625f] focus-visible:ring-offset-white";
-  const phoneClass = isDark
-    ? "border-white/25 bg-white/5 text-white hover:bg-white/12 focus-visible:ring-offset-[#1f2930]"
-    : "border-[#1d252f]/15 bg-white text-[#1d252f] hover:bg-[#ece7dc] focus-visible:ring-offset-white";
+  const sizeClass = compact ? "btn-compact" : "btn-lg";
+  const whatsappVariant = isDark ? "btn-primary" : "btn-secondary";
+  const phoneVariant = isDark ? "btn-outline-dark" : "btn-outline-light";
+  const focusOffset = isDark ? "btn-offset-dark" : "";
 
   return (
     <div className="flex flex-wrap gap-3">
@@ -43,7 +38,7 @@ export function ContactActions({
             placement: analyticsPlacement,
           })
         }
-        className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-md font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 ${baseClass} ${whatsappClass}`}
+        className={`btn ${whatsappVariant} ${sizeClass} ${focusOffset}`}
       >
         <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />
         WhatsApp&apos;tan ön görüşme
@@ -57,7 +52,7 @@ export function ContactActions({
             placement: analyticsPlacement,
           })
         }
-        className={`min-h-11 items-center justify-center gap-2 rounded-md border font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 ${hidePhoneOnMobile ? "hidden sm:inline-flex" : "inline-flex"} ${baseClass} ${phoneClass}`}
+        className={`btn ${phoneVariant} ${sizeClass} ${focusOffset} ${hidePhoneOnMobile ? "hidden sm:inline-flex" : ""}`}
       >
         <Phone aria-hidden="true" size={17} strokeWidth={2.25} />
         {siteConfig.contact.phoneDisplay}

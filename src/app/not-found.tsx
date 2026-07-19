@@ -16,7 +16,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex rounded-md bg-[#1f2930] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#31414c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+          className="btn btn-dark btn-lg mt-8"
         >
           Ana sayfaya dön
         </Link>
@@ -34,7 +34,7 @@ export default function NotFound() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[#147874] underline decoration-[#147874]/35 underline-offset-4 transition hover:decoration-[#147874] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
+                className="btn btn-ghost"
               >
                 {item.label}
               </Link>

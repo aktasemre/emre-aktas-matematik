@@ -12,7 +12,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type {
   ArchiveResource,
   ResourceAction,
@@ -35,21 +35,8 @@ const audienceFilters: AudienceFilter[] = [
 ];
 const filterChangeEvent = "matematik-akademi:resource-filter-change";
 
-function subscribeToFilterUrl(callback: () => void) {
-  window.addEventListener("popstate", callback);
-  window.addEventListener(filterChangeEvent, callback);
-  return () => {
-    window.removeEventListener("popstate", callback);
-    window.removeEventListener(filterChangeEvent, callback);
-  };
-}
-
 function getFilterUrlSnapshot() {
-  return window.location.search;
-}
-
-function getServerFilterUrlSnapshot() {
-  return "";
+  return typeof window === "undefined" ? "" : window.location.search;
 }
 
 function updateFilterUrl(updates: Record<string, string | null>) {
@@ -106,7 +93,7 @@ function ResourceActionLinks({
               resource_id: resource.id,
             })
           }
-          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#1d252f]/14 bg-white px-3 py-2 text-sm font-semibold text-[#34424d] transition hover:border-[#147874]/55 hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+          className="btn btn-outline-light"
         >
           <ResourceActionIcon kind={action.kind} />
           {action.label}
@@ -116,7 +103,7 @@ function ResourceActionLinks({
       {resource.actions.length > limit ? (
         <Link
           href={`/kaynaklar/${resource.id}`}
-          className="inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#147874] transition hover:bg-[#eaf3ef] hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+          className="btn btn-ghost"
         >
           +{resource.actions.length - limit} bağlantı
           <ArrowRight aria-hidden="true" size={16} />
@@ -145,6 +132,14 @@ function ResourceFilters({
   hasActiveFilters: boolean;
   onClear: () => void;
 }) {
+  const trackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const queueFilterTrack = (properties: Record<string, string | number>) => {
+    if (trackTimer.current) clearTimeout(trackTimer.current);
+    trackTimer.current = setTimeout(() => {
+      track("resource_filter", properties);
+    }, 400);
+  };
+
   return (
     <div className="rounded-[8px] border border-[#1d252f]/10 bg-[#fbfaf6] p-4 sm:p-5">
       <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-[1.5fr_0.8fr_0.8fr_auto] lg:items-end">
@@ -183,7 +178,7 @@ function ResourceFilters({
             onChange={(event) => {
               const value = event.target.value;
               updateFilterUrl({ yil: value === "Tümü" ? null : value });
-              track("resource_filter", { filter: "academic_year", value });
+              queueFilterTrack({ filter: "academic_year", value });
             }}
             className="mt-2 h-11 w-full rounded-md border border-[#1d252f]/15 bg-white px-3 text-sm text-[#1d252f] outline-none transition focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
           >
@@ -203,7 +198,7 @@ function ResourceFilters({
             onChange={(event) => {
               const value = event.target.value;
               updateFilterUrl({ tur: value === "Tümü" ? null : value });
-              track("resource_filter", { filter: "category", value });
+              queueFilterTrack({ filter: "category", value });
             }}
             className="mt-2 h-11 w-full rounded-md border border-[#1d252f]/15 bg-white px-3 text-sm text-[#1d252f] outline-none transition focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
           >
@@ -220,7 +215,7 @@ function ResourceFilters({
           <button
             type="button"
             onClick={onClear}
-            className="col-span-2 inline-flex h-11 w-full items-center justify-center gap-2 self-end rounded-md border border-[#1d252f]/15 bg-white px-3 text-sm font-semibold text-[#43505d] transition hover:bg-[#ece7dc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6] lg:col-span-1 lg:w-11 lg:px-0"
+            className="btn btn-outline-light col-span-2 self-end lg:col-span-1 lg:w-11 lg:px-0"
             aria-label="Filtreleri temizle"
             title="Filtreleri temizle"
           >
@@ -246,14 +241,10 @@ function ResourceFilters({
               type="button"
               onClick={() => {
                 updateFilterUrl({ hedef: item === "Tümü" ? null : item });
-                track("resource_filter", { filter: "audience", value: item });
+                queueFilterTrack({ filter: "audience", value: item });
               }}
               aria-pressed={isActive}
-              className={`rounded-md px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6] ${
-                isActive
-                  ? "bg-[#1f2930] text-white"
-                  : "border border-[#1d252f]/12 bg-white text-[#43505d] hover:bg-[#ece7dc]"
-              }`}
+              className={isActive ? "btn btn-primary" : "btn btn-outline-light"}
             >
               {item}
             </button>
@@ -284,11 +275,22 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
     () => Array.from(new Set(resources.map((resource) => resource.category))),
     [resources]
   );
-  const urlSnapshot = useSyncExternalStore(
-    subscribeToFilterUrl,
-    getFilterUrlSnapshot,
-    getServerFilterUrlSnapshot
-  );
+
+  // Statik sayfalarda SSR ciktisi ile CSR ciktisi arasinda URL parametreleri
+  // uzerinden hidrasyon uyumsuzlugu olmamasi icin ilk render her zaman bos,
+  // mount sonrasi gercek URL'den okunuyor.
+  const [urlSnapshot, setUrlSnapshot] = useState("");
+  useEffect(() => {
+    const sync = () => setUrlSnapshot(getFilterUrlSnapshot());
+    sync();
+    window.addEventListener(filterChangeEvent, sync);
+    window.addEventListener("popstate", sync);
+    return () => {
+      window.removeEventListener(filterChangeEvent, sync);
+      window.removeEventListener("popstate", sync);
+    };
+  }, []);
+
   const urlParams = useMemo(() => new URLSearchParams(urlSnapshot), [urlSnapshot]);
   const query = urlParams.get("ara") ?? "";
   const requestedAudience = urlParams.get("hedef") as AudienceFilter | null;
@@ -403,7 +405,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
                 <ResourceActionLinks resource={resource} placement="quick_access" />
                 <Link
                   href={`/kaynaklar/${resource.id}`}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                  className="btn btn-ghost mt-5"
                 >
                   Kaynak ayrıntıları
                   <ArrowRight aria-hidden="true" size={16} />
@@ -467,7 +469,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
                 <ResourceActionLinks resource={resource} placement="catalog" />
                 <Link
                   href={`/kaynaklar/${resource.id}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#147874] transition hover:text-[#0f625f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                  className="btn btn-ghost mt-4"
                 >
                   Kaynak ayrıntıları
                   <ArrowRight aria-hidden="true" size={16} />
@@ -484,7 +486,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
               }
               aria-controls="resource-results"
               aria-expanded={isMobileListExpanded}
-              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-md border border-[#147874]/30 bg-[#eaf3ef] px-4 py-3 text-sm font-semibold text-[#147874] transition hover:border-[#147874]/60 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 md:hidden"
+              className="btn btn-secondary mt-5 w-full md:hidden"
             >
               {isMobileListExpanded
                 ? "Daha az kaynak göster"
@@ -498,7 +500,7 @@ export function ResourceCatalog({ resources }: ResourceCatalogProps) {
           <button
             type="button"
             onClick={clearFilters}
-            className="mt-4 text-sm font-semibold text-[#147874] underline decoration-[#147874]/35 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            className="btn btn-ghost mt-4"
           >
             Filtreleri temizle
           </button>
