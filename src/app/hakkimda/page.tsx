@@ -6,6 +6,14 @@ import { ContactActions } from "@/components/contact-actions";
 import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { TrackedContactLink } from "@/components/tracked-external-link";
+import {
+  buildBreadcrumbSchema,
+  buildOrganizationSchema,
+  buildTeacherSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,6 +22,43 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hakkimda",
   },
+  openGraph: {
+    title: `${siteConfig.teacher.name} | Matematik Öğretmeni`,
+    description: `${siteConfig.teacher.experienceYears} yıllık deneyimle LGS, YKS ve ara sınıf matematik için birebir ders yaklaşımı.`,
+    url: `${siteConfig.url}/hakkimda`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "profile",
+    images: [
+      {
+        url: siteConfig.teacher.profileImage,
+        width: 500,
+        height: 466,
+        alt: `Matematik öğretmeni ${siteConfig.teacher.name}`,
+      },
+    ],
+  },
+};
+
+const aboutUrl = `${siteConfig.url}/hakkimda`;
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${aboutUrl}#webpage`,
+      url: aboutUrl,
+      name: `${siteConfig.teacher.name} Hakkında`,
+      description: metadata.description,
+      isPartOf: { "@id": schemaIds.website },
+      mainEntity: { "@id": schemaIds.teacher },
+      breadcrumb: { "@id": `${aboutUrl}#breadcrumb` },
+      inLanguage: "tr-TR",
+    },
+    buildOrganizationSchema(),
+    buildTeacherSchema(),
+    buildBreadcrumbSchema(aboutUrl, `${siteConfig.teacher.name} Hakkında`),
+  ],
 };
 
 const profilePoints = [
@@ -37,6 +82,10 @@ const profilePoints = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(aboutJsonLd) }}
+      />
       <SiteHeader />
       <ScrollRevealController />
       <main>
@@ -62,6 +111,13 @@ export default function AboutPage() {
             </div>
 
             <div className="order-1 self-center lg:order-2">
+              <p className="mb-4 text-xs text-[#6d7881]">
+                <Link href="/" className="transition hover:text-[#147874]">
+                  Ana Sayfa
+                </Link>
+                <span aria-hidden="true" className="mx-2">/</span>
+                Hakkımda
+              </p>
               <p className="text-sm font-semibold uppercase text-[#147874]">
                 Matematik Öğretmeni
               </p>
@@ -79,8 +135,10 @@ export default function AboutPage() {
               <div className="mt-7">
                 <ContactActions analyticsPlacement="about_hero" />
               </div>
-              <Link
+              <TrackedContactLink
                 href={siteConfig.instagram.url}
+                channel="instagram"
+                placement="about_hero"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-ghost mt-5 hidden lg:inline-flex"
@@ -88,7 +146,7 @@ export default function AboutPage() {
                 <AtSign aria-hidden="true" size={17} />
                 Instagram&apos;da {siteConfig.instagram.handle}
                 <span className="sr-only"> (yeni sekmede açılır)</span>
-              </Link>
+              </TrackedContactLink>
             </div>
           </div>
         </section>
@@ -104,8 +162,10 @@ export default function AboutPage() {
                 <p className="text-sm leading-6 text-[#5b6670]">
                   {siteConfig.teacher.curriculumNote}
                 </p>
-                <Link
+                <TrackedContactLink
                   href={siteConfig.instagram.url}
+                  channel="instagram"
+                  placement="about_approach"
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-ghost mt-3"
@@ -113,7 +173,7 @@ export default function AboutPage() {
                   <AtSign aria-hidden="true" size={17} />
                   Instagram&apos;da {siteConfig.instagram.handle}
                   <span className="sr-only"> (yeni sekmede açılır)</span>
-                </Link>
+                </TrackedContactLink>
               </div>
             </div>
             <div className="mt-9 grid gap-4 md:grid-cols-3" data-scroll-reveal-group>

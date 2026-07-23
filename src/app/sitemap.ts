@@ -4,8 +4,13 @@ import { locationPages } from "@/lib/locations";
 import { archiveResources, resourceHubs } from "@/lib/resources";
 import { siteConfig } from "@/lib/site";
 
+const additionalStaticPages = ["basaksehir-lgs-matematik-calisma-rehberi"];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = sitemapEntries.map((path) => ({
+  const staticPages: MetadataRoute.Sitemap = [
+    ...sitemapEntries,
+    ...additionalStaticPages,
+  ].map((path) => ({
     url: path ? `${siteConfig.url}/${path}` : siteConfig.url,
     changeFrequency: path ? "monthly" : "weekly",
     priority: path ? 0.75 : 1,
@@ -22,7 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const resourcePages: MetadataRoute.Sitemap = archiveResources.map((resource) => ({
     url: `${siteConfig.url}/kaynaklar/${resource.id}`,
-    lastModified: resource.lastVerified ?? undefined,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

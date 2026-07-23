@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
     "check:links": "node scripts/check-external-links.mjs",
-    "verify": "npm run lint && npm run typecheck && npm test && npm run build",
+    "check:seo": "node scripts/check-seo-output.mjs",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run check:seo",
     "sync:meb-resources": "node scripts/sync-meb-resources.mjs",
     "sync:mebi-practice": "node scripts/sync-mebi-practice.mjs"
   },

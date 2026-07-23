@@ -3,6 +3,7 @@
 import { track } from "@vercel/analytics";
 import { MessageCircle, ShieldCheck } from "lucide-react";
 import { useMemo, useState } from "react";
+import { TrackedContactLink } from "@/components/tracked-external-link";
 import { buildWhatsAppUrl } from "@/lib/site";
 
 const gradeOptions = ["6", "7", "8", "9", "10", "11", "12 / Mezun"];
@@ -128,8 +129,10 @@ export function ConsultationBuilder() {
 
         <div>
           {isReady ? (
-            <a
+            <TrackedContactLink
               href={buildWhatsAppUrl(message)}
+              channel="whatsapp"
+              placement="consultation_builder"
               onClick={() =>
                 track("consultation_builder_complete", {
                   grade,
@@ -141,7 +144,7 @@ export function ConsultationBuilder() {
             >
               <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />
               Hazırlanan mesajı WhatsApp&apos;ta aç
-            </a>
+            </TrackedContactLink>
           ) : (
             <button
               type="button"

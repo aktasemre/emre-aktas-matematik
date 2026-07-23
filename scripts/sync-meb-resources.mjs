@@ -6,8 +6,13 @@ const root = process.cwd();
 const manifestPath = path.join(root, "src", "data", "resources.json");
 const outputPath = path.join(root, "src", "data", "resource-links.generated.json");
 const userAgent = "MatematikAkademiResourceSync/2.0 (+https://www.matematik-akademi.com/)";
+const dryRun = process.argv.includes("--dry-run");
 
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+const existingOutput = JSON.parse(await readFile(outputPath, "utf8"));
+const existingById = new Map(
+  existingOutput.resources.map((resource) => [resource.id, resource])
+);
 
 function normalizeUrl(rawHref, sourceUrl) {
   if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("javascript:")) {
@@ -29,6 +34,41 @@ function classifyLink(href) {
   if (["youtube.com", "www.youtube.com", "youtu.be"].includes(url.hostname)) return "video";
   if (url.hostname === "mebi.eba.gov.tr") return "platform";
   return null;
+}
+
+function preserveOsymPdfSource(resource) {
+  if (resource.provider !== "ÖSYM" || classifyLink(resource.href) !== "document") {
+    return null;
+  }
+
+  const existingResource = existingById.get(resource.id);
+  if (!existingResource) {
+    throw new Error(`${resource.id}: korunacak mevcut ÖSYM bağlantıları bulunamadı.`);
+  }
+
+  const actions = existingResource.actions.filter((action) => {
+    if (action.kind !== "document" || classifyLink(action.href) !== "document") {
+      return false;
+    }
+
+    const url = new URL(action.href);
+    return url.hostname.endsWith("osym.gov.tr") && /(?:tyt|ayt)/i.test(url.pathname);
+  });
+  const labels = actions.map(({ label }) => label);
+
+  if (
+    !labels.some((label) => label.includes("TYT")) ||
+    !labels.some((label) => label.includes("AYT"))
+  ) {
+    throw new Error(`${resource.id}: korunacak TYT/AYT PDF ikilisi eksik.`);
+  }
+
+  return {
+    id: resource.id,
+    sourceUrl: resource.href,
+    verifiedAt: existingResource.verifiedAt,
+    actions,
+  };
 }
 
 function cleanLabel(value) {
@@ -193,7 +233,27 @@ async function scrapeResource(resource) {
 }
 
 const resources = [];
+let preservedOsymPdfCount = 0;
 for (const resource of manifest) {
+  const preservedOsymResource = preserveOsymPdfSource(resource);
+  if (preservedOsymResource) {
+    resources.push(preservedOsymResource);
+    preservedOsymPdfCount += 1;
+    console.log(
+      `${resource.id}: ${preservedOsymResource.actions.length} mevcut ÖSYM PDF bağlantısı korundu`
+    );
+    continue;
+  }
+
+  if (dryRun) {
+    const existingResource = existingById.get(resource.id);
+    if (!existingResource) {
+      throw new Error(`${resource.id}: kuru çalıştırmada mevcut çıktı bulunamadı.`);
+    }
+    resources.push(existingResource);
+    continue;
+  }
+
   const hostname = new URL(resource.href).hostname;
   const canScrape = hostname.endsWith("meb.gov.tr") || hostname.endsWith("osym.gov.tr");
 
@@ -216,7 +276,14 @@ const output = {
   generatedAt: new Date().toISOString(),
   resources,
 };
-const temporaryPath = `${outputPath}.tmp`;
-await writeFile(temporaryPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
-await rename(temporaryPath, outputPath);
-console.log(`Güncellendi: ${path.relative(root, outputPath)}`);
+
+if (dryRun) {
+  console.log(
+    `Kuru çalıştırma tamamlandı: ${preservedOsymPdfCount} ÖSYM PDF kaydı doğrulandı; dosya değiştirilmedi.`
+  );
+} else {
+  const temporaryPath = `${outputPath}.tmp`;
+  await writeFile(temporaryPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+  await rename(temporaryPath, outputPath);
+  console.log(`Güncellendi: ${path.relative(root, outputPath)}`);
+}

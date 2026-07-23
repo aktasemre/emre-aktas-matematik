@@ -1,8 +1,7 @@
 "use client";
 
-import { track } from "@vercel/analytics";
 import { MessageCircle, Phone } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { TrackedContactLink } from "@/components/tracked-external-link";
 import { siteConfig } from "@/lib/site";
 
 type ContactActionsProps = {
@@ -20,7 +19,6 @@ export function ContactActions({
   hidePhoneOnMobile = false,
   analyticsPlacement = "content",
 }: ContactActionsProps) {
-  const pathname = usePathname();
   const isDark = variant === "dark";
   const sizeClass = compact ? "btn-compact" : "btn-lg";
   const whatsappVariant = isDark ? "btn-primary" : "btn-secondary";
@@ -29,34 +27,24 @@ export function ContactActions({
 
   return (
     <div className="flex flex-wrap gap-3">
-      <a
+      <TrackedContactLink
         href={whatsappUrl}
-        onClick={() =>
-          track("contact_click", {
-            channel: "whatsapp",
-            path: pathname,
-            placement: analyticsPlacement,
-          })
-        }
+        channel="whatsapp"
+        placement={analyticsPlacement}
         className={`btn ${whatsappVariant} ${sizeClass} ${focusOffset}`}
       >
         <MessageCircle aria-hidden="true" size={18} strokeWidth={2.25} />
         WhatsApp&apos;tan ön görüşme
-      </a>
-      <a
+      </TrackedContactLink>
+      <TrackedContactLink
         href={siteConfig.contact.phoneUrl}
-        onClick={() =>
-          track("contact_click", {
-            channel: "phone",
-            path: pathname,
-            placement: analyticsPlacement,
-          })
-        }
+        channel="phone"
+        placement={analyticsPlacement}
         className={`btn ${phoneVariant} ${sizeClass} ${focusOffset} ${hidePhoneOnMobile ? "hidden sm:inline-flex" : ""}`}
       >
         <Phone aria-hidden="true" size={17} strokeWidth={2.25} />
         {siteConfig.contact.phoneDisplay}
-      </a>
+      </TrackedContactLink>
     </div>
   );
 }

@@ -1,12 +1,16 @@
 import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+const execFileAsync = promisify(execFile);
+const projectRoot = fileURLToPath(new URL("../", import.meta.url));
+const generatedPath = new URL("../src/data/resource-links.generated.json", import.meta.url);
 const manifest = await readJson(new URL("../src/data/resources.json", import.meta.url));
-const generated = await readJson(
-  new URL("../src/data/resource-links.generated.json", import.meta.url)
-);
+const generated = await readJson(generatedPath);
 const mebi = await readJson(
   new URL("../src/data/mebi-practice.generated.json", import.meta.url)
 );
@@ -17,6 +21,33 @@ test("kaynak kimlikleri benzersiz ve senkronizasyon çıktısıyla eşleşiyor",
 
   assert.equal(new Set(manifestIds).size, manifestIds.length);
   assert.deepEqual(generatedIds.toSorted(), manifestIds.toSorted());
+});
+
+test("her kaynak özgün ve eksiksiz çalışma rehberi içeriyor", () => {
+  const contexts = [];
+  const usages = [];
+  const teacherNotes = [];
+
+  for (const resource of manifest) {
+    assert.ok(resource.guidance, `${resource.id}: çalışma rehberi eksik`);
+    assert.ok(resource.guidance.context.trim(), `${resource.id}: kaynak bağlamı eksik`);
+    assert.ok(resource.guidance.usage.trim(), `${resource.id}: kullanım önerisi eksik`);
+    assert.ok(resource.guidance.teacherNote.trim(), `${resource.id}: öğretmen notu eksik`);
+    assert.ok(resource.guidance.includes.length >= 3, `${resource.id}: içerik listesi eksik`);
+    assert.equal(
+      new Set(resource.guidance.includes).size,
+      resource.guidance.includes.length,
+      `${resource.id}: içerik listesinde tekrar var`
+    );
+
+    contexts.push(resource.guidance.context);
+    usages.push(resource.guidance.usage);
+    teacherNotes.push(resource.guidance.teacherNote);
+  }
+
+  assert.equal(new Set(contexts).size, manifest.length, "kaynak bağlamları özgün değil");
+  assert.equal(new Set(usages).size, manifest.length, "kullanım önerileri özgün değil");
+  assert.equal(new Set(teacherNotes).size, manifest.length, "öğretmen notları özgün değil");
 });
 
 test("üretilen kaynak bağlantıları doğrulanmış ve tekrarsız", () => {
@@ -44,10 +75,30 @@ test("son beş YKS kaydında doğrudan TYT ve AYT kitapçıkları var", () => {
     const generatedResource = generated.resources.find(({ id }) => id === resource.id);
     const documents = generatedResource.actions.filter(({ kind }) => kind === "document");
 
+    assert.equal(resource.href, generatedResource.sourceUrl);
+    assert.equal(new URL(resource.href).hostname, "dokuman.osym.gov.tr");
+    assert.match(new URL(resource.href).pathname, /\.pdf$/i);
     assert.equal(documents.length, 2, `${resource.id}: TYT/AYT ikilisi eksik`);
     assert.ok(documents.some(({ label }) => label.includes("TYT")));
     assert.ok(documents.some(({ label }) => label.includes("AYT")));
   }
+});
+
+test("kaynak senkronizasyonu kuru çalıştırmada ÖSYM PDF kayıtlarını koruyor", async () => {
+  const before = await readFile(generatedPath, "utf8");
+  const syncScript = fileURLToPath(
+    new URL("../scripts/sync-meb-resources.mjs", import.meta.url)
+  );
+  const { stdout } = await execFileAsync(process.execPath, [syncScript, "--dry-run"], {
+    cwd: projectRoot,
+  });
+  const after = await readFile(generatedPath, "utf8");
+
+  assert.equal(after, before, "kuru çalıştırma generated çıktısını değiştirdi");
+  assert.match(
+    stdout,
+    /Kuru çalıştırma tamamlandı: 5 ÖSYM PDF kaydı doğrulandı; dosya değiştirilmedi\./
+  );
 });
 
 test("MEBİ harici arşivi açıkça etiketli ve 12 deneme eksiksiz", () => {

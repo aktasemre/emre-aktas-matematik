@@ -9,6 +9,16 @@
     "format": "Duyuru + PDF",
     "title": "MEBİ LGS Mart ayı örnek soruları",
     "description": "MEBİ üzerinden yayımlanan LGS örnek soruları ve çözüm videolarının resmî duyurusu.",
+    "guidance": {
+      "context": "Mart 2026 paketini, sınava yakın dönemde MEBİ tarafından yayımlanan güncel bir LGS soru dili örneği olarak değerlendirin. Materyal ve çözüm anlatımları MEBİ platformu üzerinden sunulur.",
+      "includes": [
+        "LGS örnek soruları",
+        "Resmî çözüm videoları",
+        "MEBİ platform erişimi"
+      ],
+      "usage": "Önce sayısal soruları yardım almadan çözün; takıldığınız adımları işaretledikten sonra çözüm videosuyla kendi yaklaşımınızı karşılaştırın.",
+      "teacherNote": "Çözüm videosunu soruyu denemeden açmak, kaynağın ölçme değerini azaltır. Videoyu yalnızca çözüm yolunu karşılaştırmak ve eksik adımı belirlemek için kullanın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/mebi039de-lgs-ogrencileri-icin-mart-ayi-ornek-sorulari-yayimlandi/icerik/1550/tr"
   },
   {
@@ -21,6 +31,16 @@
     "format": "Çevrim içi platform",
     "title": "MEBİ LGS deneme ve tarama sınavları",
     "description": "MEBİ'nin 2025-2026 LGS hazırlığı için sunduğu 12 Türkiye geneli deneme ile tarama ve değerlendirme içerikleri.",
+    "guidance": {
+      "context": "2025-2026 hazırlık dönemindeki 12 Türkiye geneli denemeyi bir arada sunan MEBİ kaynağıdır. Denemelerin sözel ve sayısal bölümleriyle cevap anahtarlarına ayrı ayrı erişilebilir.",
+      "includes": [
+        "12 Türkiye geneli LGS denemesi",
+        "Sözel ve sayısal kitapçıklar",
+        "Cevap anahtarları"
+      ],
+      "usage": "Denemeleri arka arkaya tüketmek yerine çalışma takviminize yayın sırasıyla yerleştirin. Her uygulamadan sonra sayısal yanlışları konu eksiği, işlem hatası ve soru okuma hatası olarak ayırın.",
+      "teacherNote": "Tek başına deneme puanı gelişimi açıklamaz. Aynı hata türü iki denemede tekrar ediyorsa bir sonraki denemeden önce o konuya kısa bir dönüş planlayın."
+    },
     "href": "https://mebi.eba.gov.tr/",
     "featured": true,
     "actions": [
@@ -46,6 +66,16 @@
     "format": "Duyuru + PDF",
     "title": "2026 LGS çalışma kitapları seti",
     "description": "8. sınıf merkezi sınav kapsamındaki çalışma kitapları, örnek ve çıkmış sorular için MEB'in resmî seti.",
+    "guidance": {
+      "context": "MEB'in Nisan 2026'da yayımladığı set; matematik, Türkçe, fen ve sözel ders çalışma kitaplarını aynı kaynak altında toplar. Matematik kitabına doğrudan PDF bağlantısıyla erişilebilir.",
+      "includes": [
+        "8. sınıf matematik çalışma kitabı",
+        "Türkçe ve fen çalışma kitapları",
+        "Sözel dersler çalışma kitabı"
+      ],
+      "usage": "Matematik kitabında güncel çalışma planınızdaki konuyu seçin. Bölümü tamamladıktan sonra yanlış soruları yeniden çözmek için ayrı bir tekrar oturumu oluşturun.",
+      "teacherNote": "Kitabı baştan sona hızlıca bitirmek yerine, her bölümde hangi soru türünde zorlandığınızı not etmek daha işlevlidir. Çalışma kitabını deneme analizinde çıkan eksiklerle eşleştirin."
+    },
     "href": "https://odsgm.meb.gov.tr/www/lgs-calisma-kitaplari-seti/icerik/1583",
     "featured": true
   },
@@ -59,6 +89,16 @@
     "format": "Duyuru + PDF",
     "title": "2025 üçüncü LGS örnek soru kitapçıkları",
     "description": "2024-2025 eğitim öğretim yılı için yayımlanan üçüncü resmî LGS örnek soru paketi.",
+    "guidance": {
+      "context": "2024-2025 eğitim öğretim yılının üçüncü MEB örnek soru paketidir. Sözel ve sayısal kitapçıkların yanında her iki bölüm için resmî çözüm videoları bulunur.",
+      "includes": [
+        "Sözel örnek soru kitapçığı",
+        "Sayısal örnek soru kitapçığı",
+        "Sözel ve sayısal çözüm videoları"
+      ],
+      "usage": "Sayısal kitapçığı tek oturumda çözün, ardından yalnızca boş ve yanlış sorular için çözüm videolarına dönün. Çözümden sonra aynı soruyu kapatıp yeniden kurun.",
+      "teacherNote": "Üçüncü paket, dönemin önceki örnekleriyle karşılaştırma yapmak için uygundur. Sadece doğru sayısını değil, çözüm süresi uzayan soru yapılarını da kaydedin."
+    },
     "href": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ucuncu-ornek-soru-kitapciklari-yayimlandi/icerik/1425"
   },
   {
@@ -71,6 +111,16 @@
     "format": "2 PDF + 2 çözüm",
     "title": "2025 ikinci LGS örnek soru kitapçıkları",
     "description": "Sözel ve sayısal kitapçıkları ile resmî çözüm videolarına tek karttan doğrudan erişim.",
+    "guidance": {
+      "context": "Şubat 2025'te yayımlanan ikinci MEB paketidir. Sözel ve sayısal örnek soru PDF'leri, ilgili resmî çözüm videolarıyla birlikte sunulur.",
+      "includes": [
+        "Sözel örnek soru PDF'si",
+        "Sayısal örnek soru PDF'si",
+        "İki resmî çözüm videosu"
+      ],
+      "usage": "Sayısal bölümü süreli uyguladıktan sonra her yanlış için önce kendi çözümünüzü düzeltmeyi deneyin. Çözüm videosunu ikinci kontrol adımı olarak kullanın.",
+      "teacherNote": "Şubat paketi, ikinci dönem başında soru okuma ve işlem akışını kontrol etmek için kullanılabilir. Aynı kazanımdaki hataları tek bir tekrar listesinde birleştirin."
+    },
     "href": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ikinci-ornek-soru-kitapciklari-yayimlandi/icerik/1405",
     "featured": true
   },
@@ -84,6 +134,16 @@
     "format": "Duyuru + PDF",
     "title": "2024 Nisan LGS örnek soru kitapçığı",
     "description": "2023-2024 eğitim öğretim yılı için yayımlanan resmî LGS örnek soru paketi ve çözüm videoları.",
+    "guidance": {
+      "context": "Nisan 2024 tarihli MEB paketinde sözel ve sayısal örnek soru kitapçıkları ile her iki bölüme ait resmî çözüm videoları yer alır.",
+      "includes": [
+        "Sözel örnek soru PDF'si",
+        "Sayısal örnek soru PDF'si",
+        "Sözel ve sayısal çözüm videoları"
+      ],
+      "usage": "Sayısal kitapçığı sınav düzeninde çözün. Kontrol sırasında yanlışın hangi bilgi veya okuma adımından doğduğunu yazın ve çözüm videosuyla bu adımı doğrulayın.",
+      "teacherNote": "Eski tarihli bir paket olsa da resmî soru dilini incelemek için değerlidir. Güncel konu kapsamını ayrıca kontrol ederek, eksik veya farklı kazanımları çalışma planından ayırın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1206"
   },
   {
@@ -96,6 +156,16 @@
     "format": "Duyuru + PDF",
     "title": "2024 ilk LGS örnek soru kitapçığı",
     "description": "2023-2024 eğitim öğretim yılı için yayımlanan ilk resmî LGS örnek soru paketi.",
+    "guidance": {
+      "context": "Kasım 2023'te yayımlanan, 2023-2024 döneminin ilk MEB LGS örnek soru paketidir. Sözel ve sayısal PDF'lerin yanında resmî çözüm videoları bulunur.",
+      "includes": [
+        "Dönemin ilk sözel kitapçığı",
+        "Dönemin ilk sayısal kitapçığı",
+        "İki resmî çözüm videosu"
+      ],
+      "usage": "Sayısal soruları konu tekrarı sonrasında uygulayın. Henüz işlenmemiş bir kazanıma rastlarsanız sonucu puanlamak yerine soruyu daha sonraki çalışma listesine alın.",
+      "teacherNote": "Dönemin ilk paketi olduğu için seviye tespitinde kullanılabilir; ancak tek bir kitapçıkla genel sınav performansı yorumu yapmayın. Hata türlerini sonraki paketlerle karşılaştırın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/lgs-kapsamindaki-merkezi-sinava-yonelik-ornek-sorular-yayimlandi/icerik/1118"
   },
   {
@@ -108,6 +178,16 @@
     "format": "Duyuru + PDF",
     "title": "2023 Mayıs LGS örnek soruları",
     "description": "2022-2023 eğitim öğretim yılı Mayıs ayı sayısal ve sözel resmî LGS örnek soruları.",
+    "guidance": {
+      "context": "Mayıs 2023'te sınava yakın dönemde yayımlanan MEB paketidir. Sözel ve sayısal örnek soru PDF'leri ile her iki bölümün resmî çözüm videoları birlikte sunulur.",
+      "includes": [
+        "Mayıs ayı sözel soru PDF'si",
+        "Mayıs ayı sayısal soru PDF'si",
+        "İki resmî çözüm videosu"
+      ],
+      "usage": "Sayısal kitapçığı kesintisiz bir oturumda çözün. Kontrol sonrası yalnızca yanlışları değil, doğru yapıp gereğinden uzun sürdüğünüz soruları da tekrar edin.",
+      "teacherNote": "Sınava yakın tarihli paketleri son hafta aceleyle tüketmek yerine analiz için zaman bırakın. Video çözümdeki yöntemle kendi yönteminizi süre ve açıklık açısından karşılaştırın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/975"
   },
   {
@@ -120,6 +200,16 @@
     "format": "Duyuru + PDF",
     "title": "2023 Ocak LGS örnek soruları",
     "description": "2022-2023 eğitim öğretim yılı Ocak ayı resmî LGS örnek soru paketi ve çözüm videoları.",
+    "guidance": {
+      "context": "Ocak 2023 paketinde sözel ve sayısal MEB örnek soru kitapçıkları, iki bölüm için hazırlanan resmî çözüm videolarıyla birlikte yer alır.",
+      "includes": [
+        "Ocak ayı sözel soru PDF'si",
+        "Ocak ayı sayısal soru PDF'si",
+        "Sözel ve sayısal çözüm videoları"
+      ],
+      "usage": "Yarıyıl değerlendirmesinde sayısal kitapçığı çözün ve zorlandığınız kazanımları ikinci dönem planına aktarın. Video çözümlerini yalnızca işaretlediğiniz sorularda açın.",
+      "teacherNote": "Bu paketi net hedefinden çok eksik haritası çıkarmak için kullanın. Bir sorudaki hata işlemden kaynaklanıyorsa tüm konuyu tekrar etmek yerine hata adımına odaklanın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinav039a-yonelik-ocak-ayi-ornek-sorulari-ve-cozum-videolari-yayimlandi/icerik/934"
   },
   {
@@ -132,6 +222,16 @@
     "format": "Duyuru + PDF",
     "title": "2022 Mayıs LGS örnek soruları",
     "description": "2021-2022 eğitim öğretim yılı Mayıs ayı resmî LGS örnek soruları.",
+    "guidance": {
+      "context": "2021-2022 döneminin Mayıs ayında yayımlanan resmî MEB paketidir. Arşivde sayısal ve sözel örnek soru kitapçıklarına doğrudan erişim bulunur.",
+      "includes": [
+        "Mayıs ayı sayısal kitapçığı",
+        "Mayıs ayı sözel kitapçığı",
+        "MEB kaynak sayfası"
+      ],
+      "usage": "Matematik çalışması için sayısal kitapçığı seçin ve çözümü bitirdikten sonra yanlışları kazanım başlıklarına göre gruplayın. Sözel kitapçığı tam sınav oturumu provasında ayrıca kullanabilirsiniz.",
+      "teacherNote": "Arşiv sorularını güncel denemelerin yerine değil, farklı resmî soru örnekleri görmek için kullanın. Güncel müfredat kapsamıyla uyuşmayan bir içerik varsa planın dışında bırakın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkez-sinava-yonelik-mayis-ayi-ornek-sorulari-yayimlandi/icerik/818"
   },
   {
@@ -144,6 +244,16 @@
     "format": "Duyuru + PDF",
     "title": "2022 Mart LGS örnek soruları",
     "description": "2021-2022 eğitim öğretim yılı Mart ayı resmî LGS örnek soruları.",
+    "guidance": {
+      "context": "Mart 2022 tarihli MEB arşiv kaydıdır. Sayısal ve sözel örnek soru kitapçıkları ayrı PDF'ler olarak doğrudan açılır.",
+      "includes": [
+        "Mart ayı sayısal kitapçığı",
+        "Mart ayı sözel kitapçığı",
+        "Resmî MEB arşiv kaydı"
+      ],
+      "usage": "Sayısal kitapçığı bir konu taraması gibi kullanın. Boş bıraktığınız soruları önce konu bilgisi, ardından soru okuma ve işlem adımları açısından inceleyin.",
+      "teacherNote": "Eski bir paketteki her soruyu çözmek zorunda değilsiniz. Güncel hedefinizle ilişkili soruları seçmek, tekrar sayısını artırmaktan daha sağlıklı bir çalışma planı oluşturur."
+    },
     "href": "https://odsgm.meb.gov.tr/www/sinavla-ogrenci-alacak-ortaogretim-kurumlarina-iliskin-merkezi-sinava-yonelik-mart-ayi-ornek-sorulari-yayimlandi/icerik/628"
   },
   {
@@ -156,6 +266,16 @@
     "format": "Kaynak kütüphanesi",
     "title": "MEB temel eğitim kitapları",
     "description": "6., 7. ve 8. sınıf çalışma soruları, beceri temelli testler ve matematik çalışma kitapları.",
+    "guidance": {
+      "context": "MEB'in temel eğitim kaynak arşivi; 6, 7 ve 8. sınıf düzeylerindeki çalışma soruları, beceri temelli testler ve çalışma kitaplarını bir araya getirir. Bu sayfada 8. sınıf matematik kaynaklarına doğrudan bağlantı verilir.",
+      "includes": [
+        "8. sınıf matematik soru kitabı",
+        "8. sınıf matematik çalışma kitabı",
+        "6, 7 ve 8. sınıf kaynak arşivi"
+      ],
+      "usage": "Önce sınıf düzeyinizi ve çalıştığınız konuyu belirleyin; ardından yalnızca ilgili bölümü çözün. Yanlışları bir sonraki çalışma oturumunda yeniden ele almak üzere işaretleyin.",
+      "teacherNote": "Arşivin geniş olması tüm kitapları sırayla bitirmeniz gerektiği anlamına gelmez. Okul konusu veya deneme analizinde görülen eksik, kaynak seçiminde belirleyici olmalıdır."
+    },
     "href": "https://odsgm.meb.gov.tr/www/temel-egitim-kitaplari/icerik/834"
   },
   {
@@ -168,6 +288,16 @@
     "format": "5 matematik PDF",
     "title": "İkinci dönem matematik konu-soru dağılım tabloları",
     "description": "6, 7, 9, 10 ve 11. sınıf matematik yazılıları için MEB'in 2025-2026 ikinci dönem örnek konu-soru dağılım tabloları.",
+    "guidance": {
+      "context": "MEB'in 2025-2026 ikinci dönemi için yayımladığı örnek konu-soru dağılım tablolarıdır. Her sınıf düzeyi ayrı PDF olarak sunulur; bunlar soru kitapçığı değil, yazılı kapsamını planlamaya yardımcı tablolardır.",
+      "includes": [
+        "6. ve 7. sınıf matematik tabloları",
+        "9. ve 10. sınıf matematik tabloları",
+        "11. sınıf matematik tablosu"
+      ],
+      "usage": "Sınıfınıza ait tabloyu açın ve okulunuzun seçtiği senaryoyla karşılaştırın. Çalışma süresini, tabloda yer alan konu ve soru ağırlıklarına göre bölüştürün.",
+      "teacherNote": "Dağılım tablosu konuyu öğretmez ve okulun kesin sınav kâğıdı değildir. Okulun duyurduğu kapsamı esas alın; tabloyu yalnızca tekrar önceliğini düzenlemek için kullanın."
+    },
     "href": "https://odsgm.meb.gov.tr/www/2-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1529",
     "featured": true
   },
@@ -181,6 +311,16 @@
     "format": "5 matematik PDF",
     "title": "Birinci dönem matematik konu-soru dağılım tabloları",
     "description": "6, 7, 9, 10 ve 11. sınıf matematik yazılıları için MEB'in 2025-2026 birinci dönem örnek konu-soru dağılım tabloları.",
+    "guidance": {
+      "context": "2025-2026 birinci dönem matematik yazılıları için yayımlanan MEB örnek konu-soru dağılım tablolarıdır. Beş sınıf düzeyinin her biri için ayrı resmî PDF bulunur.",
+      "includes": [
+        "6. ve 7. sınıf matematik tabloları",
+        "9. ve 10. sınıf matematik tabloları",
+        "11. sınıf matematik tablosu"
+      ],
+      "usage": "Kendi sınıf PDF'nizi ve okulunuzun uygulayacağı senaryoyu belirledikten sonra konu listesini çalışma takvimine aktarın. Her başlık için kısa konu tekrarı ve örnek soru oturumu planlayın.",
+      "teacherNote": "Tablodaki soru dağılımını ezber listesi gibi kullanmayın. Öğretmeninizin işlediği kapsam ve okulun açıkladığı senaryo önceliklidir; bu belge planı kontrol etmek için yardımcı kaynaktır."
+    },
     "href": "https://odsgm.meb.gov.tr/www/1-donem-konu-soru-dagilim-tablolari-2025-2026/icerik/1474"
   },
   {
@@ -192,8 +332,18 @@
     "provider": "ÖSYM",
     "format": "TYT + AYT PDF",
     "title": "2026 YKS soru kitapçıkları",
-    "description": "2026 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarının ÖSYM duyurusu.",
-    "href": "https://www.osym.gov.tr/TR%2C34128/2026-yuksekogretim-kurumlari-sinavi-2026-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-21062026.html",
+    "description": "2026 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarına ÖSYM'nin resmî PDF'lerinden doğrudan erişim.",
+    "guidance": {
+      "context": "ÖSYM'nin 2026 YKS için yayımladığı temel TYT ve AYT soru kitapçıklarını bir araya getirir. Her iki oturumun resmî PDF'si ayrı bağlantıyla açılır.",
+      "includes": [
+        "2026 TYT temel soru kitapçığı",
+        "2026 AYT temel soru kitapçığı",
+        "Kitapçıklardaki resmî cevap anahtarları"
+      ],
+      "usage": "TYT ve AYT kitapçıklarını ayrı sınav oturumları olarak çözün. Matematik yanlışlarını konu, işlem ve süre yönetimi başlıklarıyla analiz edip sonraki haftanın tekrar planına ekleyin.",
+      "teacherNote": "En güncel kitapçığı çalışma sürecinin başında tüketmeyin. Önce konu eksiklerini kapatın; 2026 sorularını güncel ÖSYM dilini ve sınav temposunu ölçmek için planlı bir deneme olarak saklayın."
+    },
+    "href": "https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_tyt_2026_kitapcik_d350.pdf",
     "featured": true
   },
   {
@@ -205,8 +355,18 @@
     "provider": "ÖSYM",
     "format": "TYT + AYT PDF",
     "title": "2025 YKS soru kitapçıkları",
-    "description": "2025 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarının ÖSYM duyurusu.",
-    "href": "https://www.osym.gov.tr/TR%2C33278/2025-yuksekogretim-kurumlari-sinavi-2025-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-22062025.html"
+    "description": "2025 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarına ÖSYM'nin resmî PDF'lerinden doğrudan erişim.",
+    "guidance": {
+      "context": "2025 YKS'nin resmî TYT ve AYT temel soru kitapçıklarını içerir. İki oturumun PDF'leri, ÖSYM'nin yayımladığı cevap anahtarlarıyla birlikte incelenebilir.",
+      "includes": [
+        "2025 TYT temel soru kitapçığı",
+        "2025 AYT temel soru kitapçığı",
+        "Kitapçıklardaki resmî cevap anahtarları"
+      ],
+      "usage": "Önce TYT'yi, farklı bir günde AYT'yi süreli çözün. Sonuçları 2026 kitapçığıyla karşılaştırmadan önce her sınavın yanlışlarını bağımsız olarak sınıflandırın.",
+      "teacherNote": "2025 kitapçığı yakın dönem karşılaştırması için uygundur. Yıllar arasında yalnızca net farkına bakmayın; hangi soru türlerinde süre veya çözüm yolu değiştiğini not edin."
+    },
+    "href": "https://dokuman.osym.gov.tr/pdfdokuman/2025/YKS/TSK/yks_tyt_2025_kitapcik_d250.pdf"
   },
   {
     "id": "osym-2024-yks-questions",
@@ -217,8 +377,18 @@
     "provider": "ÖSYM",
     "format": "TYT + AYT PDF",
     "title": "2024 YKS soru kitapçıkları",
-    "description": "2024 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarının ÖSYM duyurusu.",
-    "href": "https://www.osym.gov.tr/TR%2C29434/2024-yuksekogretim-kurumlari-sinavi-2024-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-09062024.html"
+    "description": "2024 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarına ÖSYM'nin resmî PDF'lerinden doğrudan erişim.",
+    "guidance": {
+      "context": "ÖSYM'nin 2024 YKS için erişime açtığı TYT ve AYT temel soru kitapçıklarını aynı arşiv kaydında toplar.",
+      "includes": [
+        "2024 TYT temel soru kitapçığı",
+        "2024 AYT temel soru kitapçığı",
+        "Kitapçıklardaki resmî cevap anahtarları"
+      ],
+      "usage": "Konu tekrarının ardından TYT ve AYT'yi farklı günlerde uygulayın. Boş ve yanlış soruların yanında, doğru olduğu hâlde çözümü uzayan matematik sorularını da analiz listesine alın.",
+      "teacherNote": "2024 kitapçığını çok yıllı bir setin orta basamağı olarak kullanabilirsiniz. Çözümden sonra 2023 ve 2025 sonuçlarıyla hata türü karşılaştırması yapmak, tek bir net karşılaştırmasından daha açıklayıcıdır."
+    },
+    "href": "https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_tyt_2024_kitapcik_T24kt.pdf"
   },
   {
     "id": "osym-2023-yks-questions",
@@ -229,8 +399,18 @@
     "provider": "ÖSYM",
     "format": "TYT + AYT PDF",
     "title": "2023 YKS soru kitapçıkları",
-    "description": "2023 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarının ÖSYM duyurusu.",
-    "href": "https://www.osym.gov.tr/TR%2C25586/2023-yuksekogretim-kurumlari-sinavi-2023-yks-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-18062023.html"
+    "description": "2023 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarına ÖSYM'nin resmî PDF'lerinden doğrudan erişim.",
+    "guidance": {
+      "context": "2023 YKS'ye ait resmî TYT ve AYT temel soru kitapçıklarını içerir. PDF'ler geçmiş sınav pratiği ve ÖSYM soru düzenini incelemek için kullanılabilir.",
+      "includes": [
+        "2023 TYT temel soru kitapçığı",
+        "2023 AYT temel soru kitapçığı",
+        "Kitapçıklardaki resmî cevap anahtarları"
+      ],
+      "usage": "Kapsamlı denemelere geçmeden önce bir başlangıç ölçümü yapmak istiyorsanız TYT veya AYT kitapçığını seçin. Çözüm sonrasında eksikleri konu başlığına göre çalışma listenize aktarın.",
+      "teacherNote": "Geçmiş yıl sorularını yalnızca cevap kalıplarını görmek için çözmeyin. Soru kökünü nasıl okuduğunuzu ve hangi bilgiyi neden kullandığınızı açıklayabiliyorsanız çalışma kalıcı hâle gelir."
+    },
+    "href": "https://dokuman.osym.gov.tr/pdfdokuman/2023/YKS/TSK/yks_tyt_2023_kitapcik_T23ky.pdf"
   },
   {
     "id": "osym-2022-yks-questions",
@@ -241,7 +421,17 @@
     "provider": "ÖSYM",
     "format": "TYT + AYT PDF",
     "title": "2022 YKS soru kitapçıkları",
-    "description": "2022 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarının ÖSYM duyurusu.",
-    "href": "https://www.osym.gov.tr/TR%2C23822/2022-yuksekogretim-kurumlari-sinavi-2022-yks-oturumlari-temel-soru-kitapciklari-ve-cevap-anahtarlari-yayimlandi-19062022.html"
+    "description": "2022 TYT ve AYT temel soru kitapçıkları ile cevap anahtarlarına ÖSYM'nin resmî PDF'lerinden doğrudan erişim.",
+    "guidance": {
+      "context": "ÖSYM'nin 2022 YKS için yayımladığı TYT ve AYT temel soru kitapçıklarının resmî arşiv kaydıdır.",
+      "includes": [
+        "2022 TYT temel soru kitapçığı",
+        "2022 AYT temel soru kitapçığı",
+        "Kitapçıklardaki resmî cevap anahtarları"
+      ],
+      "usage": "Arşiv çalışmasına 2022 kitapçığıyla başlayıp daha yeni yıllara sırayla ilerleyebilirsiniz. Her oturumdan sonra yanlış nedenlerini aynı başlıklarla kaydederek yıllar arası karşılaştırmayı tutarlı yapın.",
+      "teacherNote": "Daha eski bir kitapçığı güncel sınavın birebir tahmini olarak görmeyin. Değişmeyen temel becerileri çalışmak ve kendi hata eğiliminizi izlemek için kullanın; güncel kapsamı ayrıca kontrol edin."
+    },
+    "href": "https://dokuman.osym.gov.tr/pdfdokuman/2022/YKS/TSK/yks_2022_tyt.pdf"
   }
 ]

@@ -23,6 +23,13 @@ import { SiteHeader } from "@/components/site-header";
 import { TrackedExternalLink } from "@/components/tracked-external-link";
 import { contentPages, getContentPage, type ContentPage } from "@/lib/content";
 import { getLocationPage, locationPages } from "@/lib/locations";
+import {
+  buildBreadcrumbSchema,
+  buildOrganizationSchema,
+  buildTeacherSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type PageProps = {
@@ -126,11 +133,48 @@ export default async function ContentPage({ params }: PageProps) {
   }
 
   const theme = pageThemes[page.theme];
+  const pageUrl = `${siteConfig.url}/${page.slug}`;
   const whatsappMessage = `Merhaba Emre Hocam, ${page.title} için ücretsiz ön görüşme planlamak istiyorum. Öğrenci ... sınıf. Mevcut durum / net: ... Hedefimiz: ...`;
   const whatsappUrl = buildWhatsAppUrl(whatsappMessage);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: page.title,
+        description: page.description,
+        isPartOf: { "@id": schemaIds.website },
+        about: { "@id": `${pageUrl}#service` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        inLanguage: "tr-TR",
+      },
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: page.title,
+        description: page.description,
+        url: pageUrl,
+        serviceType: page.title,
+        provider: { "@id": schemaIds.teacher },
+        areaServed: siteConfig.serviceAreas.map((name) => ({
+          "@type": "Place",
+          name,
+        })),
+      },
+      buildOrganizationSchema(),
+      buildTeacherSchema(),
+      buildBreadcrumbSchema(pageUrl, page.title),
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
       <SiteHeader variant="dark" />
       <ScrollRevealController />
       <main>
@@ -148,6 +192,13 @@ export default async function ContentPage({ params }: PageProps) {
           <HeroMotion variant={theme.motionVariant} />
           <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-8 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
             <div className="hero-copy-reveal max-w-3xl">
+              <nav aria-label="Sayfa yolu" className="mb-4 text-xs text-white/66">
+                <Link href="/" className="transition hover:text-white">
+                  Ana Sayfa
+                </Link>
+                <span aria-hidden="true" className="mx-2">/</span>
+                <span>{page.title}</span>
+              </nav>
               <p className={`text-sm font-semibold uppercase ${theme.accentClass}`}>
                 {page.eyebrow}
               </p>

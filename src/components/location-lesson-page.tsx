@@ -16,6 +16,13 @@ import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { locationPages, type LocationPageData } from "@/lib/locations";
+import {
+  buildBreadcrumbSchema,
+  buildOrganizationSchema,
+  buildTeacherSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { buildWhatsAppUrl, siteConfig } from "@/lib/site";
 
 type LocationLessonPageProps = {
@@ -92,25 +99,38 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
     },
   ];
   const otherLocations = locationPages.filter((item) => item.slug !== location.slug);
+  const pageUrl = `${siteConfig.url}/${location.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${location.name} Matematik Özel Ders`,
-    description: location.description,
-    url: `${siteConfig.url}/${location.slug}`,
-    provider: {
-      "@type": "Person",
-      name: siteConfig.teacher.name,
-      jobTitle: siteConfig.teacher.title,
-      telephone: `+${siteConfig.contact.phoneE164}`,
-      image: `${siteConfig.url}${siteConfig.teacher.profileImage}`,
-      sameAs: [siteConfig.instagram.url],
-    },
-    areaServed: {
-      "@type": "Place",
-      name: location.schemaAreaName,
-    },
-    serviceType: "Birebir matematik özel ders",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: `${location.name} Matematik Özel Ders`,
+        description: location.description,
+        isPartOf: { "@id": schemaIds.website },
+        about: { "@id": `${pageUrl}#service` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        inLanguage: "tr-TR",
+      },
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: `${location.name} Matematik Özel Ders`,
+        description: location.description,
+        url: pageUrl,
+        provider: { "@id": schemaIds.teacher },
+        areaServed: {
+          "@type": "Place",
+          name: location.schemaAreaName,
+        },
+        serviceType: "Birebir matematik özel ders",
+      },
+      buildOrganizationSchema(),
+      buildTeacherSchema(),
+      buildBreadcrumbSchema(pageUrl, `${location.name} Matematik Özel Ders`),
+    ],
   };
 
   return (
@@ -118,7 +138,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: serializeJsonLd(jsonLd),
         }}
       />
       <ScrollRevealController />
@@ -138,6 +158,13 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
           <HeroMotion variant="route" />
           <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-5 py-10 sm:px-6 sm:py-16 lg:min-h-[68vh] lg:py-24">
             <div className="hero-copy-reveal max-w-3xl">
+              <nav aria-label="Sayfa yolu" className="mb-4 text-xs text-white/66">
+                <Link href="/" className="transition hover:text-white">
+                  Ana Sayfa
+                </Link>
+                <span aria-hidden="true" className="mx-2">/</span>
+                <span>{location.name} Matematik Özel Ders</span>
+              </nav>
               <p className="text-sm font-semibold uppercase text-[#f3bf5f]">
                 {location.eyebrow}
               </p>
@@ -212,6 +239,33 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
               <p className="mt-5 text-sm leading-7 text-[#5b6670]">
                 {location.locationSummary}
               </p>
+              <h3 className="mt-7 text-base font-semibold text-[#1d252f]">
+                İlk planlamada değerlendirdiğimiz noktalar
+              </h3>
+              <ul className="mt-4 grid gap-3 text-sm leading-6 text-[#5b6670]">
+                {location.localPriorities.map((priority) => (
+                  <li key={priority} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#147874]" />
+                    {priority}
+                  </li>
+                ))}
+              </ul>
+              {location.featuredGuide ? (
+                <Link
+                  href={location.featuredGuide.href}
+                  className="mt-7 block rounded-[8px] border border-[#147874]/25 bg-white p-5 transition hover:border-[#147874]/60 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2"
+                >
+                  <span className="text-xs font-semibold uppercase text-[#985700]">
+                    Öğretmen rehberi
+                  </span>
+                  <span className="mt-2 block font-semibold text-[#1d252f]">
+                    {location.featuredGuide.title}
+                  </span>
+                  <span className="mt-2 block text-sm leading-6 text-[#5b6670]">
+                    {location.featuredGuide.description}
+                  </span>
+                </Link>
+              ) : null}
             </div>
             <div className="border-y border-[#1d252f]/12">
               <div className="grid gap-0 sm:grid-cols-2 sm:divide-x sm:divide-[#1d252f]/12">
@@ -226,9 +280,26 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
                   <MapPin aria-hidden="true" size={24} className="text-[#147874]" />
                   <h3 className="mt-5 text-xl font-semibold">Yakın çevre</h3>
                   <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-[#5b6670]">
-                    {location.nearbyAreas.map((area) => (
-                      <li key={area}>{area}</li>
-                    ))}
+                    {location.nearbyAreas.map((area) => {
+                      const linkedLocation = locationPages.find(
+                        (item) => item.name === area && item.slug !== location.slug,
+                      );
+
+                      return (
+                        <li key={area}>
+                          {linkedLocation ? (
+                            <Link
+                              href={`/${linkedLocation.slug}`}
+                              className="font-medium text-[#147874] underline decoration-[#147874]/30 underline-offset-4 transition hover:decoration-[#147874]"
+                            >
+                              {area}
+                            </Link>
+                          ) : (
+                            area
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

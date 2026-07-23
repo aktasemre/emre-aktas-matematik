@@ -19,6 +19,12 @@ import { SiteHeader } from "@/components/site-header";
 import { TrackingProof } from "@/components/tracking-proof";
 import { locationPages } from "@/lib/locations";
 import { consultationSteps, faqs } from "@/lib/marketing";
+import {
+  buildOrganizationSchema,
+  buildTeacherSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { serviceCards, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -49,15 +55,32 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: siteConfig.teacher.name,
-  jobTitle: siteConfig.teacher.title,
-  url: siteConfig.url,
-  telephone: `+${siteConfig.contact.phoneE164}`,
-  image: `${siteConfig.url}${siteConfig.teacher.profileImage}`,
-  sameAs: [siteConfig.instagram.url],
-  areaServed: siteConfig.areaServed,
-  knowsAbout: ["LGS Matematik", "YKS Matematik", "Ara Sınıf Matematik"],
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": schemaIds.website,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      publisher: { "@id": schemaIds.organization },
+      inLanguage: "tr-TR",
+    },
+    buildOrganizationSchema(),
+    buildTeacherSchema(),
+    {
+      "@type": "Service",
+      "@id": `${siteConfig.url}/#matematik-ozel-ders`,
+      name: "İstanbul Avrupa Yakası Matematik Özel Ders",
+      description: siteConfig.description,
+      url: siteConfig.url,
+      serviceType: "Birebir matematik özel ders",
+      provider: { "@id": schemaIds.teacher },
+      areaServed: siteConfig.serviceAreas.map((name) => ({
+        "@type": "Place",
+        name,
+      })),
+    },
+  ],
 };
 
 const lessonFlow = [
@@ -78,7 +101,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <ScrollRevealController />
 

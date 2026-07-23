@@ -7,10 +7,16 @@ export type LocationPageData = {
   intro: string;
   locationSummary: string;
   planningNote: string;
+  localPriorities: string[];
   nearbyAreas: string[];
   localFaqQuestion: string;
   localFaqAnswer: string;
   cta: string;
+  featuredGuide?: {
+    title: string;
+    description: string;
+    href: string;
+  };
 };
 
 export const locationPages: LocationPageData[] = [
@@ -27,12 +33,23 @@ export const locationPages: LocationPageData[] = [
       "Başakşehir geniş bir yerleşim alanı olduğu için yüz yüze ders planında öğrencinin semti, okul çıkış saati ve haftalık programı birlikte değerlendirilir.",
     planningNote:
       "Ders günü ve saati belirlenirken ulaşım süresi de hesaba katılır. Uygun bir yüz yüze program oluşmazsa aynı takip düzeni çevrim içi dersle sürdürülebilir.",
+    localPriorities: [
+      "Kayaşehir, İkitelli ve merkez mahalleleri için açık adresin ulaşım açısından değerlendirilmesi",
+      "Okul çıkış saatiyle çakışmayan, haftadan haftaya korunabilecek sabit ders zamanı",
+      "LGS veya YKS deneme takviminin ders planına düzenli olarak yansıtılması",
+    ],
     nearbyAreas: ["Başakşehir merkez", "Kayaşehir", "Bahçeşehir", "İkitelli"],
     localFaqQuestion: "Başakşehir'in her bölgesine yüz yüze ders için geliyor musunuz?",
     localFaqAnswer:
       "Yüz yüze ders uygunluğu semt, ulaşım süresi ve ders saatine göre değerlendirilir. Konumunuzu ön görüşmede paylaştığınızda program uygunluğunu netleştirebiliriz.",
     cta:
       "Öğrencinin sınıfını, hedefini ve Başakşehir'deki konumunuzu paylaşın. Yüz yüze veya çevrim içi ders için uygun seçeneği ön görüşmede belirleyelim.",
+    featuredGuide: {
+      title: "Başakşehir için 2026 LGS matematik çalışma rehberi",
+      description:
+        "Deneme analizi, haftalık çalışma döngüsü ve kaynak seçimini öğretmen gözüyle adım adım inceleyin.",
+      href: "/basaksehir-lgs-matematik-calisma-rehberi",
+    },
   },
   {
     slug: "florya-matematik-ozel-ders",
@@ -47,6 +64,11 @@ export const locationPages: LocationPageData[] = [
       "Florya çevresinde okul çıkışı ve akşam saatlerindeki yoğunluk değişebildiği için ders saati, öğrencinin haftalık düzeniyle birlikte planlanır.",
     planningNote:
       "Yüz yüze ders için açık adres ve uygun saat ön görüşmede değerlendirilir. Böylece 90 dakikalık dersin ulaşım nedeniyle aksamasının önüne geçilir.",
+    localPriorities: [
+      "Şenlikköy, Yeşilköy ve Basınköy çevresinde okul çıkış saatine uygun ulaşım planı",
+      "Yazılı ve deneme haftalarında çalışma ağırlığının önceden belirlenmesi",
+      "Yüz yüze programın sürdürülemediği haftalar için çevrim içi devam seçeneği",
+    ],
     nearbyAreas: ["Şenlikköy", "Yeşilköy", "Basınköy", "Ataköy"],
     localFaqQuestion: "Florya çevresinde yüz yüze ders hangi saatlerde planlanabilir?",
     localFaqAnswer:
@@ -67,6 +89,11 @@ export const locationPages: LocationPageData[] = [
       "Bahçeşehir'deki site yerleşimleri ve yoğun saatler nedeniyle yüz yüze ders programı açık adres, okul çıkış saati ve haftalık ders sıklığı birlikte ele alınarak oluşturulur.",
     planningNote:
       "Düzenli devam edebilecek bir saat bulunması önceliklidir. Ulaşımın elvermediği haftalarda çevrim içi ders seçeneği programın sürekliliğini koruyabilir.",
+    localPriorities: [
+      "Bahçeşehir 1. ve 2. Kısım için site ve açık adres bilgisinin baştan netleştirilmesi",
+      "Boğazköy ve Esenkent yönündeki ulaşım süresine göre sürdürülebilir ders günü seçimi",
+      "LGS, TYT-AYT veya okul desteği hedefinin ilk görüşmede ayrı bir çalışma planına bağlanması",
+    ],
     nearbyAreas: ["Bahçeşehir 1. Kısım", "Bahçeşehir 2. Kısım", "Boğazköy", "Esenkent"],
     localFaqQuestion: "Bahçeşehir'de site içinde yüz yüze ders planlanabiliyor mu?",
     localFaqAnswer:
@@ -87,6 +114,11 @@ export const locationPages: LocationPageData[] = [
       "Göktürk için yüz yüze ders planı yapılırken açık adres, dersin başlangıç saati ve haftalık devamlılık birlikte değerlendirilir.",
     planningNote:
       "Ulaşım süresi ders gününe göre değişebildiğinden program ön görüşmede netleştirilir. Çevrim içi seçenek, konumdan bağımsız olarak aynı 90 dakikalık çalışma düzenini sunar.",
+    localPriorities: [
+      "Göktürk merkez ve Kemerburgaz yönü için açık adres ile ders başlangıç saatinin birlikte değerlendirilmesi",
+      "Ortaokul ve lise programlarına göre hafta içi ya da hafta sonu çalışma ritmi kurulması",
+      "Uzun ulaşım sürelerinin ders devamlılığını etkilememesi için çevrim içi alternatifin planlanması",
+    ],
     nearbyAreas: ["Göktürk merkez", "Kemerburgaz", "Mithatpaşa", "Eyüpsultan"],
     localFaqQuestion: "Göktürk ve Kemerburgaz çevresinde yüz yüze ders veriyor musunuz?",
     localFaqAnswer:
@@ -107,6 +139,11 @@ export const locationPages: LocationPageData[] = [
       "Atakent'te öğrencinin okul programı ve site konumu ders saatini doğrudan etkileyebilir. Bu nedenle düzenli devam edilebilecek gün ve saat baştan belirlenir.",
     planningNote:
       "Yüz yüze ders için konum ve ulaşım uygunluğu değerlendirilir; sınav dönemlerinde programın aksamaması için çevrim içi seçenek de açık tutulur.",
+    localPriorities: [
+      "Atakent ve Halkalı'daki site konumunun okul çıkış saatiyle birlikte değerlendirilmesi",
+      "Ortak yazılı dönemlerinde okul konuları ile birebir ders önceliklerinin eşleştirilmesi",
+      "LGS ve ara sınıf öğrencileri için düzenli ödev ve yanlış takibi yapılması",
+    ],
     nearbyAreas: ["Atakent", "Halkalı", "Küçükçekmece", "Tema çevresi"],
     localFaqQuestion: "Atakent ve Halkalı'da yüz yüze ders uygunluğu nasıl belirleniyor?",
     localFaqAnswer:
@@ -127,6 +164,11 @@ export const locationPages: LocationPageData[] = [
       "Ispartakule'deki yerleşim ve site konumu yüz yüze dersin ulaşım süresini etkileyebilir. Açık adres ve uygun saat ilk görüşmede birlikte değerlendirilir.",
     planningNote:
       "Dersin 90 dakikalık çalışma bütünlüğünü koruyacak, haftadan haftaya sürdürülebilir bir saat seçilir. Gerekli durumlarda çevrim içi dersle devamlılık sağlanabilir.",
+    localPriorities: [
+      "Ispartakule ve Tahtakale çevresinde site girişleri ile ulaşım süresinin hesaba katılması",
+      "Haftalık ders saatinin öğrencinin okul ve deneme programıyla çakışmaması",
+      "Yüz yüze dersin aksayabileceği haftalar için aynı çalışma planının çevrim içi sürdürülmesi",
+    ],
     nearbyAreas: ["Ispartakule", "Tahtakale", "Bahçeşehir", "Esenkent"],
     localFaqQuestion: "Ispartakule'deki sitelerde yüz yüze ders planlanabiliyor mu?",
     localFaqAnswer:

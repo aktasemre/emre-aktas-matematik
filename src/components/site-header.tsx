@@ -1,10 +1,10 @@
 "use client";
 
-import { track } from "@vercel/analytics";
 import { Menu, MessageCircle, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { TrackedContactLink } from "@/components/tracked-external-link";
 import { navItems, siteConfig } from "@/lib/site";
 
 type SiteHeaderProps = {
@@ -20,12 +20,6 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
   const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
   const isDark = variant === "dark";
-  const trackHeaderWhatsApp = () =>
-    track("contact_click", {
-      channel: "whatsapp",
-      path: pathname,
-      placement: "header",
-    });
   const focusOffsetClass = isDark
     ? "focus-visible:ring-offset-[#1f2930]"
     : "focus-visible:ring-offset-[#fbfaf6]";
@@ -100,26 +94,28 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
               {item.label}
             </Link>
           ))}
-          <a
+          <TrackedContactLink
             href={siteConfig.contact.whatsappUrl}
-            onClick={trackHeaderWhatsApp}
+            channel="whatsapp"
+            placement="header"
             className={`btn btn-primary btn-compact ${isDark ? "btn-offset-dark" : ""}`}
           >
             <MessageCircle aria-hidden="true" size={16} strokeWidth={2.25} />
             WhatsApp
-          </a>
+          </TrackedContactLink>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <a
+          <TrackedContactLink
             href={siteConfig.contact.whatsappUrl}
-            onClick={trackHeaderWhatsApp}
+            channel="whatsapp"
+            placement="header"
             aria-label="WhatsApp'tan ücretsiz ön görüşme başlat"
             title="WhatsApp"
             className={`btn btn-primary btn-square ${isDark ? "btn-offset-dark" : ""}`}
           >
             <MessageCircle aria-hidden="true" size={19} strokeWidth={2.25} />
-          </a>
+          </TrackedContactLink>
           <button
             ref={menuButtonRef}
             type="button"
@@ -172,15 +168,16 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
                 {item.label}
               </Link>
             ))}
-            <a
+            <TrackedContactLink
               href={siteConfig.contact.whatsappUrl}
-              onClick={trackHeaderWhatsApp}
+              channel="whatsapp"
+              placement="header"
               className={`btn btn-primary mt-3 w-full ${isDark ? "btn-offset-dark" : ""}`}
               tabIndex={isOpen ? undefined : -1}
             >
               <MessageCircle aria-hidden="true" size={17} strokeWidth={2.25} />
               WhatsApp&apos;tan ücretsiz ön görüşme
-            </a>
+            </TrackedContactLink>
           </div>
         </nav>
       </div>

@@ -1,6 +1,7 @@
 import { AtSign, Clock3, MapPin } from "lucide-react";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
+import { TrackedContactLink } from "@/components/tracked-external-link";
 import { locationPages } from "@/lib/locations";
 import { navItems, siteConfig } from "@/lib/site";
 
@@ -32,8 +33,10 @@ export function SiteFooter() {
           <div className="mt-6">
             <ContactActions variant="dark" compact analyticsPlacement="footer" />
           </div>
-          <a
+          <TrackedContactLink
             href={siteConfig.instagram.url}
+            channel="instagram"
+            placement="footer"
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost-dark btn-compact btn-offset-dark mt-5"
@@ -41,7 +44,7 @@ export function SiteFooter() {
             <AtSign aria-hidden="true" size={17} />
             {siteConfig.instagram.handle}
             <span className="sr-only"> (yeni sekmede açılır)</span>
-          </a>
+          </TrackedContactLink>
         </div>
 
         <div>

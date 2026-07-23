@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import { ArrowDown, AtSign, CalendarDays, Clock3, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
 import { ConsultationBuilder } from "@/components/consultation-builder";
 import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { TrackedExternalLink } from "@/components/tracked-external-link";
+import { TrackedContactLink } from "@/components/tracked-external-link";
 import { consultationSteps } from "@/lib/marketing";
+import {
+  buildBreadcrumbSchema,
+  buildOrganizationSchema,
+  buildTeacherSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,6 +22,43 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/iletisim",
   },
+  openGraph: {
+    title: `Ücretsiz Ön Görüşme | ${siteConfig.teacher.name}`,
+    description: `${siteConfig.teacher.name} ile LGS, YKS ve ara sınıf matematik için ücretsiz ön görüşme planlayın.`,
+    url: `${siteConfig.url}/iletisim`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+    images: [
+      {
+        url: siteConfig.heroImage,
+        width: 1600,
+        height: 900,
+        alt: "Matematik özel ders ön görüşmesi",
+      },
+    ],
+  },
+};
+
+const contactUrl = `${siteConfig.url}/iletisim`;
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${contactUrl}#webpage`,
+      url: contactUrl,
+      name: "Ücretsiz Ön Görüşme",
+      description: metadata.description,
+      isPartOf: { "@id": schemaIds.website },
+      mainEntity: { "@id": schemaIds.teacher },
+      breadcrumb: { "@id": `${contactUrl}#breadcrumb` },
+      inLanguage: "tr-TR",
+    },
+    buildOrganizationSchema(),
+    buildTeacherSchema(),
+    buildBreadcrumbSchema(contactUrl, "Ücretsiz Ön Görüşme"),
+  ],
 };
 
 function AvailabilityPanel({ className = "" }: { className?: string }) {
@@ -39,8 +84,10 @@ function AvailabilityPanel({ className = "" }: { className?: string }) {
           ))}
         </ul>
       </div>
-      <a
+      <TrackedContactLink
         href={siteConfig.instagram.url}
+        channel="instagram"
+        placement="contact_availability"
         target="_blank"
         rel="noreferrer"
         className="btn btn-outline-dark btn-compact btn-offset-dark mt-5 sm:mt-6"
@@ -48,7 +95,7 @@ function AvailabilityPanel({ className = "" }: { className?: string }) {
         <AtSign aria-hidden="true" size={17} />
         Instagram&apos;da {siteConfig.instagram.handle}
         <span className="sr-only"> (yeni sekmede açılır)</span>
-      </a>
+      </TrackedContactLink>
     </aside>
   );
 }
@@ -56,12 +103,23 @@ function AvailabilityPanel({ className = "" }: { className?: string }) {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#fbfaf6] text-[#1d252f]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(contactJsonLd) }}
+      />
       <SiteHeader />
       <ScrollRevealController />
       <main>
         <section className="border-b border-[#1d252f]/10 bg-white">
           <div className="mx-auto grid max-w-6xl gap-6 px-5 py-8 sm:px-6 sm:py-14 lg:grid-cols-[0.62fr_0.38fr] lg:gap-9 lg:py-24">
             <div>
+              <p className="mb-4 text-xs text-[#6d7881]">
+                <Link href="/" className="transition hover:text-[#147874]">
+                  Ana Sayfa
+                </Link>
+                <span aria-hidden="true" className="mx-2">/</span>
+                Ön Görüşme
+              </p>
               <p className="text-sm font-semibold uppercase text-[#147874]">Ücretsiz ön görüşme</p>
               <h1 className="mt-4 text-[2.1rem] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-5xl">
                 Önce öğrenciyi tanıyalım, sonra doğru ders planını kuralım
@@ -81,19 +139,15 @@ export default function ContactPage() {
                     Görüşme mesajını hazırla
                     <ArrowDown aria-hidden="true" size={17} />
                   </a>
-                  <TrackedExternalLink
+                  <TrackedContactLink
                     href={siteConfig.contact.phoneUrl}
-                    eventName="contact_click"
-                    eventProperties={{
-                      channel: "phone",
-                      path: "/iletisim",
-                      placement: "contact_hero",
-                    }}
+                    channel="phone"
+                    placement="contact_hero"
                     className="btn btn-outline-light btn-lg"
                   >
                     <Phone aria-hidden="true" size={17} />
                     {siteConfig.contact.phoneDisplay}
-                  </TrackedExternalLink>
+                  </TrackedContactLink>
                 </div>
               </div>
             </div>

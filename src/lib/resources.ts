@@ -18,6 +18,13 @@ export type ResourceAction = {
   kind: ResourceActionKind;
 };
 
+export type ResourceGuidance = {
+  context: string;
+  includes: string[];
+  usage: string;
+  teacherNote: string;
+};
+
 type ResourceManifestItem = {
   id: string;
   audience: ResourceAudience;
@@ -28,6 +35,7 @@ type ResourceManifestItem = {
   format: string;
   title: string;
   description: string;
+  guidance: ResourceGuidance;
   href: string;
   featured?: boolean;
   actions?: ResourceAction[];
@@ -102,15 +110,6 @@ export const resourceHubs: ResourceHub[] = [
     keywords: ["LGS", "8. sınıf", "MEB örnek sorular", "MEBİ deneme"],
   },
   {
-    slug: "8-sinif",
-    eyebrow: "8. sınıf kaynakları",
-    title: "8. sınıf matematik ve LGS kaynakları",
-    description:
-      "8. sınıf matematik çalışmaları için resmî MEB LGS örnek sorularına, denemelere ve çalışma kitaplarına ulaşın.",
-    audience: "LGS",
-    keywords: ["8. sınıf matematik", "LGS", "MEB kaynakları"],
-  },
-  {
     slug: "ara-siniflar",
     eyebrow: "Ara sınıf kaynakları",
     title: "Ara sınıflar için MEB matematik kaynakları",
@@ -128,24 +127,6 @@ export const resourceHubs: ResourceHub[] = [
     audience: "YKS",
     keywords: ["YKS matematik", "TYT", "AYT", "ÖSYM çıkmış sorular"],
   },
-  {
-    slug: "tyt",
-    eyebrow: "TYT kaynakları",
-    title: "TYT matematik çıkmış soruları",
-    description:
-      "TYT matematik için ÖSYM'nin resmî geçmiş soru kitapçıklarını ve cevap anahtarlarını inceleyin.",
-    audience: "YKS",
-    keywords: ["TYT matematik", "TYT çıkmış sorular"],
-  },
-  {
-    slug: "ayt",
-    eyebrow: "AYT kaynakları",
-    title: "AYT matematik çıkmış soruları",
-    description:
-      "AYT matematik için ÖSYM'nin resmî geçmiş soru kitapçıklarını ve cevap anahtarlarını inceleyin.",
-    audience: "YKS",
-    keywords: ["AYT matematik", "AYT çıkmış sorular"],
-  },
 ];
 
 export function getArchiveResource(id: string) {
@@ -154,34 +135,6 @@ export function getArchiveResource(id: string) {
 
 export function getResourceHub(slug: string) {
   return resourceHubs.find((hub) => hub.slug === slug);
-}
-
-export function getResourceSuitability(resource: ArchiveResource) {
-  if (resource.audience === "LGS") {
-    return "8. sınıfta LGS hazırlığı yapan; soru tarzını, süre kullanımını ve konu eksiklerini görmek isteyen öğrenciler için uygundur.";
-  }
-
-  if (resource.audience === "YKS") {
-    return "TYT ve AYT matematikte ÖSYM soru dilini incelemek ve deneme planını geçmiş sorularla desteklemek isteyen öğrenciler için uygundur.";
-  }
-
-  return "Okul matematiğinde konu tekrarı yapmak ve resmî çalışma sorularıyla temelini güçlendirmek isteyen ara sınıf öğrencileri için uygundur.";
-}
-
-export function getResourceUsage(resource: ArchiveResource) {
-  if (resource.category === "Deneme") {
-    return "Süre tutarak uygulayın. Sonuçtan sonra yanlışları konu eksiği, işlem hatası ve soru okuma hatası olarak ayırın.";
-  }
-
-  if (resource.category === "Çıkmış sorular") {
-    return "Önce sınav koşullarında çözün; ardından cevap anahtarıyla kontrol edip tekrar eden soru yapılarını not alın.";
-  }
-
-  if (resource.category === "Çalışma kitabı" || resource.category === "Konu kaynağı") {
-    return "Kaynağı baştan sona tüketmek yerine güncel konu planınıza uyan bölümleri seçin ve yanlışları sonraki çalışma oturumuna taşıyın.";
-  }
-
-  return "Kitapçığı süreli çözdükten sonra yalnızca doğru sayısına bakmayın; zorlandığınız soru türlerini ve eksik kazanımları işaretleyin.";
 }
 
 export function getResourceTags(resource: ArchiveResource) {

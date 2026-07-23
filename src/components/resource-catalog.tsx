@@ -53,6 +53,17 @@ function updateFilterUrl(updates: Record<string, string | null>) {
   window.dispatchEvent(new Event(filterChangeEvent));
 }
 
+function trackResourceSearch(query: string) {
+  const queryLength = query.trim().length;
+
+  if (!queryLength) return;
+
+  track("resource_filter", {
+    filter: "search",
+    query_length: queryLength,
+  });
+}
+
 function ResourceActionIcon({ kind }: { kind: ResourceAction["kind"] }) {
   const Icon =
     kind === "document"
@@ -157,14 +168,7 @@ function ResourceFilters({
               onChange={(event) =>
                 updateFilterUrl({ ara: event.target.value || null })
               }
-              onBlur={() => {
-                if (query.trim()) {
-                  track("resource_filter", {
-                    filter: "search",
-                    query_length: query.trim().length,
-                  });
-                }
-              }}
+              onBlur={() => trackResourceSearch(query)}
               placeholder="Yıl, kaynak veya konu ara"
               className="h-11 w-full rounded-md border border-[#1d252f]/15 bg-white pl-10 pr-3 text-sm text-[#1d252f] outline-none transition placeholder:text-[#7f8a94] focus:border-[#147874] focus-visible:ring-2 focus-visible:ring-[#f3bf5f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbfaf6]"
             />

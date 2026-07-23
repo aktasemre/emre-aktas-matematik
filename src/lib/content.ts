@@ -75,6 +75,13 @@ export const contentPages: ContentPage[] = [
     ],
     resourceShortcuts: [
       {
+        title: "2026 LGS matematik çalışma rehberi",
+        description:
+          "Deneme yanlışlarını sınıflandırma, haftalık çalışma döngüsü ve resmî kaynak seçimi için öğretmen notları.",
+        href: "/basaksehir-lgs-matematik-calisma-rehberi",
+        label: "Çalışma rehberini oku",
+      },
+      {
         title: "LGS kaynak arşivi",
         description:
           "MEB örnek soruları, çalışma kitapları, MEBİ bağlantıları ve geçmiş yıllar aynı arşivde.",

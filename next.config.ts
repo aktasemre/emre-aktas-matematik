@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "matematik-akademi.com" }],
+        destination: "https://www.matematik-akademi.com/:path*",
+        permanent: true,
+      },
       { source: "/favicon.ico", destination: "/icon.svg", permanent: true },
       { source: "/matematik", destination: "/", permanent: true },
       {
@@ -48,12 +54,27 @@ const nextConfig: NextConfig = {
       { source: "/blog", destination: "/kaynaklar", permanent: true },
       {
         source: "/blog/basaksehir-lgs-matematik-basari-rehberi",
-        destination: "/basaksehir-matematik-ozel-ders",
+        destination: "/basaksehir-lgs-matematik-calisma-rehberi",
         permanent: true,
       },
       {
         source: "/matematik-ogrenme-merkezi",
         destination: "/kaynaklar",
+        permanent: true,
+      },
+      {
+        source: "/kaynaklar/8-sinif",
+        destination: "/kaynaklar/lgs",
+        permanent: true,
+      },
+      {
+        source: "/kaynaklar/tyt",
+        destination: "/kaynaklar/yks#tyt",
+        permanent: true,
+      },
+      {
+        source: "/kaynaklar/ayt",
+        destination: "/kaynaklar/yks#ayt",
         permanent: true,
       },
     ];

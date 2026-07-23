@@ -33,6 +33,12 @@ test("her bölge sayfası yeterli yerel planlama bilgisi taşıyor", () => {
     assert.ok(location.description.length <= 160, `${location.name} meta açıklaması çok uzun`);
     assert.ok(location.locationSummary.length >= 100, `${location.name} bölge özeti kısa`);
     assert.ok(location.planningNote.length >= 100, `${location.name} planlama notu kısa`);
+    assert.equal(location.localPriorities.length, 3, `${location.name} yerel öncelikleri eksik`);
+    assert.equal(
+      new Set(location.localPriorities).size,
+      location.localPriorities.length,
+      `${location.name} yerel öncelikleri tekrarlı`,
+    );
     assert.ok(location.nearbyAreas.length >= 4, `${location.name} yakın çevre bilgisi eksik`);
     assert.ok(location.localFaqQuestion.includes(location.name));
     assert.ok(location.localFaqAnswer.length >= 100, `${location.name} yerel SSS yanıtı kısa`);

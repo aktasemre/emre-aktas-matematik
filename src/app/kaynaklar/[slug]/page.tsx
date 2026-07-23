@@ -23,14 +23,17 @@ import {
   archiveResources,
   getArchiveResource,
   getResourceHub,
-  getResourceSuitability,
   getResourceTags,
-  getResourceUsage,
   resourceHubs,
   type ArchiveResource,
   type ResourceAction,
   type ResourceHub,
 } from "@/lib/resources";
+import {
+  buildBreadcrumbSchema,
+  schemaIds,
+  serializeJsonLd,
+} from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 
 type ResourcePageProps = {
@@ -68,7 +71,7 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
       url: `${siteConfig.url}${canonical}`,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
-      type: "article",
+      type: hub ? "website" : "article",
       images: [
         {
           url: siteConfig.heroImage,
@@ -113,18 +116,9 @@ function Breadcrumbs({ current }: { current: string }) {
 }
 
 function HubPage({ hub }: { hub: ResourceHub }) {
-  const audienceResources = archiveResources.filter(
+  const resources = archiveResources.filter(
     (resource) => resource.audience === hub.audience
   );
-  const examPart = hub.slug === "tyt" ? "TYT" : hub.slug === "ayt" ? "AYT" : null;
-  const resources = examPart
-    ? audienceResources.map((resource) => ({
-        ...resource,
-        actions: resource.actions.filter(
-          (action) => action.kind === "source" || action.label.includes(examPart)
-        ),
-      }))
-    : audienceResources;
   const directLinks = resources.reduce(
     (count, resource) =>
       count + resource.actions.filter((action) => action.kind === "document").length,
@@ -170,6 +164,44 @@ function HubPage({ hub }: { hub: ResourceHub }) {
         </div>
       </section>
 
+      {hub.slug === "yks" ? (
+        <section className="border-b border-[#1d252f]/10 bg-[#eaf3ef]">
+          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 lg:py-16">
+            <p className="text-sm font-semibold uppercase text-[#147874]">Sınav bölümleri</p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <article
+                id="tyt"
+                className="scroll-mt-24 rounded-[8px] border border-[#1d252f]/10 bg-white p-6"
+              >
+                <h2 className="text-2xl font-semibold">TYT matematik çıkmış soruları</h2>
+                <p className="mt-3 text-sm leading-7 text-[#5b6670]">
+                  Temel matematik, problem okuma ve süre kullanımını ÖSYM&apos;nin gerçek
+                  soru dili üzerinden incelemek için TYT kitapçıklarını kullanın.
+                </p>
+                <a href="#kaynak-ara" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#147874]">
+                  TYT ve AYT arşivine geç
+                  <ArrowRight aria-hidden="true" size={16} />
+                </a>
+              </article>
+              <article
+                id="ayt"
+                className="scroll-mt-24 rounded-[8px] border border-[#1d252f]/10 bg-white p-6"
+              >
+                <h2 className="text-2xl font-semibold">AYT matematik çıkmış soruları</h2>
+                <p className="mt-3 text-sm leading-7 text-[#5b6670]">
+                  Konu derinliğini, çok adımlı çözüm gerektiren soruları ve yıllara göre
+                  değişen sınav yaklaşımını AYT kitapçıkları üzerinden karşılaştırın.
+                </p>
+                <a href="#kaynak-ara" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#147874]">
+                  TYT ve AYT arşivine geç
+                  <ArrowRight aria-hidden="true" size={16} />
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-16 lg:py-24">
           <div className="max-w-3xl">
@@ -188,6 +220,33 @@ function HubPage({ hub }: { hub: ResourceHub }) {
   );
 }
 
+function getResourceProviderSchema(provider: string) {
+  if (provider === "ÖSYM") {
+    return {
+      "@type": "Organization",
+      "@id": "https://www.osym.gov.tr/#organization",
+      name: "T.C. Ölçme, Seçme ve Yerleştirme Merkezi Başkanlığı",
+      url: "https://www.osym.gov.tr/",
+    };
+  }
+
+  if (provider === "MEBİ") {
+    return {
+      "@type": "Organization",
+      "@id": "https://mebi.eba.gov.tr/#organization",
+      name: "MEBİ",
+      url: "https://mebi.eba.gov.tr/",
+    };
+  }
+
+  return {
+    "@type": "Organization",
+    "@id": "https://odsgm.meb.gov.tr/#organization",
+    name: "MEB Ölçme, Değerlendirme ve Sınav Hizmetleri Genel Müdürlüğü",
+    url: "https://odsgm.meb.gov.tr/",
+  };
+}
+
 function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
   const tags = getResourceTags(resource);
   const primaryAction =
@@ -199,20 +258,61 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
     )
     .slice(0, 3);
   const detailUrl = `${siteConfig.url}/kaynaklar/${resource.id}`;
+  const resourceDocuments = resource.actions
+    .filter((action) => action.kind === "document")
+    .map((action) => ({
+      "@type": "DigitalDocument",
+      "@id": action.href,
+      name: action.label,
+      url: action.href,
+      encodingFormat: "application/pdf",
+      inLanguage: "tr-TR",
+    }));
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: resource.title,
-    description: resource.description,
-    url: detailUrl,
-    sameAs: resource.href,
-    isAccessibleForFree: true,
-    inLanguage: "tr-TR",
-    educationalLevel: resource.audience,
-    provider: {
-      "@type": "Organization",
-      name: resource.provider,
-    },
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `${detailUrl}#resource`,
+        name: resource.title,
+        description: resource.description,
+        url: detailUrl,
+        mainEntityOfPage: detailUrl,
+        isAccessibleForFree: true,
+        inLanguage: "tr-TR",
+        educationalLevel: resource.audience,
+        learningResourceType: [resource.category, resource.format],
+        keywords: tags,
+        audience: {
+          "@type": "EducationalAudience",
+          educationalRole: "student",
+          audienceType: resource.audience,
+        },
+        author: {
+          "@type": "Person",
+          "@id": schemaIds.teacher,
+          name: siteConfig.teacher.name,
+        },
+        provider: getResourceProviderSchema(resource.provider),
+        publisher: {
+          "@type": "Organization",
+          "@id": schemaIds.organization,
+          name: siteConfig.name,
+        },
+        isPartOf: {
+          "@type": "CollectionPage",
+          "@id": `${siteConfig.url}/kaynaklar#collection`,
+          name: "Matematik kaynakları",
+          url: `${siteConfig.url}/kaynaklar`,
+        },
+        citation: resource.href,
+        ...(resourceDocuments.length ? { hasPart: resourceDocuments } : {}),
+      },
+      buildBreadcrumbSchema(detailUrl, resource.title, {
+        name: "Kaynaklar",
+        url: `${siteConfig.url}/kaynaklar`,
+      }),
+    ],
   };
 
   return (
@@ -220,7 +320,7 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: serializeJsonLd(jsonLd),
         }}
       />
       <section className="bg-[#1f2930] text-white">
@@ -332,21 +432,52 @@ function ResourceDetailPage({ resource }: { resource: ArchiveResource }) {
       ) : null}
 
       <section className="bg-[#edf4f6]">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
-          <article className="border-t border-[#1d252f]/14 pt-6">
-            <ShieldCheck aria-hidden="true" size={24} className="text-[#147874]" />
-            <h2 className="mt-5 text-2xl font-semibold">Kimler için uygun?</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5b6670]">
-              {getResourceSuitability(resource)}
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:py-24">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase text-[#147874]">
+              Çalışma rehberi
             </p>
-          </article>
-          <article className="border-t border-[#1d252f]/14 pt-6">
-            <BookOpenCheck aria-hidden="true" size={24} className="text-[#147874]" />
-            <h2 className="mt-5 text-2xl font-semibold">Nasıl kullanılabilir?</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5b6670]">
-              {getResourceUsage(resource)}
-            </p>
-          </article>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              Bu kaynağı çalışma planına yerleştirin
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <article className="border-t border-[#1d252f]/14 pt-6">
+              <FileText aria-hidden="true" size={24} className="text-[#147874]" />
+              <h3 className="mt-5 text-2xl font-semibold">Kaynak bağlamı</h3>
+              <p className="mt-4 text-sm leading-7 text-[#5b6670]">
+                {resource.guidance.context}
+              </p>
+            </article>
+            <article className="border-t border-[#1d252f]/14 pt-6">
+              <Tag aria-hidden="true" size={24} className="text-[#147874]" />
+              <h3 className="mt-5 text-2xl font-semibold">Kaynakta neler var?</h3>
+              <ul className="mt-4 grid gap-2 text-sm leading-7 text-[#5b6670]">
+                {resource.guidance.includes.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-[0.68rem] size-1.5 shrink-0 rounded-full bg-[#147874]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="border-t border-[#1d252f]/14 pt-6">
+              <BookOpenCheck aria-hidden="true" size={24} className="text-[#147874]" />
+              <h3 className="mt-5 text-2xl font-semibold">Nasıl kullanılabilir?</h3>
+              <p className="mt-4 text-sm leading-7 text-[#5b6670]">
+                {resource.guidance.usage}
+              </p>
+            </article>
+            <article className="border-t border-[#1d252f]/14 pt-6">
+              <ShieldCheck aria-hidden="true" size={24} className="text-[#147874]" />
+              <h3 className="mt-5 text-2xl font-semibold">
+                {siteConfig.teacher.name}&apos;tan öğretmen notu
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[#5b6670]">
+                {resource.guidance.teacherNote}
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
