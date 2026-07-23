@@ -29,8 +29,12 @@ izlenmelidir.
 - [x] Yönlendirilen URL'leri sitemap'ten çıkar.
 - [x] Kaynak doğrulama tarihini sayfa değişiklik tarihi gibi gösteren `lastmod` kullanımını kaldır.
 - [x] Vercel domain ayarında apex yönlendirmesini 308 yap ve canlıda tek adım olduğunu doğrula.
-- [ ] Güncel sitemap'i Google Search Console'a yeniden gönder.
-- [ ] Öncelikli yeni ve eski URL'lerin yeniden taranmasını Search Console'dan talep et.
+- [x] Güncel sitemap'i Google Search Console'a yeniden gönder.
+- [x] Yeni LGS rehberini Search Console URL denetimiyle öncelikli tarama kuyruğuna ekle.
+
+24 Temmuz 2026'da sitemap yeniden gönderildi. Yeni LGS rehberi Search Console
+tarafından keşfedilmiş ancak henüz dizine eklenmemiş görünüyordu; manuel indeksleme
+isteği kabul edilerek öncelikli tarama sırasına alındı.
 
 ### P1 — Arama niyeti ve içerik kalitesi
 
