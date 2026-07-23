@@ -23,7 +23,7 @@ function AvailabilityPanel({ className = "" }: { className?: string }) {
       <div className="mt-4 grid gap-4 text-sm leading-6 text-white/80 sm:mt-6 sm:gap-5">
         <p className="flex gap-3"><Clock3 aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />{siteConfig.contact.availability}</p>
         <p className="flex gap-3"><MapPin aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />{siteConfig.areaServed}</p>
-        <p className="flex gap-3"><CalendarDays aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />90 dakikalık birebir ders periyotları</p>
+        <p className="flex gap-3"><CalendarDays aria-hidden="true" size={19} className="shrink-0 text-[#f3bf5f]" />1 seans / 90 dakika birebir ders</p>
       </div>
       <div className="mt-5 border-t border-white/15 pt-4 sm:mt-6 sm:pt-5">
         <p className="text-sm leading-6 text-white/80">{siteConfig.pricingNote}</p>
@@ -67,10 +67,10 @@ export default function ContactPage() {
                 Önce öğrenciyi tanıyalım, sonra doğru ders planını kuralım
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-7 text-[#5b6670] sm:hidden">
-                Ücretsiz ön görüşmede öğrencinin seviyesini, hedefini ve ders formatını netleştirir; uygunluk sonrası 90 dakikalık birebir planı birlikte oluştururuz.
+                Ücretsiz ön görüşmede öğrencinin seviyesini, hedefini ve ders formatını netleştirir; uygunluk sonrası 1 seans / 90 dakika esasına dayanan birebir planı birlikte oluştururuz.
               </p>
               <p className="mt-6 hidden max-w-3xl text-lg leading-8 text-[#5b6670] sm:block">
-                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmede öğrencinin sınıfını, hedefini, mevcut matematik seviyesini ve ihtiyaçlarını değerlendiriyoruz. Karşılıklı uygunluk sonrası 90 dakikalık ücretli birebir ders planını birlikte netleştiriyoruz.
+                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmede öğrencinin sınıfını, hedefini, mevcut matematik seviyesini ve ihtiyaçlarını değerlendiriyoruz. Karşılıklı uygunluk sonrası her biri 90 dakika süren ücretli birebir seansların planını birlikte netleştiriyoruz.
               </p>
               <div className="mt-6 sm:mt-8">
                 <div className="flex flex-wrap gap-3">

@@ -137,7 +137,7 @@ export default function AboutPage() {
             <div data-scroll-reveal>
               <p className="text-sm font-semibold uppercase text-[#985700]">Ders düzeni</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.015em] sm:text-4xl">
-                90 dakikalık birebir ders modeli
+                1 seans / 90 dakika birebir ders modeli
               </h2>
             </div>
             <div className="grid gap-4" data-scroll-reveal-group>
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <p className="px-1 text-sm leading-6 text-[#5b6670]">
-                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası ders programı, 90 dakikalık ücretli birebir derslerle devam eder.
+                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası program, her biri 90 dakika süren ücretli birebir seanslarla devam eder.
               </p>
             </div>
           </div>

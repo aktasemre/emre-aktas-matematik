@@ -38,8 +38,8 @@ export const siteConfig = {
     availability: "Haftanın 7 günü, 22.00'ye kadar",
   },
   instagram: {
-    url: "https://www.instagram.com/emre_hoca_matematik/",
-    handle: "@emre_hoca_matematik",
+    url: "https://www.instagram.com/matematik.akademi.emre/",
+    handle: "@matematik.akademi.emre",
     bio: "Emre Aktaş | Matematik Öğretmeni\nLGS • YKS • Ara Sınıflar\n16 yıl deneyim | İstanbul Avrupa Yakası\nÜcretsiz ön görüşme için WhatsApp ↓",
     profileName: "Emre Aktaş | Matematik Öğretmeni",
   },

@@ -72,7 +72,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
   const process = [
     "Ücretsiz ön görüşmede öğrencinin sınıfı, hedefi ve mevcut matematik seviyesi konuşulur.",
     `${location.name}'deki açık adres, ulaşım ve ders saati uygunluğu birlikte değerlendirilir.`,
-    "Uygunluk sağlanırsa ücretli 90 dakikalık birebir ders programı oluşturulur.",
+    "Uygunluk sağlanırsa 1 seans / 90 dakika esasına göre ücretli birebir ders programı oluşturulur.",
     "Konu, soru çözümü ve yanlış analizi bir sonraki dersin önceliklerini belirler.",
   ];
   const faqs = [
@@ -83,7 +83,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
     {
       question: "Dersler kaç dakika ve ön görüşme ücretli mi?",
       answer:
-        "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrasında başlayan birebir dersler 90 dakikadır ve ücretlidir.",
+        "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrasında her birebir ders seansı 90 dakika sürer ve ücretlidir.",
     },
     {
       question: "Çevrim içi ders seçeneği var mı?",
@@ -148,7 +148,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
                 {location.intro}
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/76">
-                İlk tanışma ve ön değerlendirme ücretsizdir. Uygunluk sonrasında başlayan 90 dakikalık birebir dersler ücretlidir.
+                İlk tanışma ve ön değerlendirme ücretsizdir. Uygunluk sonrasında birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir.
               </p>
               <div className="mt-6 sm:mt-8">
                 <ContactActions
@@ -162,7 +162,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
             <div className="hero-facts-reveal mt-auto grid grid-cols-3 gap-2 pt-7 sm:gap-3 sm:pt-12">
               {[
                 [`${siteConfig.teacher.experienceYears} yıl`, "öğretmenlik deneyimi"],
-                ["90 dakika", "birebir ders süresi"],
+                ["1 seans", "90 dakika birebir"],
                 ["22.00'ye kadar", "7 gün iletişim"],
               ].map(([value, label]) => (
                 <p key={label} className="rounded-lg border border-white/15 bg-white/[0.06] px-2 py-2 text-center text-[11px] leading-4 text-white/76 sm:rounded-none sm:border-x-0 sm:border-b-0 sm:bg-transparent sm:px-0 sm:pt-3 sm:text-left sm:text-sm">
@@ -266,7 +266,7 @@ export function LocationLessonPage({ location }: LocationLessonPageProps) {
               </h2>
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-[#5b6670]">
                 <span className="inline-flex items-center gap-2">
-                  <Clock3 aria-hidden="true" size={17} /> 90 dakika
+                  <Clock3 aria-hidden="true" size={17} /> 1 seans / 90 dakika
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <BookOpenCheck aria-hidden="true" size={17} /> Birebir takip

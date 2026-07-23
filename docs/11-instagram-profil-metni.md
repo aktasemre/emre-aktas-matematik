@@ -1,6 +1,6 @@
 # Instagram Profil Metni
 
-Profil: https://www.instagram.com/emre_hoca_matematik/
+Profil: https://www.instagram.com/matematik.akademi.emre/
 
 ## Profil Adı
 

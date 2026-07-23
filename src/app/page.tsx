@@ -109,7 +109,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/84 sm:mt-6 sm:text-lg sm:leading-8">
-                LGS, YKS ve okul matematiği için 90 dakikalık birebir ders; seviye analizi, plan, öğrenci çözümü ve yanlış takibi aynı çalışma döngüsünde.
+                LGS, YKS ve okul matematiği için 1 seans / 90 dakika birebir çalışma; seviye analizi, plan, öğrenci çözümü ve yanlış takibi aynı çalışma döngüsünde.
               </p>
               <div className="mt-5 sm:mt-7">
                 <ContactActions variant="dark" hidePhoneOnMobile analyticsPlacement="home_hero" />
@@ -117,7 +117,7 @@ export default function Home() {
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/78 sm:mt-4">
                 <span className="sm:hidden">İlk ön değerlendirme ücretsizdir.</span>
                 <span className="hidden sm:inline">
-                  İlk ön değerlendirme ücretsizdir; uygunluk sonrası 90 dakikalık birebir dersler ücretlidir.
+                  İlk ön değerlendirme ücretsizdir; uygunluk sonrası birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir.
                 </span>
               </p>
               <Link
@@ -181,7 +181,7 @@ export default function Home() {
                 <p className="flex items-center gap-2"><Award aria-hidden="true" size={18} className="text-[#985700]" />{siteConfig.teacher.curriculumNote}</p>
                 <p className="flex items-center gap-2"><Clock3 aria-hidden="true" size={18} className="text-[#147874]" />{siteConfig.contact.availability}</p>
                 <p className="flex items-center gap-2"><MapPin aria-hidden="true" size={18} className="text-[#147874]" />{siteConfig.areaServed}</p>
-                <p className="flex items-center gap-2"><BookOpenCheck aria-hidden="true" size={18} className="text-[#147874]" />90 dakikalık birebir ders modeli</p>
+                <p className="flex items-center gap-2"><BookOpenCheck aria-hidden="true" size={18} className="text-[#147874]" />1 seans / 90 dakika birebir ders</p>
               </div>
               <Link
                 href="/hakkimda"
@@ -203,7 +203,7 @@ export default function Home() {
                 Ücretsiz ön görüşmede ne yapıyoruz?
               </h2>
               <p className="mt-5 text-sm leading-7 text-[#5b6670]">
-                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Derse başlamadan önce öğrencinin ihtiyacını ve hedefini netleştiriyoruz; uygunluk sonrası başlayan 90 dakikalık birebir dersler ise ücretlidir. Böylece çalışma planı ezbere değil, öğrencinin gerçek durumuna göre kuruluyor.
+                İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Derse başlamadan önce öğrencinin ihtiyacını ve hedefini netleştiriyoruz; uygunluk sonrası birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir. Böylece çalışma planı ezbere değil, öğrencinin gerçek durumuna göre kuruluyor.
               </p>
             </div>
             <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4" data-scroll-reveal-group>

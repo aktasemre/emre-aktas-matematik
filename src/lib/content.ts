@@ -55,7 +55,7 @@ export const contentPages: ContentPage[] = [
     ],
     heroFacts: [
       { value: "7-8", label: "sınıf odağı" },
-      { value: "90 dk", label: "birebir ders" },
+      { value: "1 seans", label: "90 dakika" },
       { value: "LGS", label: "deneme takibi" },
     ],
     processTitle: "Soru çözümünden deneme analizine uzanan ders düzeni",
@@ -114,7 +114,7 @@ export const contentPages: ContentPage[] = [
     ],
     heroFacts: [
       { value: "TYT + AYT", label: "sınav odağı" },
-      { value: "90 dk", label: "birebir ders" },
+      { value: "1 seans", label: "90 dakika" },
       { value: "Net + hedef", label: "çalışma planı" },
     ],
     processTitle: "Hedef bölümden haftalık soru planına uzanan çalışma sistemi",
@@ -173,7 +173,7 @@ export const contentPages: ContentPage[] = [
     ],
     heroFacts: [
       { value: "6-11", label: "sınıf desteği" },
-      { value: "90 dk", label: "birebir ders" },
+      { value: "1 seans", label: "90 dakika" },
       { value: "Yazılı + temel", label: "çift odak" },
     ],
     processTitle: "Okul ritmine uyum sağlayan, temel oluşturan ders düzeni",

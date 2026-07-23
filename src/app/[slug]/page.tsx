@@ -158,8 +158,8 @@ export default async function ContentPage({ params }: PageProps) {
                 {page.intro}
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-white/76">
-                <span className="sm:hidden">Ön görüşme ücretsiz; birebir dersler 90 dakika ve ücretlidir.</span>
-                <span className="hidden sm:inline">İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası başlayan 90 dakikalık birebir dersler ücretlidir.</span>
+                <span className="sm:hidden">Ön görüşme ücretsiz; her birebir seans 90 dakika sürer ve ücretlidir.</span>
+                <span className="hidden sm:inline">İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Uygunluk sonrası birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir.</span>
               </p>
               <div className="mt-6 sm:mt-8">
                 <ContactActions

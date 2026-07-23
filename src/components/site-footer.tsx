@@ -17,7 +17,7 @@ export function SiteFooter() {
             ara sınıf matematikte öğrenci seviyesine göre birebir ders.
           </p>
           <p className="mt-2 max-w-xl text-sm leading-6 text-white/75">
-            İlk tanışma ve ön değerlendirme görüşmesi ücretsiz; sonraki birebir dersler 90 dakika ve ücretlidir.
+            İlk tanışma ve ön değerlendirme görüşmesi ücretsiz; sonraki birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir.
           </p>
           <div className="mt-5 grid gap-2 text-sm text-white/75 sm:grid-cols-2">
             <p className="flex items-center gap-2">

@@ -20,7 +20,7 @@ export const consultationSteps = [
   },
   {
     title: "Ders planı ve ücretlendirme",
-    text: "Ön görüşmenin ücretsiz olduğu, sonrasında başlayan 90 dakikalık birebir derslerin ücretli olduğu; ders temposu ve ücretin neye göre netleşeceği açıklanır.",
+    text: "Ön görüşmenin ücretsiz olduğu, sonrasında başlayan birebir derslerin 1 seans / 90 dakika olarak planlandığı ve ücretli olduğu; ders temposu ile ücretin neye göre netleşeceği açıklanır.",
   },
 ];
 
@@ -36,7 +36,7 @@ export const faqs = [
   {
     question: "Ön görüşme ve dersler ücretli mi?",
     answer:
-      "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Karşılıklı uygunluk sonrasında başlayan 90 dakikalık birebir dersler ücretlidir.",
+      "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Karşılıklı uygunluk sonrasında birebir dersler 1 seans / 90 dakika olarak planlanır ve ücretlidir.",
   },
   {
     question: "Görüşmeden sonra derse başlamak zorunlu mu?",
@@ -52,6 +52,6 @@ export const faqs = [
   {
     question: "Ders ücreti nasıl netleşiyor?",
     answer:
-      "Ücretli dersler 90 dakikalık periyotlarla planlanır. Ücret; öğrencinin sınıfı, hedefi, dersin yüz yüze veya online olması ve lokasyona göre ön görüşmede netleştirilir.",
+      "Ücretli birebir dersler 1 seans / 90 dakika olarak planlanır. Ücret; öğrencinin sınıfı, hedefi, dersin yüz yüze veya online olması ve lokasyona göre ön görüşmede netleştirilir.",
   },
 ];

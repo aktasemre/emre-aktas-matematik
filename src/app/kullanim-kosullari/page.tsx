@@ -18,7 +18,7 @@ const sections: LegalSection[] = [
   {
     title: "Ders ve ön görüşme",
     paragraphs: [
-      "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmeden sonra uygunluk sağlanırsa başlayan birebir dersler 90 dakika ve ücretlidir.",
+      "İlk tanışma ve ön değerlendirme görüşmesi ücretsizdir. Bu görüşmeden sonra uygunluk sağlanırsa başlayan her birebir ders seansı 90 dakika sürer ve ücretlidir.",
       "Ders ücreti; öğrencinin sınıfı, hedefi, ders biçimi, lokasyon ve program uygunluğuna göre ön görüşmede netleştirilir. Web sitesindeki iletişim talebi tek başına ders rezervasyonu veya sözleşme oluşturmaz.",
     ],
   },
